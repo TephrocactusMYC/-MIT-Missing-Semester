@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>6.md - MYC-Missing-Semester</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">About</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../notes.html"><strong aria-hidden="true">1.</strong> notes</a></li><li class="chapter-item expanded "><a href="../solutions.html"><strong aria-hidden="true">2.</strong> solutions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../solutions/1.html"><strong aria-hidden="true">2.1.</strong> 1.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/2.html"><strong aria-hidden="true">2.2.</strong> 2.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/3.html"><strong aria-hidden="true">2.3.</strong> 3.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/4.html"><strong aria-hidden="true">2.4.</strong> 4.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/5.html"><strong aria-hidden="true">2.5.</strong> 5.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/6.html" class="active"><strong aria-hidden="true">2.6.</strong> 6.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/7.html"><strong aria-hidden="true">2.7.</strong> 7.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/8.html"><strong aria-hidden="true">2.8.</strong> 8.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/9.html"><strong aria-hidden="true">2.9.</strong> 9.md</a></li></ol></li><li class="chapter-item expanded "><a href="../more-information.html"><strong aria-hidden="true">3.</strong> more-information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../more-information/Github.html"><strong aria-hidden="true">3.1.</strong> Github.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/makefile.html"><strong aria-hidden="true">3.2.</strong> makefile.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/tmux.html"><strong aria-hidden="true">3.3.</strong> tmux.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Pro-Git.html"><strong aria-hidden="true">3.4.</strong> Pro-Git.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/mdbook.html"><strong aria-hidden="true">3.5.</strong> mdbook.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Vim.html"><strong aria-hidden="true">3.6.</strong> Vim.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/shell-programming.html"><strong aria-hidden="true">3.7.</strong> shell-programming.md</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MYC-Missing-Semester</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ol>
+<li>If you don’t have any past experience with Git, either try reading the first couple chapters of Pro Git or go through a tutorial like Learn Git Branching. As you’re working through it, relate Git commands to the data model.</li>
+</ol>
+<p>Notes are <a href="../more%20information/Pro-Git.html">here</a>
+2. Clone the repository for the class website.</p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[16:48:08]$ git clone https://github.com/missing-semester/missing-semester.git
+Cloning into 'missing-semester'...
+remote: Enumerating objects: 2251, done.
+remote: Counting objects: 100% (1185/1185), done.
+remote: Compressing objects: 100% (514/514), done.
+remote: Total 2251 (delta 686), reused 715 (delta 667), pack-reused 1066
+Receiving objects: 100% (2251/2251), 15.58 MiB | 6.78 MiB/s, done.
+Resolving deltas: 100% (1331/1331), done.
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[16:48:15]$
+</code></pre>
+<ol start="2">
+<li>
+<ol>
+<li>Explore the version history by visualizing it as a graph.</li>
+</ol>
+<pre><code class="language-shell">✔  ~/Desktop/missing-semester [master|✔ ]
+16:48 $ git log --all --graph --decorate
+* commit c4512e31a985df283cf279b0d847d1539f975737 (HEAD -&gt; master, origin/master, origin/HEAD)
+| Author: Anish Athalye &lt;me@anishathalye.com&gt;
+| Date:   Sat May 6 07:21:16 2023 -0400
+|
+|     Fix broken links
+|
+*   commit 2f2df39298d5c5f83c3a21796c53fd24bbbbb772
+|\  Merge: ee1d4de 1872bc2
+| | Author: Anish Athalye &lt;me@anishathalye.com&gt;
+| | Date:   Sat Apr 29 08:25:59 2023 -0400
+| |
+| |     Merge branch 'detonator-man/typo-fix'
+| |
+| * commit 1872bc25c46321b07f14f0ee4462b87d5c0202ab
+| | Author: detonator-man &lt;slashpow@outlook.com&gt;
+| | Date:   Sat Apr 29 17:21:59 2023 +1000
+| |
+| |     Fix typo on 2019 editors page
+| |
+* | commit ee1d4de0215ef3b35dce048095d4fec6635ba73b
+| | Author: lfanew &lt;58160325+lfanew@users.noreply.github.com&gt;
+| | Date:   Sun Apr 23 18:33:38 2023 -0500
+| |
+| |     Debugging and Profiling corrections (#215)
+| |
+* | commit 7e50e21775b53907f8277eb7fe480e44fb3185c8
+|/  Author: Anish Athalye &lt;me@anishathalye.com&gt;
+:
+</code></pre>
+<ol start="2">
+<li>Who was the last person to modify README.md? (Hint: use git log with an argument).</li>
+</ol>
+<pre><code class="language-shell">16:52 $     git log -1 README.md
+commit 9ef9db72211fefc00caaa7133b35dda4a99acccf
+Author: Anish Athalye &lt;me@anishathalye.com&gt;
+Date:   Thu Oct 27 20:28:41 2022 -0400
+
+    Add Docker setup for easier development
+✔  ~/Desktop/missing-semester [master|✔ ]
+</code></pre>
+<ol start="3">
+<li>What was the commit message associated with the last modification to the collections: line of _config.yml? (Hint: use git blame and git show).</li>
+</ol>
+<pre><code class="language-shell">✔  ~/Desktop/missing-semester [master|✔ ]
+16:52 $ git blame _config.yml | grep collections
+a88b4eac (Anish Athalye 2020-01-17 15:26:30 -0500 18) collections:
+✔  ~/Desktop/missing-semester [master|✔ ]
+16:52 $
+</code></pre>
+</li>
+<li>
+<p>One common mistake when learning Git is to commit large files that should not be managed by Git or adding sensitive information. Try adding a file to a repository, making some commits and then deleting that file from history (you may want to look at this).</p>
+</li>
+</ol>
+<p>Using</p>
+<pre><code class="language-shell">git filter-branch
+</code></pre>
+<p>to clean up commit history.</p>
+<p>for example:</p>
+<pre><code class="language-shell">git filter-branch --force --index-filter\
+'git rm --cached --ignore-unmatch ./my_password' \
+--prune-empty --tag-name-filter cat -- --all
+</code></pre>
+<ol start="4">
+<li>Clone some repository from GitHub, and modify one of its existing files. What happens when you do git stash? What do you see when running git log --all --oneline? Run git stash pop to undo what you did with git stash. In what scenario might this be useful?</li>
+</ol>
+<p>The Git stash command can temporarily store current uncommitted changes, allowing for a clean workspace to switch branches and fix bugs before retrieving the stored changes with git stash pop.</p>
+<ol start="5">
+<li>
+<p>Like many command line tools, Git provides a configuration file (or dotfile) called ~/.gitconfig. Create an alias in ~/.gitconfig so that when you run git graph, you get the output of git log --all --graph --decorate --oneline. Information about git aliases can be found here.</p>
+</li>
+<li>
+<p>You can define global ignore patterns in ~/.gitignore_global after running git config --global core.excludesfile ~/.gitignore_global. Do this, and set up your global gitignore file to ignore OS-specific or editor-specific temporary files, like .DS_Store.</p>
+</li>
+</ol>
+<pre><code class="language-shell">[alias]
+    graph = log --all --graph --decorate --oneline
+</code></pre>
+<ol start="7">
+<li>Fork the repository for the class website, find a typo or some other improvement you can make, and submit a pull request on GitHub (you may want to look at this). Please only submit PRs that are useful (don’t spam us, please!). If you can’t find an improvement to make, you can skip this exercise.</li>
+</ol>
+<p>Click <code>New Pull Request</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../solutions/5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../../solutions/7.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../solutions/5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../../solutions/7.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,2432 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MYC-Missing-Semester</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">About</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="notes.html"><strong aria-hidden="true">1.</strong> notes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/Command-line-Environment.html"><strong aria-hidden="true">1.1.</strong> Command-line Environment</a></li><li class="chapter-item expanded "><a href="notes/data-wrangling.html"><strong aria-hidden="true">1.2.</strong> data wrangling</a></li><li class="chapter-item expanded "><a href="notes/Debugging-and-Profiling.html"><strong aria-hidden="true">1.3.</strong> Debugging and Profiling</a></li><li class="chapter-item expanded "><a href="notes/metaprogramming.html"><strong aria-hidden="true">1.4.</strong> metaprogramming</a></li><li class="chapter-item expanded "><a href="notes/Git.html"><strong aria-hidden="true">1.5.</strong> Git</a></li><li class="chapter-item expanded "><a href="notes/security.html"><strong aria-hidden="true">1.6.</strong> security</a></li><li class="chapter-item expanded "><a href="notes/Vim.html"><strong aria-hidden="true">1.7.</strong> Vim</a></li><li class="chapter-item expanded "><a href="notes/shell.html"><strong aria-hidden="true">1.8.</strong> shell</a></li></ol></li><li class="chapter-item expanded "><a href="solutions.html"><strong aria-hidden="true">2.</strong> solutions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="solutions/1.html"><strong aria-hidden="true">2.1.</strong> 1</a></li><li class="chapter-item expanded "><a href="solutions/2.html"><strong aria-hidden="true">2.2.</strong> 2</a></li><li class="chapter-item expanded "><a href="solutions/3.html"><strong aria-hidden="true">2.3.</strong> 3</a></li><li class="chapter-item expanded "><a href="solutions/4.html"><strong aria-hidden="true">2.4.</strong> 4</a></li><li class="chapter-item expanded "><a href="solutions/5.html"><strong aria-hidden="true">2.5.</strong> 5</a></li><li class="chapter-item expanded "><a href="solutions/6.html"><strong aria-hidden="true">2.6.</strong> 6</a></li><li class="chapter-item expanded "><a href="solutions/7.html"><strong aria-hidden="true">2.7.</strong> 7</a></li><li class="chapter-item expanded "><a href="solutions/8.html"><strong aria-hidden="true">2.8.</strong> 8</a></li><li class="chapter-item expanded "><a href="solutions/9.html"><strong aria-hidden="true">2.9.</strong> 9</a></li></ol></li><li class="chapter-item expanded "><a href="more-information.html"><strong aria-hidden="true">3.</strong> more-information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="more-information/Github.html"><strong aria-hidden="true">3.1.</strong> Github</a></li><li class="chapter-item expanded "><a href="more-information/makefile.html"><strong aria-hidden="true">3.2.</strong> makefile</a></li><li class="chapter-item expanded "><a href="more-information/tmux.html"><strong aria-hidden="true">3.3.</strong> tmux</a></li><li class="chapter-item expanded "><a href="more-information/Pro-Git.html"><strong aria-hidden="true">3.4.</strong> Pro-Git</a></li><li class="chapter-item expanded "><a href="more-information/mdbook.html"><strong aria-hidden="true">3.5.</strong> mdbook</a></li><li class="chapter-item expanded "><a href="more-information/Vim.html"><strong aria-hidden="true">3.6.</strong> Vim</a></li><li class="chapter-item expanded "><a href="more-information/shell-programming.html"><strong aria-hidden="true">3.7.</strong> shell-programming</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MYC-Missing-Semester</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="about-this-repositry"><a class="header" href="#about-this-repositry">About this repositry</a></h1>
+<p>Here is everything about <code>missing semester</code>, including my notes and problem-solving. At the same time, I also wrote some self-learning content.</p>
+<h1 id="mit-missing-semester"><a class="header" href="#mit-missing-semester">MIT-Missing-Semester</a></h1>
+<p>All notes and homeworks' solutions for MIT-Missing-Semester.</p>
+<p>And I also wrote down some knowledge that I saw in the book. However, some of them were writen ny Chinese.</p>
+<h1 id="how-to-learn-these-tools"><a class="header" href="#how-to-learn-these-tools">How to learn these tools?</a></h1>
+<p>The entire missing semester is about explaining some very commonly used tools in programming work. In my experience, the most important thing about this course is actually introducing you to these tools and getting you up to speed quickly. However, if you don't use them often in your work, you will quickly forget how to use them completely.</p>
+<p>Therefore, I have some learning suggestions. <strong>First of all</strong>, you need to master what tools are needed under corresponding environments and conditions based on this course as much as possible. Note that only knowing their names is enough. <strong>Then</strong>, you need to go ahead and use them. For example, in order to familiarize myself with Linux and Vim, I gave up using the desktop version of Ubuntu and worked every day with command lines instead; I quickly mastered the use of Linux and Vim (which is a shit tool), and for transferring files between virtual machines and hosts, I also learned SSH. So if you want to master these tools, the correct approach is simply using them! <strong>Finally</strong>, don't try to learn everything at once from the beginning; almost all tools have quick start tutorials available online or elsewhere - after mastering basic operations then look up documentation when encountering something unfamiliar in future usage scenarios.</p>
+<h1 id="why-not-pay-attention-to-the-development-of-rust"><a class="header" href="#why-not-pay-attention-to-the-development-of-rust">Why not pay attention to the development of Rust?</a></h1>
+<p>Rust's development is very rapid.Almost all command-line tools have a more modern version rewritten in Rust language.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="my-notes"><a class="header" href="#my-notes">My notes</a></h1>
+<p>Many of them are copied from official lecture notes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-environment"><a class="header" href="#command-line-environment">Command-line Environment</a></h1>
+<h2 id="job-control"><a class="header" href="#job-control">Job Control</a></h2>
+<p>Shell is using a UNIX communication mechanism called a signal to communicate information to the process.</p>
+<p>In Unix-like systems, signals are a way of inter-process communication. The Signal constants defined in Linux system and their explanations can be found in the header file <code>/usr/include/bits/signum.h</code>, which are defined as follows:</p>
+<pre><code>/* Signals.  */
+#define SIGHUP          1       /* Hangup (POSIX).  */
+#define SIGINT          2       /* Interrupt (ANSI).  */
+#define SIGQUIT         3       /* Quit (POSIX).  */
+#define SIGILL          4       /* Illegal instruction (ANSI).  */
+#define SIGTRAP         5       /* Trace trap (POSIX).  */
+#define SIGABRT         6       /* Abort (ANSI).  */
+#define SIGIOT          6       /* IOT trap (4.2 BSD).  */
+#define SIGBUS          7       /* BUS error (4.2 BSD).  */
+#define SIGFPE          8       /* Floating-point exception (ANSI).  */
+#define SIGKILL         9       /* Kill, unblockable (POSIX).  */
+#define SIGUSR1         10      /* User-defined signal 1 (POSIX).  */
+#define SIGSEGV         11      /* Segmentation violation (ANSI).  */
+#define SIGUSR2         12      /* User-defined signal 2 (POSIX).  */
+#define SIGPIPE         13      /* Broken pipe (POSIX).  */
+#define SIGALRM         14      /* Alarm clock (POSIX).  */
+#define SIGTERM         15      /* Termination (ANSI).  */
+#define SIGSTKFLT       16      /* Stack fault.  */
+#define SIGCLD          SIGCHLD /* Same as SIGCHLD (System V).  */
+#define SIGCHLD         17      /* Child status has changed (POSIX).  */
+#define SIGCONT         18      /* Continue (POSIX).  */
+#define SIGSTOP         19      /* Stop, unblockable (POSIX).  */
+#define SIGTSTP         20      /* Keyboard stop (POSIX).  */
+#define SIGTTIN         21      /* Background read from tty (POSIX).  */
+#define SIGTTOU         22      /* Background write to tty (POSIX).  */
+#define SIGURG          23      /* Urgent condition on socket (4.2 BSD).  */
+#define SIGXCPU         24      /* CPU limit exceeded (4.2 BSD).  */
+#define SIGXFSZ         25      /* File size limit exceeded (4.2 BSD).  */
+#define SIGVTALRM       26      /* Virtual alarm clock (4.2 BSD).  */
+#define SIGPROF         27      /* Profiling alarm clock (4.2 BSD).  */
+#define SIGWINCH        28      /* Window size change (4.3 BSD, Sun).  */
+#define SIGPOLL         SIGIO   /* Pollable event occurred (System V).  */
+#define SIGIO           29      /* I/O now possible (4.2 BSD).  */
+#define SIGPWR          30      /* Power failure restart (System V).  */
+#define SIGSYS          31      /* Bad system call.  */
+#define SIGUNUSED       31
+</code></pre>
+<p>Yep, more information in Chinese could be found <a href="https://blog.csdn.net/u014470361/article/details/83591513">here</a>.OR  typing <code>man signal</code>.</p>
+<p>This section is not important I think.</p>
+<h2 id="tmux"><a class="header" href="#tmux">tmux</a></h2>
+<ul>
+<li>Sessions - a session is an independent workspace with one or more windows
+<ul>
+<li>tmux starts a new session.</li>
+<li>tmux new -s NAME starts it with that name.</li>
+<li>tmux ls lists the current sessions</li>
+<li>Within tmux typing <C-b> d detaches the current session</li>
+<li>tmux a attaches the last session. You can use -t flag to specify which</li>
+</ul>
+</li>
+<li>Windows - Equivalent to tabs in editors or browsers, they are visually separate parts of the same session
+<ul>
+<li><C-b> c Creates a new window. To close it you can just terminate the shells doing <C-d></li>
+<li><C-b> N Go to the N th window. Note they are numbered</li>
+<li><C-b> p Goes to the previous window</li>
+<li><C-b> n Goes to the next window</li>
+<li><C-b> , Rename the current window</li>
+<li><C-b> w List current windows</li>
+</ul>
+</li>
+<li>Panes - Like vim splits, panes let you have multiple shells in the same visual display.
+<ul>
+<li><C-b> &quot; Split the current pane horizontally</li>
+<li><C-b> % Split the current pane vertically</li>
+<li><C-b> <direction> Move to the pane in the specified direction. Direction here means arrow keys.</li>
+<li><C-b> z Toggle zoom for the current pane</li>
+<li><C-b> [ Start scrollback. You can then press <space> to start a selection and <enter> to copy that selection.</li>
+<li><C-b> <space> Cycle through pane arrangements.</li>
+</ul>
+</li>
+</ul>
+<h2 id="aliases"><a class="header" href="#aliases">Aliases</a></h2>
+<p>Useful things!</p>
+<p>such as :</p>
+<pre><code>alias gs=&quot;git status&quot;
+alias gc=&quot;git commit&quot;
+</code></pre>
+<h2 id="dotfiles"><a class="header" href="#dotfiles">Dotfiles</a></h2>
+<p>I think I should set symlinked.</p>
+<h2 id="remote-machines"><a class="header" href="#remote-machines">Remote Machines</a></h2>
+<p><strong>The explanation about SSH in the lecture notes is very friendly to beginners</strong>, but it's somewhat redundant for those who have already studied computer networks.</p>
+<h2 id="others"><a class="header" href="#others">others</a></h2>
+<p>I do not think such as Command syntax highlighting is important, so I will not use zsh, Alacritty or any other shell framework.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-wrangling"><a class="header" href="#data-wrangling">Data wrangling</a></h1>
+<p>The main content of this lecture is about how to process data, that is, how to obtain the results we want from the raw large amount of data.</p>
+<p><em>I don't know why but I feel this lecture a little bit boring, I prefer pandas or SQL.Maybe I do not notice the meaning of handling data on the server.</em></p>
+<h1 id="the-content"><a class="header" href="#the-content">The content</a></h1>
+<ul>
+<li>Regular expressions</li>
+<li>sort \ uniq</li>
+<li>awk <em>(It is funny)</em></li>
+<li>paste</li>
+</ul>
+<p>awk is a programming language that just happens to be really good at processing text streams.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="most-of-all"><a class="header" href="#most-of-all">Most of all</a></h1>
+<p>The golden rule in programming is that code will not run the way you expect it to, but rather the way you tell it to. Debugging and performance analysis are useful techniques for dealing with flawed and resource-intensive code. Debugging can be done using Printf debugging and logging, while performance analysis can use timers and analyzers. Static analysis tools can help identify issues in the code, while code formatting tools can automatically format the code to conform to common programming language styles. Monitoring tools and analyzers can help understand which parts of a program take up the most time and/or resources so that these areas can be optimized.</p>
+<h1 id="lec-notes"><a class="header" href="#lec-notes">Lec Notes</a></h1>
+<h2 id="debugging"><a class="header" href="#debugging">Debugging</a></h2>
+<p>Learn to use Logger instead of print.</p>
+<p>Python Debugger is pdb</p>
+<p>The lecture suggests using gdb and lldb for low level programming.</p>
+<h3 id="specialized-tools"><a class="header" href="#specialized-tools">Specialized Tools</a></h3>
+<p>Use strace in Linux.</p>
+<h3 id="static-analysis"><a class="header" href="#static-analysis">Static Analysis</a></h3>
+<p>pyflakes, pylint and mypy</p>
+<p>shellcheck</p>
+<h2 id="profiling"><a class="header" href="#profiling">Profiling</a></h2>
+<p>Timing is a good choice.</p>
+<p>The distinction between Real, User and Sys time is important as wall clock time can be misleading due to other processes running or waiting for events. User + Sys indicates the actual CPU time spent by a process.</p>
+<ul>
+<li>Real - Wall clock elapsed time from start to finish of the program, including the time taken by other processes and time taken while blocked (e.g. waiting for I/O or network)</li>
+<li>User - Amount of time spent in the CPU running user code</li>
+<li>Sys - Amount of time spent in the CPU running kernel code</li>
+</ul>
+<h3 id="cpu"><a class="header" href="#cpu">CPU</a></h3>
+<p>cProfile</p>
+<h3 id="memory"><a class="header" href="#memory">Memory</a></h3>
+<p>memory-profiler</p>
+<h3 id="event"><a class="header" href="#event">Event</a></h3>
+<p>perf</p>
+<h3 id="visualization"><a class="header" href="#visualization">Visualization</a></h3>
+<p>Flame graph</p>
+<h3 id="resource-monitoring"><a class="header" href="#resource-monitoring">Resource Monitoring</a></h3>
+<ul>
+<li><strong>I/O operations</strong> - <code>iotop</code> displays live I/O usage information and is handy to check if a process is doing heavy I/O disk operations</li>
+<li><strong>Disk Usage</strong> - <code>df</code> displays metrics per partitions and du displays disk usage per file for the current directory. In these tools the -h flag tells the program to print with human readable format. A more interactive version of du is ncdu which lets you navigate folders and delete files and folders as you navigate.</li>
+<li><strong>Memory Usage</strong> - <code>free</code> displays the total amount of free and used memory in the system. Memory is also displayed in tools like htop.</li>
+<li><strong>Open Files</strong> - <code>lsof</code> lists file information about files opened by processes. It can be quite useful for checking which process has opened a specific file.</li>
+<li><strong>Network Connections and Config</strong> - <code>ss</code> lets you monitor incoming and outgoing network packets statistics as well as interface statistics. A common use case of ss is figuring out what process is using a given port in a machine. For displaying routing, network devices and interfaces you can use ip. Note that netstat and ifconfig have been deprecated in favor of the former tools respectively.</li>
+<li><strong>Network Usage</strong> - <code>nethogs</code> and <code>iftop</code> are good interactive CLI tools for monitoring network usage.
+If you want to test these tools you can also artificially impose loads on the machine using the stress command.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="most-of-all-1"><a class="header" href="#most-of-all-1">Most of all</a></h1>
+<p>This article introduces the concept of metaprogramming and its applications in code construction, testing, and dependency management. The author explains the concepts and usage of build systems, as well as related technologies such as version control, dependency management, and continuous integration.</p>
+<p>More thing about <code>Makefile</code> are <a href="notes/../more%20information/makefile.html">here</a>.</p>
+<h1 id="continuous-integration-systems"><a class="header" href="#continuous-integration-systems">Continuous integration systems</a></h1>
+<p>I think the most interesting part of this section is the management of version numbers. For example, 8.0.1, where 8 is major, 0 is minor, and 1 is fix. This means that when you only update small versions, others using your code may not need to rush to update it. However, updating a major version often brings compatibility issues. I finally understand how to read version numbers and find it very interesting; I will do it like this in the future too.</p>
+<h1 id="ci"><a class="header" href="#ci">CI</a></h1>
+<p>Continuous integration systems is interesting.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gits-data-model"><a class="header" href="#gits-data-model">Git’s data model</a></h1>
+<h2 id="snapshots"><a class="header" href="#snapshots">Snapshots</a></h2>
+<p>Git models the history of a collection of files and folders within some top-level directory as a series of snapshots. In Git terminology, a file is called a “blob”, and it’s just a bunch of bytes. A directory is called a “tree”, and it maps names to blobs or trees (so directories can contain other directories).</p>
+<p>example:</p>
+<pre><code class="language-shell">&lt;root&gt; (tree)
+|
++- foo (tree)
+|  |
+|  + bar.txt (blob, contents = &quot;hello world&quot;)
+|
++- baz.txt (blob, contents = &quot;git is wonderful&quot;)
+</code></pre>
+<h2 id="modeling-history-relating-snapshots"><a class="header" href="#modeling-history-relating-snapshots">Modeling history: relating snapshots</a></h2>
+<p>In Git, a history is a directed acyclic graph (DAG) of snapshots.</p>
+<h2 id="data-model-as-pseudocode"><a class="header" href="#data-model-as-pseudocode">Data model, as pseudocode</a></h2>
+<pre><code class="language-C">// a file is a bunch of bytes
+type blob = array&lt;byte&gt;
+
+// a directory contains named files and directories
+type tree = map&lt;string, tree | blob&gt;
+
+// a commit has parents, metadata, and the top-level tree
+type commit = struct {
+    parents: array&lt;commit&gt;
+    author: string
+    message: string
+    snapshot: tree
+}
+</code></pre>
+<h2 id="objects-and-content-addressing"><a class="header" href="#objects-and-content-addressing">Objects and content-addressing</a></h2>
+<p>An “object” is a blob, tree, or commit:</p>
+<pre><code class="language-C">type object = blob | tree | commit
+</code></pre>
+<p>In Git data store, all objects are content-addressed by their SHA-1 hash.</p>
+<pre><code class="language-python">objects = map&lt;string, object&gt;
+
+def store(object):
+    id = sha1(object)
+    objects[id] = object
+
+def load(id):
+    return objects[id]
+</code></pre>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>Git uses references, which are human-readable names assigned to the SHA-1 hash values of snapshots, as pointers to commits. These references can be updated and typically point to the latest commit on a branch, such as the master reference pointing to the latest commit on the main branch.</p>
+<pre><code class="language-python">references = map&lt;string, string&gt;
+
+def update_reference(name, id):
+    references[name] = id
+
+def read_reference(name):
+    return references[name]
+
+def load_reference(name_or_id):
+    if name_or_id in references:
+        return load(references[name_or_id])
+    else:
+        return load(name_or_id)
+</code></pre>
+<p><strong>Git uses a special reference called &quot;HEAD&quot; to indicate the current position in history.</strong></p>
+<h2 id="staging-area"><a class="header" href="#staging-area">Staging area</a></h2>
+<p>Git uses a &quot;staging area&quot; to specify which modifications should be included in the next snapshot, allowing for clean snapshots and accommodating scenarios where specific changes need to be committed.</p>
+<h2 id="command-line-api"><a class="header" href="#command-line-api">Command line api</a></h2>
+<p>All things for this section are written <a href="notes/../more%20information/Pro-Git.html">here</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><p><strong>As a student majoring in information security, I have already mastered all the content, so I will not take notes here.</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="philosophy-of-vim"><a class="header" href="#philosophy-of-vim">Philosophy of Vim</a></h1>
+<p>Vim is a modal editor: it has different modes for inserting text vs manipulating text. Vim is programmable.</p>
+<h1 id="modal-editing"><a class="header" href="#modal-editing">Modal editing</a></h1>
+<p>Vim’s design is based on the idea that a lot of programmer time is spent reading, navigating, and making small edits, as opposed to writing long streams of text. For this reason, Vim has multiple operating modes.</p>
+<ul>
+<li>Normal: for moving around a file and making edits</li>
+<li>Insert: for inserting text</li>
+<li>Replace: for replacing text</li>
+<li>Visual (plain, line, or block): for selecting blocks of text</li>
+<li>Command-line: for running a command</li>
+</ul>
+<h1 id="more"><a class="header" href="#more">More</a></h1>
+<p>Buffers, tabs, and windows</p>
+<h2 id="vims-interface-is-a-programming-language"><a class="header" href="#vims-interface-is-a-programming-language">Vim’s interface is a programming language</a></h2>
+<p>movements selections edits counts Modifiers</p>
+<h2 id="vimrc"><a class="header" href="#vimrc">vimrc</a></h2>
+<p>I need to know more information about this!!!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="shell-lecture-1--2"><a class="header" href="#shell-lecture-1--2">Shell (lecture 1 &amp; 2)</a></h1>
+<p>We have learned to use command lines instead of just terminal.</p>
+<p>Here are some really basic command:</p>
+<pre><code>cd      # change work path
+echo    # output
+touch   # make a file
+mkdir   # make a directory
+ls      # lists all files
+cat     # output a file's content
+mv      # move
+man     # show the documents
+</code></pre>
+<p><em>and so on...</em></p>
+<p>And what's more, we should learn to use these:</p>
+<pre><code>|  # pipe
+&gt;  # redirect
+&lt;  # redirect
+&gt;&gt; # append
+</code></pre>
+<p>So, the first class is so easy and simple, if you have know something about Linux, shell and other things.</p>
+<p><strong>However, if you just want to write and run your code on Windows, you do not have to Learn the whole class.</strong></p>
+<h1 id="more-about-shell"><a class="header" href="#more-about-shell">More about shell</a></h1>
+<p><em>The accent of the Indian friend is too unfriendly for a Chinese person who is not good at English. Fortunately, I am watching the Chinese translated version. (Laughing)</em></p>
+<p>We need to learn the syntax of bash scripts.</p>
+<p>Below are some useful argvs:</p>
+<ul>
+<li>$0 - Name of the script</li>
+<li>$1 to $9 - Arguments to the script. $1 is the first argument and so on.</li>
+<li>$@ - All the arguments</li>
+<li>$# - Number of arguments</li>
+<li>$? - Return code of the previous command</li>
+<li>$$ - Process identification number (PID) for the current script</li>
+<li>!! - Entire last command, including arguments. A common pattern is to execute a command only for it to fail due to missing permissions; - you can quickly re-execute the command with sudo by doing sudo !!</li>
+<li>$_ - Last argument from the last command. If you are in an interactive shell, you can also quickly get this value by typing Esc followed by . or Alt+.</li>
+</ul>
+<p>What another important thing the lecture tought is globbing!</p>
+<h2 id="short-circuiting"><a class="header" href="#short-circuiting">short-circuiting</a></h2>
+<p>If you have learned C++ or any other language, you will understand this more easily.</p>
+<h2 id="shebang-and-env"><a class="header" href="#shebang-and-env">Shebang and env</a></h2>
+<p>Finally know what Shebang is. :(</p>
+<p>It is good practice to write shebang lines using the env command that will resolve to wherever the command lives in the system, increasing the portability of your scripts.</p>
+<h1 id="shell-tools"><a class="header" href="#shell-tools">Shell Tools</a></h1>
+<p>I think this section is a relatively innovative part.</p>
+<p>Here are some useful tools:</p>
+<ul>
+<li>find</li>
+<li>tldr # excellent tools!</li>
+<li>grep</li>
+<li>fzf</li>
+</ul>
+<p>Furthermore, I believe this lecture introduced many command-line tools of the Rust language.</p>
+<ul>
+<li>fd</li>
+<li>ripgrep
+and so on...</li>
+</ul>
+<p>Among them, <code>ripgrep</code> is a star project in Rust language. For more information on other contents, please refer to these two links：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/511866354">Chinese Zhihu</a></li>
+<li><a href="https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a">English Github</a></li>
+</ul>
+<p>I believe that command-line tools written in Rust are more modern. By &quot;modern&quot; I mean that these tools have advantages such as a nicer GUI, more intuitive output format, lower learning curve, and better performance.</p>
+<h1 id="以下是一些自学内容"><a class="header" href="#以下是一些自学内容">以下是一些自学内容</a></h1>
+<p>首先，学shell基本上得先了解一些linux。</p>
+<h2 id="linux"><a class="header" href="#linux">Linux</a></h2>
+<p>Linux shell是用户和Linux kernel 之间的接口程序。</p>
+<p>shell是个用户程序，有自己内建的命令集，也能被其他程序调用。</p>
+<p>Linux有七个运行级别，常用1 3 5，其他的不怎么用。</p>
+<h2 id="快捷键"><a class="header" href="#快捷键">快捷键</a></h2>
+<p>CTRL+U：清空行</p>
+<p>CTRL+R: 搜索先前使用的命令。</p>
+<p>这两个很有用。</p>
+<h2 id="shell"><a class="header" href="#shell">Shell</a></h2>
+<p>Linux 里应该是有不同种类的shell，最常用应该是bash。</p>
+<h3 id="shell和terminal有啥区别"><a class="header" href="#shell和terminal有啥区别">shell和terminal有啥区别</a></h3>
+<p>shell是程序，负责接收指令、执行程序并返回结果。终端是命令的 IO 环境，分为终端设备和终端模拟器。早期计算机很贵，所以一个计算机接入很多显示器和很多IO设备，显示器和IO设备被称为终端。</p>
+<p>现代都是个人电脑，因此集成到了一起，所以用的terminal都是终端模拟器。</p>
+<h3 id="shell的变量"><a class="header" href="#shell的变量">shell的变量</a></h3>
+<p>有系统变量和shell变量。</p>
+<p>常用有HOME PATH PS1 PWD.</p>
+<p>变量用$</p>
+<h3 id="shell语法"><a class="header" href="#shell语法">shell语法</a></h3>
+<p>赋值，唯一需要注意的是默认赋值是字符串，想弄成数值要用let</p>
+<p>printf，和C类似，常用的分类符表和转义字符表可以现查。</p>
+<p>变量引用使用双引号，当然这并不是必要的。单引号往往可以解决特殊字符的问题，因为单引号不允许引用变量。</p>
+<p>export unset分别用于设置和删除变量，不过unset不能删除只读的变量，想删除需要使用gdb。</p>
+<p>检查变量是否存在使用问好。</p>
+<p>history可以查看历史命令，但是我使用的<code>atuin</code>把这一切都集成好了。</p>
+<h3 id="扩展"><a class="header" href="#扩展">扩展</a></h3>
+<p>大括号扩展就是missing semester之中第二讲的作业四的一部分。</p>
+<p>其实就在掌握{a...z}类似的排序方式即可</p>
+<p>和python的range语法非常类似</p>
+<p>然后就是通配符实现的文件名扩展。主要记住*?[...]即可</p>
+<h3 id="别名"><a class="header" href="#别名">别名</a></h3>
+<p>可以使用alias创建别名。</p>
+<h3 id="ps1"><a class="header" href="#ps1">PS1</a></h3>
+<p>这个是用来设置bash提示符的，如果想要自己更改提示符还是很有用的。不过要是不改的话，也许也没问题？</p>
+<pre><code class="language-shell">PS1=&quot;\[$(tput setaf 7)\]\342\224\214\342\224\200\[$(tput sgr0)\]\$([[ \$? != 0 ]] &amp;&amp; echo \&quot;\[$(tput bold setaf 1)\][Fail]\[$(tput sgr0)\]\&quot;)\[$(tput setaf 7)\][\[\033[1;38;5;214m\]\u\[$(tput bold setaf 7)\]@\[$(tput bold setaf 6)\]\h\[$(tput setaf 7)\]]\[$(tput setaf 7)\]\342\224\200[\[$(tput setaf 2)\]\w\[$(tput setaf 7)\]]\n\[$(tput setaf 7)\]\342\224\224\342\224\200\342\224\200\342\225\274\[$(tput sgr0)\][\[\033[1;38;5;28m\]\t\[$(tput sgr0)\]]\$ &quot;
+</code></pre>
+<p><em>这个真屌，我真喜欢。</em></p>
+<h3 id="bash行为"><a class="header" href="#bash行为">bash行为</a></h3>
+<p>set +-o或者shopt -u/-s可以设置一些bash行为的开关</p>
+<h2 id="常用shell命令"><a class="header" href="#常用shell命令">常用shell命令</a></h2>
+<h3 id="ls"><a class="header" href="#ls">ls</a></h3>
+<p>很重要。</p>
+<p>文件的颜色:</p>
+<ul>
+<li>白色字体：普通文件</li>
+<li>绿色字体:可执行文件</li>
+<li>红色字体：压缩文件</li>
+<li>蓝色：目录</li>
+<li>青色：链接文件（相当于windows的快捷方式）</li>
+<li>黄色：  设备文件：会把硬件设备抽象为文件：例：block块可以表示硬盘，char字符表示键盘，fifo管道</li>
+<li>灰色：其他文件</li>
+</ul>
+<pre><code>ls -ltr #以长列表格式俺修改时间倒序
+ls -ls  #按文件大小顺序列出
+ls -a   #列出所有文件包括隐藏文件
+</code></pre>
+<h3 id="cat"><a class="header" href="#cat">cat</a></h3>
+<p>-n 显示行号
+-e 行尾显示美元符号
+然后就是重定向的内容，在missing semester讲过了。</p>
+<h3 id="more-less"><a class="header" href="#more-less">more less</a></h3>
+<pre><code>cat README | more
+</code></pre>
+<p>less更值得推荐</p>
+<p>可以搜索</p>
+<pre><code>/
+?
+</code></pre>
+<p>还有一些快捷键：</p>
+<pre><code>ctrl+F #前翻一个窗口
+ctrl+B #后翻一个窗口
+ctrl+D #前翻半个窗口
+ctrl+U #后翻半个窗口
+q #退出
+</code></pre>
+<p>还可以打开多个文件。</p>
+<h3 id="head-tail"><a class="header" href="#head-tail">head tail</a></h3>
+<p>指定行数，短时间用处不大</p>
+<h3 id="file-wc"><a class="header" href="#file-wc">file wc</a></h3>
+<p>这两个都是用来查看信息的。</p>
+<p>file我感觉很有用，很多文件没有后缀靠这个能知道是什么文件。</p>
+<h3 id="find"><a class="header" href="#find">find</a></h3>
+<p><strong>非常重要的命令。</strong></p>
+<p>常用的是：</p>
+<pre><code>find . -iname example
+find . -type d -name dir
+find . -type f -name &quot;*.cpp&quot;
+</code></pre>
+<h3 id="-exec"><a class="header" href="#-exec">-exec</a></h3>
+<p>这个就是把输出的用来执行，特别有用</p>
+<pre><code>原命令： -exec rm -rf {}\;
+</code></pre>
+<h3 id="操作文件和目录"><a class="header" href="#操作文件和目录">操作文件和目录</a></h3>
+<p>这里很简单，常用的有touch, mkdir .</p>
+<p>touch 要了解一下-t时间戳，mkdir要了解一下 -p</p>
+<p>更多的内容是cp, ln, mv</p>
+<p>cp要了解 -R, ln 感觉初级阶段简单了解即可。mv，要记得使用-i。</p>
+<h4 id="rm"><a class="header" href="#rm">rm</a></h4>
+<p>这个很吊，最好使用-i，是为了让用户确认的。</p>
+<p>千万不要使用</p>
+<pre><code>rm -rf *
+</code></pre>
+<p>这个命令我曾经在想要重置虚拟机的时候使用，后果是什么都没有了，系统只能重装了，很离谱。不过那个剩下的类似于server的系统很适合锻炼linux这些shell命令（绝了）</p>
+<h3 id="权限"><a class="header" href="#权限">权限</a></h3>
+<p>r w x是基础。</p>
+<h4 id="chmod"><a class="header" href="#chmod">chmod</a></h4>
+<p><strong>非常重要的东西！</strong>
+符号表达式模式：</p>
+<ul>
+<li>u:所有者</li>
+<li>g:用户组成员</li>
+<li>o:不在用户组的其他用户</li>
+<li>a:所有用户
+默认是a的效果</li>
+</ul>
+<p>操作符：</p>
+<ul>
+<li>+：添加权限</li>
+<li>-：移除权限</li>
+<li>=：只有这个权限</li>
+</ul>
+<p>例子：</p>
+<pre><code>chmod u+x example.sh
+</code></pre>
+<p>这个就是给用户增加执行权限的，最常用的了吧。</p>
+<p>数字模式：</p>
+<p>用读（4）写（2）执行（1）表示权限，相加就是最后拥有的权限。</p>
+<p>比如著名的</p>
+<pre><code>chmod 777 example.sh
+</code></pre>
+<p>就是给所有人所有权限的意思了。</p>
+<h4 id="chown-chgrp"><a class="header" href="#chown-chgrp">chown chgrp</a></h4>
+<p>看缩写就知道是改变所有者和用户组的。目前感觉作用不大，此处以后用到了再学吧。</p>
+<h4 id="setuid-setgid"><a class="header" href="#setuid-setgid">setuid setgid</a></h4>
+<p>暂时不知道有啥用，以后用到了再学。</p>
+<h3 id="文本处理"><a class="header" href="#文本处理">文本处理</a></h3>
+<p>sort排序 uniq去重 看不出有啥用</p>
+<p>tr 字符替换，感觉有点儿用。-s用于压缩重复空格，-d用于删除</p>
+<h4 id="grep"><a class="header" href="#grep">grep</a></h4>
+<p>**很重要的命令。**用于搜索文件之中的字符串</p>
+<pre><code>grep -rl string dir
+</code></pre>
+<p>更推荐使用ripgrep，速度快，还好用。</p>
+<h4 id="别的"><a class="header" href="#别的">别的</a></h4>
+<p>其他的就随便玩儿了，比如date,uname之类的东西。</p>
+<h2 id="shell-进阶"><a class="header" href="#shell-进阶">shell 进阶</a></h2>
+<p>diff用于对比，paste用于合并。</p>
+<p>dd用于拷贝和备份（玩儿树莓派一个月了，终于知道是啥玩意儿了。。。）</p>
+<pre><code>dd if=/dev/sda of=/dev/sdb
+dd if=/dev/sda of=dvd.iso
+</code></pre>
+<p>如果要擦除，需要/dev/zero，这个文件所有内容都是空字符。就是哦你过来初始化和擦除的。</p>
+<p>当然，bs=1024 和count=1024也需要知道。</p>
+<h3 id="gzip-bzip2"><a class="header" href="#gzip-bzip2">gzip bzip2</a></h3>
+<pre><code>gzip -c file1 &gt; file1.gz #可以使用重定向保留原文件
+</code></pre>
+<p>解压使用-d</p>
+<p>bzip2和gzip差不多，压缩率更好，但速度更慢。</p>
+<h3 id="gunzip-bunzip2"><a class="header" href="#gunzip-bunzip2">gunzip bunzip2</a></h3>
+<p>解压命令，不常用，用上了到时候现查吧。</p>
+<h3 id="tar"><a class="header" href="#tar">tar</a></h3>
+<p><strong>特别重要！</strong></p>
+<pre><code>tar -cvf name.tar # 压缩
+tar -xvf name.tar #解压
+tar -xzvf name.tar.gz #解压
+tar -xjvf name.tar.bz2 #解压
+</code></pre>
+<h3 id="df-du"><a class="header" href="#df-du">df du</a></h3>
+<p>df唯一有用的就是</p>
+<pre><code>df -h
+</code></pre>
+<p>du我不推荐用，我推荐更好用的dust，是rust重写的命令行工具。</p>
+<h3 id="cron-crontab"><a class="header" href="#cron-crontab">cron crontab</a></h3>
+<p>等我有服务器了我再看。</p>
+<h3 id="nohup"><a class="header" href="#nohup">nohup</a></h3>
+<p>这个很有用，就是no hang up</p>
+<pre><code>nohup sh example.sh &amp;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="solutions"><a class="header" href="#solutions">Solutions</a></h1>
+<p>Almost done every problem.</p>
+<div style="break-before: page; page-break-before: always;"></div><ol>
+<li>For this course, you need to be using a Unix shell like Bash or ZSH. If you are on Linux or macOS, you don’t have to do anything special. If you are on Windows, you need to make sure you are not running cmd.exe or PowerShell; you can use Windows Subsystem for Linux or a Linux virtual machine to use Unix-style command-line tools. To make sure you’re running an appropriate shell, you can try the command echo $SHELL. If it says something like /bin/bash or /usr/bin/zsh, that means you’re running the right program.</li>
+</ol>
+<pre><code class="language-shell">myc@myc-virtual-machine:~/Desktop$ echo $SHELL
+/bin/bash
+myc@myc-virtual-machine:~/Desktop$
+</code></pre>
+<ol start="2">
+<li>Create a new directory called missing under /tmp.</li>
+</ol>
+<pre><code class="language-shell">myc@myc-virtual-machine:~/Desktop$ cd /tmp
+myc@myc-virtual-machine:/tmp$ mkdir missing
+myc@myc-virtual-machine:/tmp$ ls
+missing
+myc@myc-virtual-machine:/tmp$
+</code></pre>
+<ol start="3">
+<li>Look up the touch program. The man program is your friend.</li>
+</ol>
+<pre><code class="language-shell">man touch
+
+TOUCH(1)                        User Commands                        TOUCH(1)
+
+NAME
+       touch - change file timestamps
+
+SYNOPSIS
+       touch [OPTION]... FILE...
+
+DESCRIPTION
+       Update  the  access and modification times of each FILE to the current
+       time.
+
+       A FILE argument that does not exist is created empty, unless -c or  -h
+       is supplied.
+
+       A  FILE  argument string of - is handled specially and causes touch to
+       change the times of the file associated with standard output.
+
+       Mandatory arguments to long options are mandatory  for  short  options
+       too.
+
+       -a     change only the access time
+
+       -c, --no-create
+              do not create any files
+
+       -d, --date=STRING
+              parse STRING and use it instead of current time
+ Manual page touch(1) line 1 (press h for help or q to quit)
+</code></pre>
+<ol start="4">
+<li>Use touch to create a new file called semester in missing.</li>
+</ol>
+<pre><code class="language-shell">myc@myc-virtual-machine:/tmp$ cd missing
+myc@myc-virtual-machine:/tmp/missing$ touch semester
+myc@myc-virtual-machine:/tmp/missing$ ls
+semester
+myc@myc-virtual-machine:/tmp/missing$
+</code></pre>
+<ol start="5">
+<li>Write the following into that file, one line at a time:
+&gt;<code> &gt;#!/bin/sh &gt;curl --head --silent https://missing.csail.mit.edu &gt;</code>
+The first line might be tricky to get working. It’s helpful to know that # starts a comment in Bash, and ! has a special meaning even within double-quoted (&quot;) strings. Bash treats single-quoted strings (') differently: they will do the trick in this case. See the Bash quoting manual page for more information.</li>
+</ol>
+<pre><code class="language-shell">myc@myc-virtual-machine:/tmp/missing$ echo '#!/bin/sh' &gt; semester
+myc@myc-virtual-machine:/tmp/missing$ cat semester
+#!/bin/sh
+myc@myc-virtual-machine:/tmp/missing$ echo &quot;curl --head --silent https://missing.csail.mit.edu&quot; &gt;&gt; semester
+myc@myc-virtual-machine:/tmp/missing$ cat semester
+#!/bin/sh
+curl --head --silent https://missing.csail.mit.edu
+myc@myc-virtual-machine:/tmp/missing$
+</code></pre>
+<ol start="7">
+<li>Try to execute the file, i.e. type the path to the script (./semester) into your shell and press enter. Understand why it doesn’t work by consulting the output of ls (hint: look at the permission bits of the file).</li>
+</ol>
+<pre><code class="language-shell">myc@myc-virtual-machine:/tmp/missing$ ls -l
+total 4
+-rw-rw-r-- 1 myc myc 62  5月 30 14:30 semester
+myc@myc-virtual-machine:/tmp/missing$
+</code></pre>
+<p><em>Why &quot;月&quot; exits here? My Ubuntu had set English Language for all.</em>
+8. Look up the chmod program (e.g. use man chmod).</p>
+<pre><code class="language-shell">man chmod
+
+CHMOD(1)                        User Commands                        CHMOD(1)
+
+NAME
+       chmod - change file mode bits
+
+SYNOPSIS
+       chmod [OPTION]... MODE[,MODE]... FILE...
+       chmod [OPTION]... OCTAL-MODE FILE...
+       chmod [OPTION]... --reference=RFILE FILE...
+
+DESCRIPTION
+       This  manual  page  documents the GNU version of chmod.  chmod changes
+       the file mode bits of each given file according to mode, which can  be
+       either  a symbolic representation of changes to make, or an octal num‐
+       ber representing the bit pattern for the new mode bits.
+
+       The format of a symbolic mode is [ugoa...][[-+=][perms...]...],  where
+       perms  is either zero or more letters from the set rwxXst, or a single
+       letter from the set ugo.  Multiple symbolic modes can be given,  sepa‐
+       rated by commas.
+
+       A  combination of the letters ugoa controls which users' access to the
+       file will be changed: the user who owns it (u),  other  users  in  the
+       file's  group  (g),  other  users  not in the file's group (o), or all
+       users (a).  If none of these are given, the effect is as if  (a)  were
+       given, but bits that are set in the umask are not affected.
+
+       The  operator  + causes the selected file mode bits to be added to the
+ Manual page chmod(1) line 1 (press h for help or q to quit)
+
+</code></pre>
+<ol start="9">
+<li>Use chmod to make it possible to run the command ./semester rather than having to type sh semester. How does your shell know that the file is supposed to be interpreted using sh? See this page on the shebang line for more information.</li>
+</ol>
+<p>Last problem show us that , user myc has no permission to execute file semester.</p>
+<p>So, here are two methods at least:</p>
+<p>fisrt:</p>
+<pre><code class="language-shell">myc@myc-virtual-machine:/tmp/missing$ chmod 777 semester
+myc@myc-virtual-machine:/tmp/missing$ ls -l
+total 4
+-rwxrwxrwx 1 myc myc 62  5月 30 14:40 semester
+myc@myc-virtual-machine:/tmp/missing$
+</code></pre>
+<p>Second:</p>
+<pre><code class="language-shell">myc@myc-virtual-machine:/tmp/missing$ chmod +x semester
+myc@myc-virtual-machine:/tmp/missing$ ls -l
+total 4
+-rwxrwxr-x 1 myc myc 62  5月 30 14:30 semester
+myc@myc-virtual-machine:/tmp/missing$
+</code></pre>
+<p>Notice, the only difference between two methods is that the permission of other user. You could find more information in <a href="solutions/">my blog</a>.
+10. Use | and &gt; to write the “last modified” date output by semester into a file called last-modified.txt in your home directory.</p>
+<p>You need to use grep.</p>
+<pre><code class="language-shell">myc@myc-virtual-machine:/tmp/missing$ ./semester | grep last-modified &gt; ~/last-modified.txt
+myc@myc-virtual-machine:/tmp/missing$ cat ~/last-modified.txt
+last-modified: Sat, 06 May 2023 11:21:52 GMT
+myc@myc-virtual-machine:/tmp/missing$
+
+</code></pre>
+<ol start="11">
+<li>Write a command that reads out your laptop battery’s power level or your desktop machine’s CPU temperature from /sys. Note: if you’re a macOS user, your OS doesn’t have sysfs, so you can skip this exercise.</li>
+</ol>
+<p>In <a href="https://missing-semester-cn.github.io/missing-notes-and-solutions/2020/solutions/course-shell-solution/">Chinese solution</a>, it shows the laptop battery’s power level. But I use  VMware virtual box, so I can not find my battery or CPU temperature. WTF???(awesome!)</p>
+<p>I think you could search in google for more information about this problem.</p>
+<div style="break-before: page; page-break-before: always;"></div><ol>
+<li>Read man ls and write an ls command that lists files in the following manner</li>
+</ol>
+<p>Includes all files, including hidden files
+Sizes are listed in human readable format (e.g. 454M instead of 454279954)
+Files are ordered by recency
+Output is colorized</p>
+<pre><code class="language-shell">myc@myc-virtual-machine:~/Desktop$ ls -a
+.                                        optee-rpi3
+..                                       raspbian-tee
+2019-06-20-raspbian-buster.img           riptee
+alexnet-tee                              SMSBoom
+Char_Draw                                tee_tests
+d16578b0-263b-45fe-923e-2c9fc079e30b.ta  tiny-imagenet-200.zip
+myc@myc-virtual-machine:~/Desktop$ ls -h
+2019-06-20-raspbian-buster.img           optee-rpi3    tee_tests
+alexnet-tee                              raspbian-tee  tiny-imagenet-200.zip
+Char_Draw                                riptee
+d16578b0-263b-45fe-923e-2c9fc079e30b.ta  SMSBoom
+myc@myc-virtual-machine:~/Desktop$ ls -t
+Char_Draw     d16578b0-263b-45fe-923e-2c9fc079e30b.ta
+optee-rpi3    tee_tests
+SMSBoom       alexnet-tee
+riptee        tiny-imagenet-200.zip
+raspbian-tee  2019-06-20-raspbian-buster.img
+myc@myc-virtual-machine:~/Desktop$ ls --color=auto
+2019-06-20-raspbian-buster.img           optee-rpi3    tee_tests
+alexnet-tee                              raspbian-tee  tiny-imagenet-200.zip
+Char_Draw                                riptee
+d16578b0-263b-45fe-923e-2c9fc079e30b.ta  SMSBoom
+</code></pre>
+<p>The output of the assignments on website is so ummmmmm, it seems that use -l .
+2. Write bash functions marco and polo that do the following. Whenever you execute marco the current working directory should be saved in some manner, then when you execute polo, no matter what directory you are in, polo should cd you back to the directory where you executed marco. For ease of debugging you can write the code in a file marco.sh and (re)load the definitions to your shell by executing source marco.sh.</p>
+<pre><code class="language-shell">#!usr/bin/bash
+marco(){
+    echo &quot;$(pwd)&quot; &gt; $/home/myc/Desktop/current_path.txt
+    echo &quot;save pwd $(pwd)&quot;
+}
+polo(){
+    cd &quot;$(cat &quot;$/home/myc/Desktop/current_path.txt&quot;)&quot;
+}
+</code></pre>
+<p>In <a href="https://missing-semester-cn.github.io/missing-notes-and-solutions/2020/solutions/shell-tools-solution/">Chinese solutions</a> here is another method, I will learn it a few days later.(I hope)
+3. Say you have a command that fails rarely. In order to debug it you need to capture its output but it can be time consuming to get a failure run. Write a bash script that runs the following script until it fails and captures its standard output and error streams to files and prints everything at the end. Bonus points if you can also report how many runs it took for the script to fail.</p>
+<pre><code class="language-shell">#!/usr/bin/env bash
+ count=0
+ echo &gt; out.log
+
+ while true
+ do
+     sh ./test.sh &amp;&gt;&gt; out.log
+     if [[ $? -ne 0 ]]; then
+         cat out.log
+         echo &quot;Failed after $count times.&quot;
+         break
+     fi
+     ((count++))
+ done
+</code></pre>
+<ol start="4">
+<li>As we covered in the lecture find’s -exec can be very powerful for performing operations over the files we are searching for. However, what if we want to do something with all the files, like creating a zip file? As you have seen so far commands will take input from both arguments and STDIN. When piping commands, we are connecting STDOUT to STDIN, but some commands like tar take inputs from arguments. To bridge this disconnect there’s the xargs command which will execute a command using STDIN as arguments. For example ls | xargs rm will delete the files in the current directory.</li>
+</ol>
+<p>Your task is to write a command that recursively finds all HTML files in the folder and makes a zip with them. Note that your command should work even if the files have spaces (hint: check -d flag for xargs).</p>
+<p>If you’re on macOS, note that the default BSD find is different from the one included in GNU coreutils. You can use -print0 on find and the -0 flag on xargs. As a macOS user, you should be aware that command-line utilities shipped with macOS may differ from the GNU counterparts; you can install the GNU versions if you like by using brew.</p>
+<pre><code class="language-shell">find . -type f -name &quot;*.html&quot; | xargs -d '\n'  tar -cvzf html.zip
+</code></pre>
+<p>ummmmm, I totally copy the Chinese solution.
+5. (Advanced) Write a command or script to recursively find the most recently modified file in a directory. More generally, can you list all files by recency?</p>
+<pre><code class="language-shell">myc@myc-virtual-machine:~/Desktop/alexnet-tee$ ls -lt $(find . -type f | sort -n | tail -1 )
+-rw-rw-r-- 1 myc myc 177  5月  7 19:58 ./tools/shuffle_list.py
+myc@myc-virtual-machine:~/Desktop/alexnet-tee$
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>Most of them are experimental assignments, and we plan to practice with more detailed textbooks in the future.</p>
+<p>I will record a video to demonstrate the process of using VIM in a while.</p>
+<div style="break-before: page; page-break-before: always;"></div><ol>
+<li>Take this <a href="https://regexone.com/">short interactive regex tutorial</a>.</li>
+<li>Find the number of words (in [object Object]) that contain at least three [object Object]s and don’t have a [object Object] ending. What are the three most common last two letters of those words? [object Object]’s [object Object] command, or the [object Object] program, may help you with case insensitivity. How many of those two-letter combinations are there? And for a challenge: which combinations do not occur?</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:48:13]$ grep -P '^(?!.*'\''s$)(.*a){3}' /usr/share/dict/words | wc -l
+768
+┌─[myc@ubuntu22]─[~]
+└──╼[14:49:41]$ # But the Chinese Solution is Below
+┌─[myc@ubuntu22]─[~]
+└──╼[14:50:04]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | wc -l
+854
+┌─[myc@ubuntu22]─[~]
+└──╼[14:50:07]$
+</code></pre>
+<p><strong>I feel confused.</strong></p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:54:22]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^[^s]*a[^s]*a[^s]*a[^'s]*$&quot; | rev | cut -c1-2 | sort | uniq -c | sort -nr | head -3
+     71 na
+     36 la
+     33 ai
+┌─[myc@ubuntu22]─[~]
+└──╼[14:54:39]$ # The Chinese solution
+┌─[myc@ubuntu22]─[~]
+└──╼[14:55:09]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | sed -E &quot;s/.*([a-z]{2})$/\1/&quot; | sort | uniq -c | sort | tail -n3
+      8 am
+      8 ce
+      9 ca
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:55:11]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^[^s]*a[^s]*a[^s]*a[^'s]*$&quot; | rev | cut -c1-2 | sort | uniq | wc -l
+76
+┌─[myc@ubuntu22]─[~]
+└──╼[14:55:42]$ # solution
+┌─[myc@ubuntu22]─[~]
+└──╼[14:56:03]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | sed -E &quot;s/.*([a-z]{2})$/\1/&quot; | sort | uniq | wc -l
+112
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:56:06]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^[^s]*a[^s]*a[^s]*a[^'s]*$&quot; | rev | cut -c1-2 | sort | uniq &gt; appeared_combinations.txt
+┌─[myc@ubuntu22]─[~]
+└──╼[14:57:40]$ cat /usr/share/dict/words | rev | cut -c1-2 | sort | uniq &gt; all_combinations.txt
+┌─[myc@ubuntu22]─[~]
+└──╼[14:57:50]$ grep -vxFf appeared_combinations.txt all_combinations.txt
+a
+a'
+A
+á
+AA
+aB
+AB
+aC
+AC
+AD
+AE
+aG
+AG
+AH
+AI
+aL
+AL
+AM
+aN
+AN
+AO
+aP
+AP
+AQ
+aR
+AR
+as
+AS
+aT
+AT
+aV
+AV
+AW
+b
+B
+ba
+BA
+bb
+BB
+BC
+Bd
+BD
+be
+BG
+bi
+bl
+bm
+bM
+BM
+bN
+BN
+bo
+bO
+BO
+bP
+br
+bR
+bS
+BS
+bT
+BT
+bu
+bY
+c
+C
+cA
+CA
+CB
+cc
+CC
+CD
+ce
+CE
+CF
+CI
+ck
+cl
+CL
+CM
+cn
+CN
+co
+CO
+CP
+cr
+CR
+cs
+cS
+CS
+ct
+cT
+CT
+CV
+CW
+CY
+d
+d'
+D
+DA
+dc
+dC
+DC
+dd
+DD
+dE
+DE
+DF
+dG
+dh
+Dh
+di
+DI
+dl
+dM
+DM
+dN
+DN
+do
+DO
+dp
+dP
+DP
+dR
+DR
+DS
+dt
+DT
+du
+DU
+dv
+DV
+dw
+dy
+e
+E
+é
+eb
+eB
+ED
+EE
+ef
+eF
+eG
+EG
+eH
+EI
+ej
+ek
+eL
+em
+EM
+eN
+EN
+eo
+EO
+ep
+EP
+eR
+es
+eS
+ES
+ET
+ev
+ew
+ex
+eX
+ey
+ez
+f
+F
+fa
+FA
+fc
+fC
+FD
+fe
+FE
+ff
+FF
+fH
+FH
+fi
+FI
+fl
+FL
+FM
+fo
+fp
+fr
+FS
+FV
+g
+G
+ga
+gA
+GC
+gd
+ge
+GE
+gf
+gg
+gH
+gi
+Gi
+gk
+GK
+GL
+gm
+gM
+GN
+go
+gp
+GP
+gr
+GS
+gu
+gv
+GY
+h
+H
+hc
+hd
+he
+hg
+hk
+hl
+hn
+HN
+ho
+HO
+Hp
+hr
+hR
+HR
+hs
+hT
+HT
+hu
+hz
+i
+i'
+I
+ia
+IA
+ib
+iB
+IB
+ic
+iC
+IC
+id
+iD
+ie
+if
+iF
+ig
+IG
+ih
+IH
+ii
+II
+ij
+ik
+il
+iL
+im
+IM
+iN
+io
+ip
+IP
+iq
+IR
+is
+iS
+IS
+it
+iT
+iu
+IU
+iv
+IV
+iw
+IW
+ix
+IY
+iz
+j
+J
+ja
+jb
+JB
+jd
+JD
+jn
+JN
+JO
+jr
+JV
+k
+K
+KA
+kB
+kc
+ke
+KF
+ki
+KI
+KK
+kl
+kn
+ko
+KO
+ks
+ku
+KU
+kw
+ky
+l
+L
+lA
+LA
+lc
+lC
+le
+lf
+LF
+lh
+LH
+li
+LI
+ll
+lm
+LM
+lo
+LO
+lp
+lP
+LQ
+lr
+LR
+LS
+lt
+lT
+lu
+lv
+lw
+LX
+ly
+lz
+m
+m'
+M
+mA
+MA
+MB
+mc
+mC
+me
+ME
+mF
+MF
+mg
+MG
+mh
+mi
+mk
+ml
+mm
+mn
+MN
+mo
+MO
+mp
+mP
+MP
+mr
+ms
+mS
+mT
+MT
+mu
+mW
+my
+n
+n'
+N
+NA
+nd
+ne
+ng
+nh
+ni
+nI
+NI
+nl
+nL
+nm
+nM
+NM
+nn
+NN
+NP
+nr
+nR
+NR
+ns
+nS
+NS
+NT
+nu
+NU
+NV
+nw
+ny
+nZ
+o
+O
+oa
+OB
+oc
+oC
+OC
+oe
+OE
+of
+OF
+og
+OG
+oH
+OH
+oI
+oj
+oJ
+ok
+OK
+ol
+OL
+oM
+OM
+on
+op
+oP
+OP
+or
+OR
+os
+OS
+ot
+OT
+ou
+ow
+ox
+oy
+oz
+p
+P
+pa
+PA
+PB
+PC
+pd
+PD
+pe
+PG
+ph
+PH
+pi
+PI
+PJ
+PK
+pl
+PL
+pm
+PM
+pN
+PN
+po
+PO
+pp
+PP
+pr
+PR
+ps
+PS
+pt
+PT
+pu
+PV
+px
+py
+q
+Q
+qa
+QA
+QB
+QD
+QH
+QI
+qs
+qS
+r
+R
+rA
+RA
+rb
+rB
+rC
+RC
+rd
+rD
+RD
+rE
+RE
+rf
+rF
+rg
+rh
+RH
+ri
+rI
+rJ
+rK
+rL
+RL
+rM
+ro
+RO
+rp
+RP
+rr
+RR
+rS
+RS
+rt
+ru
+rU
+RV
+ry
+rZ
+s
+s'
+S
+sa
+sA
+SA
+sb
+SB
+sc
+sC
+SC
+sd
+sD
+SD
+se
+sE
+sf
+sg
+sh
+SH
+si
+sI
+SI
+sk
+sK
+SK
+sl
+sL
+sm
+sM
+SM
+sn
+sN
+SN
+so
+sO
+SO
+sp
+sP
+SP
+sQ
+sr
+sR
+SR
+ss
+SS
+st
+sT
+ST
+su
+SU
+sv
+sV
+SV
+sw
+SW
+SX
+sy
+t
+t'
+T
+tA
+TA
+tb
+TB
+TC
+td
+TD
+te
+TE
+tg
+th
+tI
+TI
+tl
+tL
+TL
+tm
+tM
+TM
+TN
+to
+TO
+tp
+tP
+TP
+tq
+tr
+TR
+ts
+tS
+TS
+tt
+TU
+tv
+TV
+tw
+TW
+tx
+ty
+tz
+TZ
+u
+U
+ua
+uA
+ub
+uc
+uC
+UC
+ud
+ue
+uE
+uf
+ug
+uh
+uj
+uk
+ul
+uL
+UL
+um
+un
+UN
+uo
+UO
+up
+uP
+UP
+ur
+uR
+us
+ut
+UT
+uu
+uW
+uy
+uz
+v
+V
+va
+vA
+VA
+vd
+ve
+vi
+VI
+VJ
+VM
+VN
+VO
+VR
+VS
+VT
+VU
+VW
+vx
+w
+W
+wa
+WA
+we
+WF
+WI
+WJ
+Wk
+WM
+WN
+wo
+WO
+WS
+WT
+WW
+x
+X
+XA
+XB
+xe
+xE
+Xe
+xi
+XI
+xn
+xo
+XP
+xr
+xR
+XT
+xu
+xx
+xy
+Xy
+y
+Y
+yb
+YB
+yc
+yd
+ye
+yf
+yg
+yh
+yk
+YK
+ym
+yn
+YN
+yo
+ys
+yT
+YT
+yu
+yv
+yw
+YW
+yx
+yz
+z
+Z
+ZA
+zd
+ze
+zH
+zi
+zl
+ZM
+zn
+ZN
+zo
+zO
+zs
+zt
+zu
+zz
+grep: all_combinations.txt: binary file matches
+┌─[myc@ubuntu22]─[~]
+└──╼[14:57:58]$
+</code></pre>
+<ol start="3">
+<li>To do in-place substitution it is quite tempting to do something like [object Object]. However this is a bad idea, why? Is this particular to [object Object]? Use [object Object] to find out how to accomplish this.</li>
+</ol>
+<p>Answer below is copyed.
+sed s/REGEX/SUBSTITUTION/ input.txt &gt; input.txt expression will first clear the latter input.txt, and this happens before the former one is processed by sed. Therefore, the former input.txt is already empty before being processed by sed. It's best to backup files before using regular expressions to process them.</p>
+<pre><code class="language-shell">sed -i.bak s/REGEX/SUBSTITUTION/ input.txt
+</code></pre>
+<p>This can automatically create a backup file with a .bak suffix.</p>
+<ol start="4">
+<li>Find your average, median, and max system boot time over the last ten boots. Use [object Object] on Linux and [object Object] on macOS, and look for log timestamps near the beginning and end of each boot. On Linux, they may look something like:</li>
+</ol>
+<p><em>I don't want to restart my virtual machine ten times, so the answer to this and the next question will be skipped.</em> :(</p>
+<ol start="5">
+<li>
+<p>Look for boot messages that are not shared between your past three reboots (see [object Object]’s [object Object] flag). Break this task down into multiple steps. First, find a way to get just the logs from the past three boots. There may be an applicable flag on the tool you use to extract the boot logs, or you can use [object Object] to remove all lines previous to one that matches [object Object]. Next, remove any parts of the line that always varies (like the timestamp). Then, de-duplicate the input lines and keep a count of each one ([object Object] is your friend). And finally, eliminate any line whose count is 3 (since it was shared among all the boots).</p>
+</li>
+<li>
+<p>Find an online data set like this one, this one, or maybe one from here. Fetch it using [object Object] and extract out just two columns of numerical data. If you’re fetching HTML data, [object Object] might be helpful. For JSON data, try [object Object]. Find the min and max of one column in a single command, and the difference of the sum of each column in another.</p>
+</li>
+</ol>
+<p><em>Great, Wikipedia cannot be accessed in mainland China. Cool.</em></p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:00:04]$ curl 'https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm' |
+sed -n &quot;/table1/,/&lt;\/table&gt;/p&quot; |
+grep &quot;&lt;tr&quot; |
+sed -E 's/(&lt;[^&gt;]*&gt;)+/ /g' |
+sed 's/ /-/g;s/ / /g' |
+sed 's/ /-/g;s/&amp;nbsp;/ /g' |
+head -n -3 |
+tail +11
+|sed 's/^-//' &gt; data.txt
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  214k  100  214k    0     0   283k      0 --:--:-- --:--:-- --:--:--  283k
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:00:50]$
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:06:36]$ awk -F &quot;-&quot; '{print $0,$5}' data.txt | sort --key=7n | head -n 1
+Jan 2001-7-7-9- -31-12-1-8.6-1352-29%-10%-267-301 kB-3.0 k-15- - -2-163-
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:06:46]$
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:04:19]$ awk -F &quot;-&quot; '{print $0,$5}' data.txt | sort --key=7n | tail -n 1
+Feb 2001-15-8-14-1-165-129-5-6.0-1236-51%-14%-727-1.2 MB-36 k-655- - -21-482- 1
+┌─[myc@ubuntu22]─[~/Desktop]
+</code></pre>
+<pre><code class="language-shell">┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[23:09:58]$ awk -F &quot;-&quot; '{print $7-$2}' data | awk '{s+=$1} END {print s}'
+-2.36832e+08
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:10:09]$
+# 什么玩意儿，不管了，先这样吧。。。
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercises"><a class="header" href="#exercises">Exercises</a></h1>
+<h2 id="job-control-1"><a class="header" href="#job-control-1">Job control</a></h2>
+<ol>
+<li>From what we have seen, we can use some ps aux | grep commands to get our jobs’ pids and then kill them, but there are better ways to do it. Start a sleep 10000 job in a terminal, background it with Ctrl-Z and continue its execution with bg. Now use pgrep to find its pid and pkill to kill it without ever typing the pid itself. (Hint: use the -af flags).</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:02]$ sleep 10000
+^Z
+[1]+  Stopped                 sleep 10000
+┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:11]$ bg
+[1]+ sleep 10000 &amp;
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:14]$ pgrep sleep
+2388
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:23]$ pkill -af sleep
+pkill: invalid option -- 'a'
+
+Usage:
+ pkill [options] &lt;pattern&gt;
+
+Options:
+ -&lt;sig&gt;, --signal &lt;sig&gt;    signal to send (either number or name)
+ -q, --queue &lt;value&gt;       integer value to be sent with the signal
+ -e, --echo                display what is killed
+ -c, --count               count of matching processes
+ -f, --full                use full process name to match
+ -g, --pgroup &lt;PGID,...&gt;   match listed process group IDs
+ -G, --group &lt;GID,...&gt;     match real group IDs
+ -i, --ignore-case         match case insensitively
+ -n, --newest              select most recently started
+ -o, --oldest              select least recently started
+ -O, --older &lt;seconds&gt;     select where older than seconds
+ -P, --parent &lt;PPID,...&gt;   match only child processes of the given parent
+ -s, --session &lt;SID,...&gt;   match session IDs
+ -t, --terminal &lt;tty,...&gt;  match by controlling terminal
+ -u, --euid &lt;ID,...&gt;       match by effective IDs
+ -U, --uid &lt;ID,...&gt;        match by real IDs
+ -x, --exact               match exactly with the command name
+ -F, --pidfile &lt;file&gt;      read PIDs from file
+ -L, --logpidfile          fail if PID file is not locked
+ -r, --runstates &lt;state&gt;   match runstates [D,S,Z,...]
+ --ns &lt;PID&gt;                match the processes that belong to the same
+                           namespace as &lt;pid&gt;
+ --nslist &lt;ns,...&gt;         list which namespaces will be considered for
+                           the --ns option.
+                           Available namespaces: ipc, mnt, net, pid, user, uts
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see pgrep(1).
+┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:51]$ pkill -f sleep
+[1]+  Terminated              sleep 10000
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:56:26]$
+
+# WTF? -a dose not exist.
+</code></pre>
+<ol start="2">
+<li>Say you don’t want to start a process until another completes. How would you go about it? In this exercise, our limiting process will always be sleep 60 &amp;. One way to achieve this is to use the wait command. Try launching the sleep command and having an ls wait until the background process finishes.However, this strategy will fail if we start in a different bash session, since wait only works for child processes. One feature we did not discuss in the notes is that the kill command’s exit status will be zero on success and nonzero otherwise. kill -0 does not send a signal but will give a nonzero exit status if the process does not exist. Write a bash function called pidwait that takes a pid and waits until the given process completes. You should use sleep to avoid wasting CPU unnecessarily.</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:56:26]$ sleep 60 &amp;
+[1] 2540
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:57:42]$ ls -alh | wait; ls
+CS110L  CS50P  CS50-This-is-CS50x
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:58:00]$
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:00:13]$ vim example.sh
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:00:39]$ source example.sh
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:02:21]$ pidwait
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:02:32]$ sleep 60
+^Z
+[1]+  Stopped                 sleep 60
+┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[00:03:05]$ bg
+[1]+ sleep 60 &amp;
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:03:06]$ pgrep sleep
+2658
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:03:10]$ pidwait 2658
+[1]+  Done                    sleep 60
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:04:01]$
+
+</code></pre>
+<pre><code class="language-shell">function pidwait() {
+    local pid=$1
+    while ps -p $pid &gt;/dev/null 2&gt;&amp;1; do
+        sleep 1
+    done
+}
+</code></pre>
+<h2 id="terminal-multiplexer"><a class="header" href="#terminal-multiplexer">Terminal multiplexer</a></h2>
+<ol>
+<li>Follow this tmux tutorial and then learn how to do some basic customizations following these steps.</li>
+</ol>
+<p>It is so complex! BUT NOW I am already familiar with this tool.</p>
+<h2 id="aliases-1"><a class="header" href="#aliases-1">Aliases</a></h2>
+<ol>
+<li>Create an alias dc that resolves to cd for when you type it wrongly.</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[00:06:34]$ alias dc=cd
+┌─[myc@ubuntu22]─[~]
+└──╼[00:06:36]$ dc Desktop/
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:06:44]$
+</code></pre>
+<ol start="2">
+<li>Run history | awk '{$1=&quot;&quot;;print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10 to get your top 10 most used commands and consider writing shorter aliases for them. Note: this works for Bash; if you’re using ZSH, use history 1 instead of just history.</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[00:07:05]$ history | awk '{$1=&quot;&quot;;print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10
+      2 line = line &quot;;&quot; $i;
+      2 pgrep sleep
+      2 print line;
+      3 cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | sed -E &quot;s/.*([a-z]{2})$/\1/&quot; | sort | uniq -c | sort | tail -n3
+      3 cd Desktop/
+      3 curl https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/topic-pages/tables/table-1 | sed -n '/&lt;table/,/&lt;\/table/p' | sed -n '/&lt;tr&gt;/,/&lt;\/tr&gt;/p' &gt; data.txt
+      4 }
+      4 su
+      5 curl 'https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm' | sed -n &quot;/table1/,/&lt;\/table&gt;/p&quot; | grep &quot;&lt;tr&quot; | sed -E 's/(&lt;[^&gt;]*&gt;)+/ /g' | sed 's/ /-/g;s/&amp;nbsp;/ /g' &gt; data.txt
+      5 ls
+┌─[myc@ubuntu22]─[~]
+└──╼[00:07:18]$
+</code></pre>
+<h2 id="dotfiles-1"><a class="header" href="#dotfiles-1">Dotfiles</a></h2>
+<p>Let’s get you up to speed with dotfiles.</p>
+<ol>
+<li>Create a folder for your dotfiles and set up version control.</li>
+<li>Add a configuration for at least one program, e.g. your shell, with some customization (to start off, it can be something as simple as customizing your shell prompt by setting $PS1).</li>
+<li>Set up a method to install your dotfiles quickly (and without manual effort) on a new machine. This can be as simple as a shell script that calls ln -s for each file, or you could use a specialized utility.</li>
+<li>Test your installation script on a fresh virtual machine.</li>
+<li>Migrate all of your current tool configurations to your dotfiles repository.</li>
+<li>Publish your dotfiles on GitHub.</li>
+</ol>
+<p><del>ALL QUESTION ARE SO EASY! I will redo this assignment once I finish writing more dotfiles.</del></p>
+<pre><code class="language-shell">$ mkdir ~/gits/dotfiles   # gits目录是创建用来存放所有git及github仓库的目录
+$ git init ~/gits/dotfiles # 将本机的配置文件，如 .vimrc/.bashrc/.tmux.conf 等复制进该目录
+</code></pre>
+<pre><code class="language-shell">$ git clone
+
+$ vim autoconfig.sh   # 创建脚本
+$ cat autoconfig.sh
+#!/bin/bash
+files=$(ls -a $1 | grep -E '.[^.]+' |grep -v .git)
+# 去掉 ls -a 返回结果中的 &quot;. .. .git&quot;
+for file in `echo $files`; do
+    ln -s $1/$file ~/$file # 创建软链接
+done
+
+$ source autoconfig.sh
+# 执行脚本，为dotfiles中的配置文件创建在主目录 ~ 下的软链接
+</code></pre>
+<h2 id="remote-machines-1"><a class="header" href="#remote-machines-1">Remote Machines</a></h2>
+<p>Install a Linux virtual machine (or use an already existing one) for this exercise. If you are not familiar with virtual machines check out this tutorial for installing one.</p>
+<ol>
+<li>Go to ~/.ssh/ and check if you have a pair of SSH keys there. If not, generate them with ssh-keygen -o -a 100 -t ed25519. It is recommended that you use a password and use ssh-agent , more info here.</li>
+</ol>
+<pre><code class="language-shell">┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:33:00]$ ssh-keygen -o -a 100 -t ed25519
+┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:34:04]$ ls .ssh
+id_ed25519  id_ed25519.pub  id_rsa  id_rsa.pub  known_hosts  known_hosts.old
+</code></pre>
+<ol start="2">
+<li>Edit .ssh/config to have an entry as follows</li>
+</ol>
+<pre><code> Host vm
+     User username_goes_here
+     HostName ip_goes_here
+     IdentityFile ~/.ssh/id_ed25519
+     LocalForward 9999 localhost:8888
+</code></pre>
+<p>I use UbuntuDesktop to connet Ubuntu Server. :)</p>
+<pre><code class="language-shell">Host vm
+  User myc
+  HostName 192.168.85.131
+  IdentityFile ~/.ssh/id_ed25519
+  LocalForward 9999 localhost:8888
+</code></pre>
+<ol start="3">
+<li>Use ssh-copy-id vm to copy your ssh key to the server.</li>
+</ol>
+<pre><code class="language-shell">┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:35:36]$ ssh-copy-id vm
+The authenticity of host '192.168.85.131 (192.168.85.131)' can't be established.
+ED25519 key fingerprint is SHA256:6KgPSnRcSlySxeuU1QmuFjnw2qvYvYGEUkpNFoXZrXM.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 2 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+myc@192.168.85.131's password:
+
+Number of key(s) added: 2
+
+Now try logging into the machine, with:   &quot;ssh 'vm'&quot;
+and check to make sure that only the key(s) you wanted were added.
+
+┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:36:00]$ ssh vm
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-60-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Sat Jun 10 16:17:04 2023
+To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
+See &quot;man sudo_root&quot; for details.
+
+myc@ubuntu22[16:36:23]:~$
+</code></pre>
+<ol start="4">
+<li>Start a webserver in your VM by executing python -m http.server 8888. Access the VM webserver by navigating to http://localhost:9999 in your machine.</li>
+</ol>
+<pre><code class="language-shell">myc@ubuntu22[16:38:04]:~$ python3 -m http.server 8888
+Serving HTTP on 0.0.0.0 port 8888 (http://0.0.0.0:8888/) ...
+127.0.0.1 - - [10/Jun/2023 16:39:06] &quot;GET / HTTP/1.1&quot; 200 -
+127.0.0.1 - - [10/Jun/2023 16:39:06] code 404, message File not found
+127.0.0.1 - - [10/Jun/2023 16:39:06] &quot;GET /favicon.ico HTTP/1.1&quot; 404 -
+</code></pre>
+<p><img src="solutions/../pictures/ssh-server.png" alt="img" />
+5. Edit your SSH server config by doing sudo vim /etc/ssh/sshd_config and disable password authentication by editing the value of PasswordAuthentication. Disable root login by editing the value of PermitRootLogin. Restart the ssh service with sudo service sshd restart. Try sshing in again.</p>
+<p><strong>It is not recommended to use root login.</strong>
+6. (Challenge) Install mosh in the VM and establish a connection. Then disconnect the network adapter of the server/VM. Can mosh properly recover from it?</p>
+<p>After disconnecting the network adapter, neither SSH nor Mosh connections can be restored actively (the virtual machine's network connection method needs to be modified again).</p>
+<ol start="7">
+<li>(Challenge) Look into what the -N and -f flags do in ssh and figure out a command to achieve background port forwarding.</li>
+</ol>
+<pre><code class="language-shell">-N      Do not execute a remote command.  This is useful for just forwarding ports.
+
+-f      Requests ssh to go to background just before command execution.  This is useful if ssh is going to ask for passwords or passphrases, but the user wants it in the background.  This implies -n.  The recommended way to start X11 programs at a remote site is with something like ssh -f host xterm.
+
+If the ExitOnForwardFailure configuration option is set to ``yes'', then a client started with -f will wait for all remote port forwards to be successfully established before placing itself in the background.
+</code></pre>
+<pre><code class="language-shell">ssh -fN -L 9999:localhost:8888 pi
+</code></pre>
+<p><del>I have almost completed all the issues mentioned above on Huawei Cloud and Raspberry Pi, so I will address them again when reconfiguring the Raspberry Pi in the future.</del></p>
+<div style="break-before: page; page-break-before: always;"></div><ol>
+<li>If you don’t have any past experience with Git, either try reading the first couple chapters of Pro Git or go through a tutorial like Learn Git Branching. As you’re working through it, relate Git commands to the data model.</li>
+</ol>
+<p>Notes are <a href="solutions/../more%20information/Pro-Git.html">here</a>
+2. Clone the repository for the class website.</p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[16:48:08]$ git clone https://github.com/missing-semester/missing-semester.git
+Cloning into 'missing-semester'...
+remote: Enumerating objects: 2251, done.
+remote: Counting objects: 100% (1185/1185), done.
+remote: Compressing objects: 100% (514/514), done.
+remote: Total 2251 (delta 686), reused 715 (delta 667), pack-reused 1066
+Receiving objects: 100% (2251/2251), 15.58 MiB | 6.78 MiB/s, done.
+Resolving deltas: 100% (1331/1331), done.
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[16:48:15]$
+</code></pre>
+<ol start="2">
+<li>
+<ol>
+<li>Explore the version history by visualizing it as a graph.</li>
+</ol>
+<pre><code class="language-shell">✔  ~/Desktop/missing-semester [master|✔ ]
+16:48 $ git log --all --graph --decorate
+* commit c4512e31a985df283cf279b0d847d1539f975737 (HEAD -&gt; master, origin/master, origin/HEAD)
+| Author: Anish Athalye &lt;me@anishathalye.com&gt;
+| Date:   Sat May 6 07:21:16 2023 -0400
+|
+|     Fix broken links
+|
+*   commit 2f2df39298d5c5f83c3a21796c53fd24bbbbb772
+|\  Merge: ee1d4de 1872bc2
+| | Author: Anish Athalye &lt;me@anishathalye.com&gt;
+| | Date:   Sat Apr 29 08:25:59 2023 -0400
+| |
+| |     Merge branch 'detonator-man/typo-fix'
+| |
+| * commit 1872bc25c46321b07f14f0ee4462b87d5c0202ab
+| | Author: detonator-man &lt;slashpow@outlook.com&gt;
+| | Date:   Sat Apr 29 17:21:59 2023 +1000
+| |
+| |     Fix typo on 2019 editors page
+| |
+* | commit ee1d4de0215ef3b35dce048095d4fec6635ba73b
+| | Author: lfanew &lt;58160325+lfanew@users.noreply.github.com&gt;
+| | Date:   Sun Apr 23 18:33:38 2023 -0500
+| |
+| |     Debugging and Profiling corrections (#215)
+| |
+* | commit 7e50e21775b53907f8277eb7fe480e44fb3185c8
+|/  Author: Anish Athalye &lt;me@anishathalye.com&gt;
+:
+</code></pre>
+<ol start="2">
+<li>Who was the last person to modify README.md? (Hint: use git log with an argument).</li>
+</ol>
+<pre><code class="language-shell">16:52 $     git log -1 README.md
+commit 9ef9db72211fefc00caaa7133b35dda4a99acccf
+Author: Anish Athalye &lt;me@anishathalye.com&gt;
+Date:   Thu Oct 27 20:28:41 2022 -0400
+
+    Add Docker setup for easier development
+✔  ~/Desktop/missing-semester [master|✔ ]
+</code></pre>
+<ol start="3">
+<li>What was the commit message associated with the last modification to the collections: line of _config.yml? (Hint: use git blame and git show).</li>
+</ol>
+<pre><code class="language-shell">✔  ~/Desktop/missing-semester [master|✔ ]
+16:52 $ git blame _config.yml | grep collections
+a88b4eac (Anish Athalye 2020-01-17 15:26:30 -0500 18) collections:
+✔  ~/Desktop/missing-semester [master|✔ ]
+16:52 $
+</code></pre>
+</li>
+<li>
+<p>One common mistake when learning Git is to commit large files that should not be managed by Git or adding sensitive information. Try adding a file to a repository, making some commits and then deleting that file from history (you may want to look at this).</p>
+</li>
+</ol>
+<p>Using</p>
+<pre><code class="language-shell">git filter-branch
+</code></pre>
+<p>to clean up commit history.</p>
+<p>for example:</p>
+<pre><code class="language-shell">git filter-branch --force --index-filter\
+'git rm --cached --ignore-unmatch ./my_password' \
+--prune-empty --tag-name-filter cat -- --all
+</code></pre>
+<ol start="4">
+<li>Clone some repository from GitHub, and modify one of its existing files. What happens when you do git stash? What do you see when running git log --all --oneline? Run git stash pop to undo what you did with git stash. In what scenario might this be useful?</li>
+</ol>
+<p>The Git stash command can temporarily store current uncommitted changes, allowing for a clean workspace to switch branches and fix bugs before retrieving the stored changes with git stash pop.</p>
+<ol start="5">
+<li>
+<p>Like many command line tools, Git provides a configuration file (or dotfile) called ~/.gitconfig. Create an alias in ~/.gitconfig so that when you run git graph, you get the output of git log --all --graph --decorate --oneline. Information about git aliases can be found here.</p>
+</li>
+<li>
+<p>You can define global ignore patterns in ~/.gitignore_global after running git config --global core.excludesfile ~/.gitignore_global. Do this, and set up your global gitignore file to ignore OS-specific or editor-specific temporary files, like .DS_Store.</p>
+</li>
+</ol>
+<pre><code class="language-shell">[alias]
+    graph = log --all --graph --decorate --oneline
+</code></pre>
+<ol start="7">
+<li>Fork the repository for the class website, find a typo or some other improvement you can make, and submit a pull request on GitHub (you may want to look at this). Please only submit PRs that are useful (don’t spam us, please!). If you can’t find an improvement to make, you can skip this exercise.</li>
+</ol>
+<p>Click <code>New Pull Request</code></p>
+<div style="break-before: page; page-break-before: always;"></div><p>I have learned all the content of this lecture in the undergraduate course Software Engineering at Nankai University's College of Computer Science. Therefore, I do not want to go over these materials again for now. Perhaps when I need to conduct performance analysis and testing in the future, I will come back and review this content.</p>
+<div style="break-before: page; page-break-before: always;"></div><ol>
+<li>Most makefiles provide a target called clean. This isn’t intended to produce a file called clean, but instead to clean up any files that can be re-built by make. Think of it as a way to “undo” all of the build steps. Implement a clean target for the paper.pdf Makefile above. You will have to make the target phony. You may find the git ls-files subcommand useful. A number of other very common make targets are listed here.</li>
+</ol>
+<pre><code class="language-Makefile">paper.pdf: paper.tex plot-data.png
+	pdflatex paper.tex
+
+plot-%.png: %.dat plot.py
+	./plot.py -i $*.dat -o $@
+
+.PHONY: clean
+clean:
+	rm *.pdf *.aux *.log *.png
+	#git ls-files -o | xargs rm -f
+</code></pre>
+<ol start="2">
+<li>Take a look at the various ways to specify version requirements for dependencies in Rust’s build system. Most package repositories support similar syntax. For each one (caret, tilde, wildcard, comparison, and multiple), try to come up with a use-case in which that particular kind of requirement makes sense.</li>
+</ol>
+<p>Cargo!</p>
+<ol start="3">
+<li>Git can act as a simple CI system all by itself. In .git/hooks inside any git repository, you will find (currently inactive) files that are run as scripts when a particular action happens. Write a pre-commit hook that runs make paper.pdf and refuses the commit if the make command fails. This should prevent any commit from having an unbuildable version of the paper.</li>
+</ol>
+<pre><code class="language-shell">if  ! make ; then
+     echo &quot;build failed, commit rejected&quot;
+     exit 1
+fi
+</code></pre>
+<ol start="4">
+<li>
+<p>Set up a simple auto-published page using GitHub Pages. Add a GitHub Action to the repository to run shellcheck on any shell files in that repository (here is one way to do it). Check that it works!</p>
+</li>
+<li>
+<p>Build your own GitHub action to run proselint or write-good on all the .md files in the repository. Enable it in your repository, and check that it works by filing a pull request with a typo in it.</p>
+</li>
+</ol>
+<p>On the two questions above, I will publish the entire repository to GitHub pages and perform more operations using GitHub actions. When viewing my repository, it basically means that I am familiar with these contents.</p>
+<div style="break-before: page; page-break-before: always;"></div><ol>
+<li>
+<p>Entropy.</p>
+<ol>
+<li>Suppose a password is chosen as a concatenation of four lower-case dictionary words, where each word is selected uniformly at random from a dictionary of size 100,000. An example of such a password is correcthorsebatterystaple. How many bits of entropy does this have?</li>
+</ol>
+<pre><code>Entropy = log_2(100000^4) = 66 #correcthorsebatterystaple
+</code></pre>
+<ol start="2">
+<li>Consider an alternative scheme where a password is chosen as a sequence of 8 random alphanumeric characters (including both lower-case and upper-case letters). An example is rg8Ql34g. How many bits of entropy does this have?</li>
+</ol>
+<pre><code>Entropy = log_2((26+26+10)^8) = 48 #rg8Ql34g
+</code></pre>
+<ol start="3">
+<li>Which is the stronger password?</li>
+</ol>
+<p>The First!</p>
+<ol start="4">
+<li>Suppose an attacker can try guessing 10,000 passwords per second. On average, how long will it take to break each of the passwords?</li>
+</ol>
+<p>0.1085 billion years</p>
+<p>346 years</p>
+</li>
+<li>
+<p>Cryptographic hash functions. Download a Debian image from a mirror (e.g. from this Argentinean mirror). Cross-check the hash (e.g. using the sha256sum command) with the hash retrieved from the official Debian site (e.g. this file hosted at debian.org, if you’ve downloaded the linked file from the Argentinean mirror).</p>
+</li>
+</ol>
+<pre><code class="language-shell">curl -O -L -C - http://debian.xfree.com.ar/debian-cd/current/amd64/iso-cd/debian-mac-10.9.0-amd64-netinst.iso
+curl -O https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS
+
+cat SHA256SUMS | grep debian-10.9.0-amd64-netinst.iso
+8660593d10de0ce7577c9de4dab886ff540bc9843659c8879d8eea0ab224c109  debian-10.9.0-amd64-netinst.iso
+
+shasum -a 256 debian-10.9.0-amd64-netinst.iso
+8660593d10de0ce7577c9de4dab886ff540bc9843659c8879d8eea0ab224c109  debian-10.9.0-amd64-netinst.iso
+
+diff &lt;(cat SHA256SUMS |grep debian-10.9.0-amd64-netinst.iso) &lt;(shasum -a 256 debian-10.9.0-amd64-netinst.iso)
+</code></pre>
+<ol start="3">
+<li>Symmetric cryptography. Encrypt a file with AES encryption, using OpenSSL: openssl aes-256-cbc -salt -in {input filename} -out {output filename}. Look at the contents using cat or hexdump. Decrypt it with openssl aes-256-cbc -d -in {input filename} -out {output filename} and confirm that the contents match the original using cmp.</li>
+</ol>
+<pre><code class="language-shell">echo &quot;hello world&quot; &gt; afile #创建一个文件
+openssl aes-256-cbc -salt -in afile -out secfile #加密文件
+enter aes-256-cbc encryption password:***
+Verifying - enter aes-256-cbc encryption password:***
+
+diff &lt;(hexdump afile) &lt;(hexdump secfile)
+
+1,2c1,3
+&lt; 0000000 68 65 6c 6c 6f 20 77 6f 72 6c 64 0a
+&lt; 000000c
+---
+&gt; 0000000 53 61 6c 74 65 64 5f 5f cb 18 f1 7c 4f 09 b4 21
+&gt; 0000010 d2 f1 56 77 80 01 b1 2f ac 2d 32 35 52 23 2e c6
+&gt; 0000020
+
+cat afile
+# hello world
+cat secfile
+# Salted__|O      !Vw/-25R#.%
+
+
+cat afile
+# hello world
+cat secfile
+# Salted__|O      !Vw/-25R#.%
+</code></pre>
+<ol start="4">
+<li>
+<p>Asymmetric cryptography.</p>
+<ol>
+<li>Set up SSH keys on a computer you have access to (not Athena, because Kerberos interacts weirdly with SSH keys). Make sure your private key is encrypted with a passphrase, so it is protected at rest.</li>
+</ol>
+<pre><code class="language-shell">ssh-keygen -t ed25519
+</code></pre>
+<ol start="2">
+<li>Set up GPG</li>
+</ol>
+<pre><code class="language-shell">sudo apt-get update
+sudo apt-get install gnupg
+
+gpg --output ~/revocation.crt --gen-revoke your_email@address.com
+
+</code></pre>
+<ol start="3">
+<li>Send Anish an encrypted email (public key).</li>
+</ol>
+<pre><code class="language-shell">~ $ curl https://keybase.io/anish/pgp_keys.asc | gpg --import
+
+~ $ gpg --list-keys
+# ~/.gnupg/pubring.kbx中除了刚才创建的自己的公钥，还存入了Anish的公钥
+
+~ $ gpg --edit-key &quot;Anish Athalye&quot;  # 进入gpg控制台
+gpg&gt; fpr
+pub   rsa4096/C3F6E4F5086B3B32 2014-10-30 Anish Athalye &lt;me@anishathalye.com&gt;
+主密钥指纹： 72EE 4824 FA6E FF1F E750  A015 C3F6 E4F5 086B 3B32
+# 将这个密钥指纹与Anish发布在网站上的做匹配，一致
+~ $ touch message.txt
+
+~ $ echo 'hello' &gt; message.txt
+~ $ gpg --encrypt --sign --armor -r me@anishathalye.com message.txt
+# 在本目录下会生成一个message.txt.asc的加密文件
+# 这个文件，只有拥有私钥的Anish能解密
+
+# 如果你也想查看这个加密文件，需要使用：
+~ $ gpg --encrypt --sign --armor -r me@anishathalye.com -r usrname@example.com message.txt
+# 添加第二个 -r 接收人为你自己，你就能解密这个文件
+~ $ gpg message.txt.asc
+</code></pre>
+<ol start="4">
+<li>Sign a Git commit with git commit -S or create a signed Git tag with git tag -s. Verify the signature on the commit with git show --show-signature or on the tag with git tag -v.</li>
+</ol>
+<pre><code class="language-shell">git commit -S -m &quot;sign a commit&quot;
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="more-1"><a class="header" href="#more-1">More</a></h1>
+<p>Some notes from books and blogs. :)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="github"><a class="header" href="#github">Github</a></h1>
+<p>GitHub is the single largest host for Git repositories, and is the central point of collaboration for millions of developers and projects.</p>
+<p>About Github, you should know a few things.</p>
+<h2 id="account"><a class="header" href="#account">Account</a></h2>
+<p>You should know how to setup an account, no matter it is personal or organizationnal.</p>
+<h2 id="project"><a class="header" href="#project">Project</a></h2>
+<p>Learn how to find and contribute to a Project. Advanced operation is to maintain a project.</p>
+<h2 id="api"><a class="header" href="#api">API</a></h2>
+<p>I don't think APIs are commonly used.</p>
+<h2 id="github-pages"><a class="header" href="#github-pages">Github Pages</a></h2>
+<p>It is what I think an open source developer would better know.</p>
+<p>You get one site per GitHub account and organization,
+and unlimited project sites.</p>
+<p>I setup Pages for almost every repositry of mine. I really love this.</p>
+<p><a href="https://pages.github.com/">Github Pages Official Doc</a></p>
+<h2 id="github-action"><a class="header" href="#github-action">Github Action</a></h2>
+<p><strong>Significant Thing!</strong></p>
+<h5 id="refs"><a class="header" href="#refs">Refs</a></h5>
+<ul>
+<li><a href="https://docs.github.com/en/actions">Github Action Official Doc</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/164744104">Chinses Guide for Github Action in Zhihu</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="tmux-1"><a class="header" href="#tmux-1">TMUX</a></h1>
+<p>Ok, All commands in tmux are triggered by a prefix key followed by a command key . It is funny!</p>
+<p>Some useful Keyboard shortcuts that I need to remember.</p>
+<h2 id="why-tmux"><a class="header" href="#why-tmux">Why tmux?</a></h2>
+<ul>
+<li>session handling: detaching from and attaching to sessions helps me with context switching and remote working</li>
+<li>platform independence: I can use tmux on my Macbook, my Linux notebook, servers, Raspberry Pis, you name it.</li>
+<li>customizable: there are many ways I can customize the look and behavior of my tmux environment. And I can sync this across different platforms using a simple dotfile</li>
+</ul>
+<p>Tmux is a terminal multiplexer that allows you to start multiple terminal sessions.</p>
+<p>When using the command line, we open a terminal window and start a session to execute commands such as &quot;npm run dev&quot;. When we close this terminal window, the session ends and the &quot;npm run dev&quot; service session is also closed. Sometimes we want our running services like &quot;npm run dev&quot; or some cd commands to be preserved instead of manually executing them again after closing and reopening the window. This is where tmux comes in handy.</p>
+<p>It decouples sessions from terminal windows. Closing and reopening a terminal window does not terminate the session; it continues running in execution. Sessions are completely separated from terminal windows.</p>
+<h2 id="window-session"><a class="header" href="#window-session">WINDOW? SESSION?</a></h2>
+<p><em>The following content is from this <a href="http://ruanyifeng.com/blog/2019/10/tmux.html">website</a>.</em></p>
+<p>The typical usage of command line is to open a terminal window (hereinafter referred to as &quot;window&quot;) and enter commands in it. This temporary interaction between the user and the computer is called a &quot;session&quot;.</p>
+<p>An important feature of a session is that the window is connected to the processes launched within it. When you open a window, the session begins; when you close the window, the session ends, and all processes within that session will terminate regardless of whether they have finished running.</p>
+<p>A typical example would be logging into a remote computer via SSH and opening a remote window to execute commands. If there's suddenly an interruption in network connection, when you log back in again, you won't be able to retrieve your previous command execution because the previous SSH session has already ended along with its associated processes.</p>
+<p>To solve this problem, sessions can be &quot;unbound&quot; from windows: when a window closes, instead of terminating the session altogether, it continues running until another window binds itself to it at some point in time.</p>
+<h3 id="the-function-of-tmux"><a class="header" href="#the-function-of-tmux">The function of Tmux.</a></h3>
+<p>Tmux is a tool that &quot;unbinds&quot; sessions and windows, completely separating them.</p>
+<p>(1) It allows accessing multiple sessions simultaneously in a single window, which is useful for running multiple command-line programs at the same time.</p>
+<p>(2) It can let new windows &quot;join&quot; existing sessions.</p>
+<p>(3) It allows each session to have multiple connected windows, so multiple people can share the session in real-time.</p>
+<p>(4) It also supports arbitrary vertical and horizontal splitting of windows.</p>
+<p>For example:</p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[23:40:14]$ tmux
+[exited]
+┌─[myc@ubuntu22]─[~]
+└──╼[23:40:17]$ tmux ls
+0: 1 windows (created Sat Jun  3 23:20:57 2023)
+┌─[myc@ubuntu22]─[~]
+└──╼[23:40:21]$ tmux kill-session -t 0
+┌─[myc@ubuntu22]─[~]
+└──╼[23:41:06]$ tmux ls
+no server running on /tmp/tmux-1000/default
+┌─[Fail][myc@ubuntu22]─[~]
+└──╼[23:41:09]$
+</code></pre>
+<h2 id="pane"><a class="header" href="#pane">Pane</a></h2>
+<p>Tmux can also divide windows into multiple panes, each running different commands. The following commands are executed in a Tmux window.</p>
+<h2 id="personal-understanding"><a class="header" href="#personal-understanding">Personal understanding.</a></h2>
+<p>My personal understanding is that in the default system, the terminal window and session are bound together. When you close this window, the session bound to it will also be closed. However, tmux can preserve this session. As for panes, they are operations that separate windows and correspond to the same session. This should involve concepts related to low-level operating system processes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="this-is-the-notes-of-reading-progit"><a class="header" href="#this-is-the-notes-of-reading-progit">This is the notes of reading ProGit</a></h1>
+<p><a href="https://git-scm.com/book/en/v2">Pro Git</a> is an open source book!</p>
+<h1 id="basic-operate"><a class="header" href="#basic-operate">Basic operate</a></h1>
+<p>Many basic command to learn!</p>
+<pre><code class="language-shell">
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="why-mdbook"><a class="header" href="#why-mdbook">WHY mdbook?</a></h1>
+<p>Why introduce mdbook? Because I found that in the missing semester course, there was no introduction to modern e-books written based on markdown syntax. Personally, I hope that my notes for these courses can be systematized. Therefore, I will use mdbook to compile all my notes, homework answers and other content into a book. It's as simple as that.</p>
+<h2 id="other-choise"><a class="header" href="#other-choise">Other choise?</a></h2>
+<p>Yes, I know there are many popular e-book tools, so you can find tools written in almost any language.</p>
+<p>Therefore, there are some things you need to pay attention to. Almost every modern and new programming language's electronic book tool will be combined with the language itself in order to show more features in code blocks. This is true for tools written in <a href="https://github.com/rstudio/rmarkdown">R (rmarkdown)</a>, <a href="https://github.com/gohugoio/hugo">Go (hugo)</a>, <a href="https://github.com/mkdocs/mkdocs">Python (mkdocs)</a> or Rust languages. Therefore, if you are a data analyst who frequently uses R for data analysis and visualization, you can consider using tools written in R language as there are many options available. Therefore, the choice is not absolute but varies depending on your needs.</p>
+<p><em>Perhaps mdbook is not the best choice because Rust language has been iterating rapidly, so the Rust environment on a computer can become bloated after some time of use. However, as a Rust language developer, it is my first choice. Of course, tools in other languages also face the issue of environment configuration which cannot be avoided.</em></p>
+<h4 id="refs-1"><a class="header" href="#refs-1">Refs</a></h4>
+<p><a href="https://tonybai.com/2020/06/27/gohugo-vs-mdbook-vs-peach/">Here</a> is a Chinese Intro for some tools.</p>
+<h1 id="how-to-use"><a class="header" href="#how-to-use">How to use?</a></h1>
+<p>Here are some documents:</p>
+<ul>
+<li><a href="https://juejin.cn/post/7201787862236823608">A very simple Chinese Guide</a></li>
+<li><a href="https://hellowac.github.io/mdbook-doc-zh/zh-cn/index.html">Official Doc in Chinese</a></li>
+<li><a href="https://rust-lang.github.io/mdBook/">Official Doc in English</a></li>
+</ul>
+<p>The usage of <code>mdbook</code> is easy!</p>
+<h2 id="command"><a class="header" href="#command">Command</a></h2>
+<h4 id="install"><a class="header" href="#install">Install</a></h4>
+<pre><code class="language-shell">cargo install mdbook
+</code></pre>
+<h4 id="init"><a class="header" href="#init">init</a></h4>
+<p>Fisrt, you should init.</p>
+<pre><code class="language-shell">mdbook init
+</code></pre>
+<p>When using the init command for the first time, a couple of files will be set up for you:</p>
+<pre><code>book-test/
+├── book
+└── src
+    ├── chapter_1.md
+    └── SUMMARY.md
+</code></pre>
+<ul>
+<li>
+<p>The <strong>src</strong> directory is where you write your book in markdown. It contains all the source files, configuration files, etc.</p>
+</li>
+<li>
+<p>The <strong>book</strong> directory is where your book is rendered. All the output is ready to be uploaded to a server to be seen by your audience.</p>
+</li>
+<li>
+<p>The <strong>SUMMARY.md</strong> is the skeleton of your book.The summary file is used by mdBook to know what chapters to include, in what order they should appear, what their hierarchy is and where the source files are. Without this file, there is no book.</p>
+</li>
+</ul>
+<h4 id="build"><a class="header" href="#build">Build</a></h4>
+<p>The build command is used to render your book:</p>
+<pre><code class="language-shell">mdbook build
+</code></pre>
+<h4 id="serve"><a class="header" href="#serve">Serve</a></h4>
+<p>The serve command is used to preview a book by serving it via HTTP at localhost:3000 by default:</p>
+<pre><code class="language-shell">mdbook serve
+</code></pre>
+<p>The serve command watches the book's src directory for changes, rebuilding the book and refreshing clients for each change; this includes re-creating deleted files still mentioned in SUMMARY.md! A websocket connection is used to trigger the client-side refresh.</p>
+<h2 id="more-details"><a class="header" href="#more-details">More details!</a></h2>
+<p>Yep, the usage of <code>mdbook</code> is easy like what I have showed above!</p>
+<p>You just need to remember 3 command:</p>
+<pre><code class="language-shell">mdbook init
+mdbook build
+mdbook server
+</code></pre>
+<p>Then, you will get a online-book!</p>
+<p>If you want to know more about mdbook, please visit the <a href="https://rust-lang.github.io/mdBook/">official doc</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

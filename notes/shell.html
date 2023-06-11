@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>shell - MYC-Missing-Semester</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">About</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../notes.html"><strong aria-hidden="true">1.</strong> notes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../notes/Command-line-Environment.html"><strong aria-hidden="true">1.1.</strong> Command-line Environment</a></li><li class="chapter-item expanded "><a href="../notes/data-wrangling.html"><strong aria-hidden="true">1.2.</strong> data wrangling</a></li><li class="chapter-item expanded "><a href="../notes/Debugging-and-Profiling.html"><strong aria-hidden="true">1.3.</strong> Debugging and Profiling</a></li><li class="chapter-item expanded "><a href="../notes/metaprogramming.html"><strong aria-hidden="true">1.4.</strong> metaprogramming</a></li><li class="chapter-item expanded "><a href="../notes/Git.html"><strong aria-hidden="true">1.5.</strong> Git</a></li><li class="chapter-item expanded "><a href="../notes/security.html"><strong aria-hidden="true">1.6.</strong> security</a></li><li class="chapter-item expanded "><a href="../notes/Vim.html"><strong aria-hidden="true">1.7.</strong> Vim</a></li><li class="chapter-item expanded "><a href="../notes/shell.html" class="active"><strong aria-hidden="true">1.8.</strong> shell</a></li></ol></li><li class="chapter-item expanded "><a href="../solutions.html"><strong aria-hidden="true">2.</strong> solutions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../solutions/1.html"><strong aria-hidden="true">2.1.</strong> 1</a></li><li class="chapter-item expanded "><a href="../solutions/2.html"><strong aria-hidden="true">2.2.</strong> 2</a></li><li class="chapter-item expanded "><a href="../solutions/3.html"><strong aria-hidden="true">2.3.</strong> 3</a></li><li class="chapter-item expanded "><a href="../solutions/4.html"><strong aria-hidden="true">2.4.</strong> 4</a></li><li class="chapter-item expanded "><a href="../solutions/5.html"><strong aria-hidden="true">2.5.</strong> 5</a></li><li class="chapter-item expanded "><a href="../solutions/6.html"><strong aria-hidden="true">2.6.</strong> 6</a></li><li class="chapter-item expanded "><a href="../solutions/7.html"><strong aria-hidden="true">2.7.</strong> 7</a></li><li class="chapter-item expanded "><a href="../solutions/8.html"><strong aria-hidden="true">2.8.</strong> 8</a></li><li class="chapter-item expanded "><a href="../solutions/9.html"><strong aria-hidden="true">2.9.</strong> 9</a></li></ol></li><li class="chapter-item expanded "><a href="../more-information.html"><strong aria-hidden="true">3.</strong> more-information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../more-information/Github.html"><strong aria-hidden="true">3.1.</strong> Github</a></li><li class="chapter-item expanded "><a href="../more-information/makefile.html"><strong aria-hidden="true">3.2.</strong> makefile</a></li><li class="chapter-item expanded "><a href="../more-information/tmux.html"><strong aria-hidden="true">3.3.</strong> tmux</a></li><li class="chapter-item expanded "><a href="../more-information/Pro-Git.html"><strong aria-hidden="true">3.4.</strong> Pro-Git</a></li><li class="chapter-item expanded "><a href="../more-information/mdbook.html"><strong aria-hidden="true">3.5.</strong> mdbook</a></li><li class="chapter-item expanded "><a href="../more-information/Vim.html"><strong aria-hidden="true">3.6.</strong> Vim</a></li><li class="chapter-item expanded "><a href="../more-information/shell-programming.html"><strong aria-hidden="true">3.7.</strong> shell-programming</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MYC-Missing-Semester</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="shell-lecture-1--2"><a class="header" href="#shell-lecture-1--2">Shell (lecture 1 &amp; 2)</a></h1>
+<p>We have learned to use command lines instead of just terminal.</p>
+<p>Here are some really basic command:</p>
+<pre><code>cd      # change work path
+echo    # output
+touch   # make a file
+mkdir   # make a directory
+ls      # lists all files
+cat     # output a file's content
+mv      # move
+man     # show the documents
+</code></pre>
+<p><em>and so on...</em></p>
+<p>And what's more, we should learn to use these:</p>
+<pre><code>|  # pipe
+&gt;  # redirect
+&lt;  # redirect
+&gt;&gt; # append
+</code></pre>
+<p>So, the first class is so easy and simple, if you have know something about Linux, shell and other things.</p>
+<p><strong>However, if you just want to write and run your code on Windows, you do not have to Learn the whole class.</strong></p>
+<h1 id="more-about-shell"><a class="header" href="#more-about-shell">More about shell</a></h1>
+<p><em>The accent of the Indian friend is too unfriendly for a Chinese person who is not good at English. Fortunately, I am watching the Chinese translated version. (Laughing)</em></p>
+<p>We need to learn the syntax of bash scripts.</p>
+<p>Below are some useful argvs:</p>
+<ul>
+<li>$0 - Name of the script</li>
+<li>$1 to $9 - Arguments to the script. $1 is the first argument and so on.</li>
+<li>$@ - All the arguments</li>
+<li>$# - Number of arguments</li>
+<li>$? - Return code of the previous command</li>
+<li>$$ - Process identification number (PID) for the current script</li>
+<li>!! - Entire last command, including arguments. A common pattern is to execute a command only for it to fail due to missing permissions; - you can quickly re-execute the command with sudo by doing sudo !!</li>
+<li>$_ - Last argument from the last command. If you are in an interactive shell, you can also quickly get this value by typing Esc followed by . or Alt+.</li>
+</ul>
+<p>What another important thing the lecture tought is globbing!</p>
+<h2 id="short-circuiting"><a class="header" href="#short-circuiting">short-circuiting</a></h2>
+<p>If you have learned C++ or any other language, you will understand this more easily.</p>
+<h2 id="shebang-and-env"><a class="header" href="#shebang-and-env">Shebang and env</a></h2>
+<p>Finally know what Shebang is. :(</p>
+<p>It is good practice to write shebang lines using the env command that will resolve to wherever the command lives in the system, increasing the portability of your scripts.</p>
+<h1 id="shell-tools"><a class="header" href="#shell-tools">Shell Tools</a></h1>
+<p>I think this section is a relatively innovative part.</p>
+<p>Here are some useful tools:</p>
+<ul>
+<li>find</li>
+<li>tldr # excellent tools!</li>
+<li>grep</li>
+<li>fzf</li>
+</ul>
+<p>Furthermore, I believe this lecture introduced many command-line tools of the Rust language.</p>
+<ul>
+<li>fd</li>
+<li>ripgrep
+and so on...</li>
+</ul>
+<p>Among them, <code>ripgrep</code> is a star project in Rust language. For more information on other contents, please refer to these two links：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/511866354">Chinese Zhihu</a></li>
+<li><a href="https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a">English Github</a></li>
+</ul>
+<p>I believe that command-line tools written in Rust are more modern. By &quot;modern&quot; I mean that these tools have advantages such as a nicer GUI, more intuitive output format, lower learning curve, and better performance.</p>
+<h1 id="以下是一些自学内容"><a class="header" href="#以下是一些自学内容">以下是一些自学内容</a></h1>
+<p>首先，学shell基本上得先了解一些linux。</p>
+<h2 id="linux"><a class="header" href="#linux">Linux</a></h2>
+<p>Linux shell是用户和Linux kernel 之间的接口程序。</p>
+<p>shell是个用户程序，有自己内建的命令集，也能被其他程序调用。</p>
+<p>Linux有七个运行级别，常用1 3 5，其他的不怎么用。</p>
+<h2 id="快捷键"><a class="header" href="#快捷键">快捷键</a></h2>
+<p>CTRL+U：清空行</p>
+<p>CTRL+R: 搜索先前使用的命令。</p>
+<p>这两个很有用。</p>
+<h2 id="shell"><a class="header" href="#shell">Shell</a></h2>
+<p>Linux 里应该是有不同种类的shell，最常用应该是bash。</p>
+<h3 id="shell和terminal有啥区别"><a class="header" href="#shell和terminal有啥区别">shell和terminal有啥区别</a></h3>
+<p>shell是程序，负责接收指令、执行程序并返回结果。终端是命令的 IO 环境，分为终端设备和终端模拟器。早期计算机很贵，所以一个计算机接入很多显示器和很多IO设备，显示器和IO设备被称为终端。</p>
+<p>现代都是个人电脑，因此集成到了一起，所以用的terminal都是终端模拟器。</p>
+<h3 id="shell的变量"><a class="header" href="#shell的变量">shell的变量</a></h3>
+<p>有系统变量和shell变量。</p>
+<p>常用有HOME PATH PS1 PWD.</p>
+<p>变量用$</p>
+<h3 id="shell语法"><a class="header" href="#shell语法">shell语法</a></h3>
+<p>赋值，唯一需要注意的是默认赋值是字符串，想弄成数值要用let</p>
+<p>printf，和C类似，常用的分类符表和转义字符表可以现查。</p>
+<p>变量引用使用双引号，当然这并不是必要的。单引号往往可以解决特殊字符的问题，因为单引号不允许引用变量。</p>
+<p>export unset分别用于设置和删除变量，不过unset不能删除只读的变量，想删除需要使用gdb。</p>
+<p>检查变量是否存在使用问好。</p>
+<p>history可以查看历史命令，但是我使用的<code>atuin</code>把这一切都集成好了。</p>
+<h3 id="扩展"><a class="header" href="#扩展">扩展</a></h3>
+<p>大括号扩展就是missing semester之中第二讲的作业四的一部分。</p>
+<p>其实就在掌握{a...z}类似的排序方式即可</p>
+<p>和python的range语法非常类似</p>
+<p>然后就是通配符实现的文件名扩展。主要记住*?[...]即可</p>
+<h3 id="别名"><a class="header" href="#别名">别名</a></h3>
+<p>可以使用alias创建别名。</p>
+<h3 id="ps1"><a class="header" href="#ps1">PS1</a></h3>
+<p>这个是用来设置bash提示符的，如果想要自己更改提示符还是很有用的。不过要是不改的话，也许也没问题？</p>
+<pre><code class="language-shell">PS1=&quot;\[$(tput setaf 7)\]\342\224\214\342\224\200\[$(tput sgr0)\]\$([[ \$? != 0 ]] &amp;&amp; echo \&quot;\[$(tput bold setaf 1)\][Fail]\[$(tput sgr0)\]\&quot;)\[$(tput setaf 7)\][\[\033[1;38;5;214m\]\u\[$(tput bold setaf 7)\]@\[$(tput bold setaf 6)\]\h\[$(tput setaf 7)\]]\[$(tput setaf 7)\]\342\224\200[\[$(tput setaf 2)\]\w\[$(tput setaf 7)\]]\n\[$(tput setaf 7)\]\342\224\224\342\224\200\342\224\200\342\225\274\[$(tput sgr0)\][\[\033[1;38;5;28m\]\t\[$(tput sgr0)\]]\$ &quot;
+</code></pre>
+<p><em>这个真屌，我真喜欢。</em></p>
+<h3 id="bash行为"><a class="header" href="#bash行为">bash行为</a></h3>
+<p>set +-o或者shopt -u/-s可以设置一些bash行为的开关</p>
+<h2 id="常用shell命令"><a class="header" href="#常用shell命令">常用shell命令</a></h2>
+<h3 id="ls"><a class="header" href="#ls">ls</a></h3>
+<p>很重要。</p>
+<p>文件的颜色:</p>
+<ul>
+<li>白色字体：普通文件</li>
+<li>绿色字体:可执行文件</li>
+<li>红色字体：压缩文件</li>
+<li>蓝色：目录</li>
+<li>青色：链接文件（相当于windows的快捷方式）</li>
+<li>黄色：  设备文件：会把硬件设备抽象为文件：例：block块可以表示硬盘，char字符表示键盘，fifo管道</li>
+<li>灰色：其他文件</li>
+</ul>
+<pre><code>ls -ltr #以长列表格式俺修改时间倒序
+ls -ls  #按文件大小顺序列出
+ls -a   #列出所有文件包括隐藏文件
+</code></pre>
+<h3 id="cat"><a class="header" href="#cat">cat</a></h3>
+<p>-n 显示行号
+-e 行尾显示美元符号
+然后就是重定向的内容，在missing semester讲过了。</p>
+<h3 id="more-less"><a class="header" href="#more-less">more less</a></h3>
+<pre><code>cat README | more
+</code></pre>
+<p>less更值得推荐</p>
+<p>可以搜索</p>
+<pre><code>/
+?
+</code></pre>
+<p>还有一些快捷键：</p>
+<pre><code>ctrl+F #前翻一个窗口
+ctrl+B #后翻一个窗口
+ctrl+D #前翻半个窗口
+ctrl+U #后翻半个窗口
+q #退出
+</code></pre>
+<p>还可以打开多个文件。</p>
+<h3 id="head-tail"><a class="header" href="#head-tail">head tail</a></h3>
+<p>指定行数，短时间用处不大</p>
+<h3 id="file-wc"><a class="header" href="#file-wc">file wc</a></h3>
+<p>这两个都是用来查看信息的。</p>
+<p>file我感觉很有用，很多文件没有后缀靠这个能知道是什么文件。</p>
+<h3 id="find"><a class="header" href="#find">find</a></h3>
+<p><strong>非常重要的命令。</strong></p>
+<p>常用的是：</p>
+<pre><code>find . -iname example
+find . -type d -name dir
+find . -type f -name &quot;*.cpp&quot;
+</code></pre>
+<h3 id="-exec"><a class="header" href="#-exec">-exec</a></h3>
+<p>这个就是把输出的用来执行，特别有用</p>
+<pre><code>原命令： -exec rm -rf {}\;
+</code></pre>
+<h3 id="操作文件和目录"><a class="header" href="#操作文件和目录">操作文件和目录</a></h3>
+<p>这里很简单，常用的有touch, mkdir .</p>
+<p>touch 要了解一下-t时间戳，mkdir要了解一下 -p</p>
+<p>更多的内容是cp, ln, mv</p>
+<p>cp要了解 -R, ln 感觉初级阶段简单了解即可。mv，要记得使用-i。</p>
+<h4 id="rm"><a class="header" href="#rm">rm</a></h4>
+<p>这个很吊，最好使用-i，是为了让用户确认的。</p>
+<p>千万不要使用</p>
+<pre><code>rm -rf *
+</code></pre>
+<p>这个命令我曾经在想要重置虚拟机的时候使用，后果是什么都没有了，系统只能重装了，很离谱。不过那个剩下的类似于server的系统很适合锻炼linux这些shell命令（绝了）</p>
+<h3 id="权限"><a class="header" href="#权限">权限</a></h3>
+<p>r w x是基础。</p>
+<h4 id="chmod"><a class="header" href="#chmod">chmod</a></h4>
+<p><strong>非常重要的东西！</strong>
+符号表达式模式：</p>
+<ul>
+<li>u:所有者</li>
+<li>g:用户组成员</li>
+<li>o:不在用户组的其他用户</li>
+<li>a:所有用户
+默认是a的效果</li>
+</ul>
+<p>操作符：</p>
+<ul>
+<li>+：添加权限</li>
+<li>-：移除权限</li>
+<li>=：只有这个权限</li>
+</ul>
+<p>例子：</p>
+<pre><code>chmod u+x example.sh
+</code></pre>
+<p>这个就是给用户增加执行权限的，最常用的了吧。</p>
+<p>数字模式：</p>
+<p>用读（4）写（2）执行（1）表示权限，相加就是最后拥有的权限。</p>
+<p>比如著名的</p>
+<pre><code>chmod 777 example.sh
+</code></pre>
+<p>就是给所有人所有权限的意思了。</p>
+<h4 id="chown-chgrp"><a class="header" href="#chown-chgrp">chown chgrp</a></h4>
+<p>看缩写就知道是改变所有者和用户组的。目前感觉作用不大，此处以后用到了再学吧。</p>
+<h4 id="setuid-setgid"><a class="header" href="#setuid-setgid">setuid setgid</a></h4>
+<p>暂时不知道有啥用，以后用到了再学。</p>
+<h3 id="文本处理"><a class="header" href="#文本处理">文本处理</a></h3>
+<p>sort排序 uniq去重 看不出有啥用</p>
+<p>tr 字符替换，感觉有点儿用。-s用于压缩重复空格，-d用于删除</p>
+<h4 id="grep"><a class="header" href="#grep">grep</a></h4>
+<p>**很重要的命令。**用于搜索文件之中的字符串</p>
+<pre><code>grep -rl string dir
+</code></pre>
+<p>更推荐使用ripgrep，速度快，还好用。</p>
+<h4 id="别的"><a class="header" href="#别的">别的</a></h4>
+<p>其他的就随便玩儿了，比如date,uname之类的东西。</p>
+<h2 id="shell-进阶"><a class="header" href="#shell-进阶">shell 进阶</a></h2>
+<p>diff用于对比，paste用于合并。</p>
+<p>dd用于拷贝和备份（玩儿树莓派一个月了，终于知道是啥玩意儿了。。。）</p>
+<pre><code>dd if=/dev/sda of=/dev/sdb
+dd if=/dev/sda of=dvd.iso
+</code></pre>
+<p>如果要擦除，需要/dev/zero，这个文件所有内容都是空字符。就是哦你过来初始化和擦除的。</p>
+<p>当然，bs=1024 和count=1024也需要知道。</p>
+<h3 id="gzip-bzip2"><a class="header" href="#gzip-bzip2">gzip bzip2</a></h3>
+<pre><code>gzip -c file1 &gt; file1.gz #可以使用重定向保留原文件
+</code></pre>
+<p>解压使用-d</p>
+<p>bzip2和gzip差不多，压缩率更好，但速度更慢。</p>
+<h3 id="gunzip-bunzip2"><a class="header" href="#gunzip-bunzip2">gunzip bunzip2</a></h3>
+<p>解压命令，不常用，用上了到时候现查吧。</p>
+<h3 id="tar"><a class="header" href="#tar">tar</a></h3>
+<p><strong>特别重要！</strong></p>
+<pre><code>tar -cvf name.tar # 压缩
+tar -xvf name.tar #解压
+tar -xzvf name.tar.gz #解压
+tar -xjvf name.tar.bz2 #解压
+</code></pre>
+<h3 id="df-du"><a class="header" href="#df-du">df du</a></h3>
+<p>df唯一有用的就是</p>
+<pre><code>df -h
+</code></pre>
+<p>du我不推荐用，我推荐更好用的dust，是rust重写的命令行工具。</p>
+<h3 id="cron-crontab"><a class="header" href="#cron-crontab">cron crontab</a></h3>
+<p>等我有服务器了我再看。</p>
+<h3 id="nohup"><a class="header" href="#nohup">nohup</a></h3>
+<p>这个很有用，就是no hang up</p>
+<pre><code>nohup sh example.sh &amp;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../notes/Vim.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../solutions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../notes/Vim.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../solutions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
