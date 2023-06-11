@@ -1,0 +1,39 @@
+name: Publish Book
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  BOOK_FOLDER: "book" # 电子书生成的文件夹名
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Install Rust and mdBook
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install mdBook
+        run: cargo install mdbook
+        env:
+          CARGO_INSTALL_ROOT: /opt/hostedtoolcache/cargo
+          PATH: ${{env.CARGO_INSTALL_ROOT}}/bin:${PATH}
+
+      - name: Build Book
+        run: mdbook build
+        working-directory: src
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src/$BOOK_FOLDER/book
