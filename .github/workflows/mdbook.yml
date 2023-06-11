@@ -23,7 +23,10 @@ jobs:
           toolchain: stable
 
       - name: Install mdBook
-        run: cargo install mdbook
+        run: |
+          mkdir mdbook
+          curl -Lf https://github.com/rust-lang/mdBook/releases/download/v0.4.27/mdbook-v0.4.27-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
+          echo `pwd`/mdbook >> $GITHUB_PATH
         env:
           CARGO_INSTALL_ROOT: /opt/hostedtoolcache/cargo
           PATH: ${{env.CARGO_INSTALL_ROOT}}/bin:${PATH}
