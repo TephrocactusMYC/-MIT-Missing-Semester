@@ -6,4 +6,3 @@ src = "src"
 title = "MYC-Missing-Semester"
 [output.html]
 [output.markdown]
-[output.epub]
