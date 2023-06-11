@@ -2,8 +2,8 @@ name: Generate ebook
 
 on: 
   push:
-    tags:
-      - "*"
+    branches:
+      - main
 
 jobs:
   ebook:
