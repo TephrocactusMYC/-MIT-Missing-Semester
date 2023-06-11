@@ -52,6 +52,6 @@ jobs:
       - name: Publish HTML
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_ACTION }}
+          github_token: ${{ secrets.ACTION }}
           publish_dir: ./book/html
           publich_branch: ${{ github.ref }}
