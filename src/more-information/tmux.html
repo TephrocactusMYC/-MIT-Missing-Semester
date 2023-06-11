@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>tmux.md - MYC-Missing-Semester</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">About</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../notes.html"><strong aria-hidden="true">1.</strong> notes</a></li><li class="chapter-item expanded "><a href="../solutions.html"><strong aria-hidden="true">2.</strong> solutions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../solutions/1.html"><strong aria-hidden="true">2.1.</strong> 1.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/2.html"><strong aria-hidden="true">2.2.</strong> 2.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/3.html"><strong aria-hidden="true">2.3.</strong> 3.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/4.html"><strong aria-hidden="true">2.4.</strong> 4.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/5.html"><strong aria-hidden="true">2.5.</strong> 5.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/6.html"><strong aria-hidden="true">2.6.</strong> 6.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/7.html"><strong aria-hidden="true">2.7.</strong> 7.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/8.html"><strong aria-hidden="true">2.8.</strong> 8.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/9.html"><strong aria-hidden="true">2.9.</strong> 9.md</a></li></ol></li><li class="chapter-item expanded "><a href="../more-information.html"><strong aria-hidden="true">3.</strong> more-information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../more-information/Github.html"><strong aria-hidden="true">3.1.</strong> Github.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/makefile.html"><strong aria-hidden="true">3.2.</strong> makefile.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/tmux.html" class="active"><strong aria-hidden="true">3.3.</strong> tmux.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Pro-Git.html"><strong aria-hidden="true">3.4.</strong> Pro-Git.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/mdbook.html"><strong aria-hidden="true">3.5.</strong> mdbook.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Vim.html"><strong aria-hidden="true">3.6.</strong> Vim.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/shell-programming.html"><strong aria-hidden="true">3.7.</strong> shell-programming.md</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MYC-Missing-Semester</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="tmux"><a class="header" href="#tmux">TMUX</a></h1>
+<p>Ok, All commands in tmux are triggered by a prefix key followed by a command key . It is funny!</p>
+<p>Some useful Keyboard shortcuts that I need to remember.</p>
+<h2 id="why-tmux"><a class="header" href="#why-tmux">Why tmux?</a></h2>
+<ul>
+<li>session handling: detaching from and attaching to sessions helps me with context switching and remote working</li>
+<li>platform independence: I can use tmux on my Macbook, my Linux notebook, servers, Raspberry Pis, you name it.</li>
+<li>customizable: there are many ways I can customize the look and behavior of my tmux environment. And I can sync this across different platforms using a simple dotfile</li>
+</ul>
+<p>Tmux is a terminal multiplexer that allows you to start multiple terminal sessions.</p>
+<p>When using the command line, we open a terminal window and start a session to execute commands such as &quot;npm run dev&quot;. When we close this terminal window, the session ends and the &quot;npm run dev&quot; service session is also closed. Sometimes we want our running services like &quot;npm run dev&quot; or some cd commands to be preserved instead of manually executing them again after closing and reopening the window. This is where tmux comes in handy.</p>
+<p>It decouples sessions from terminal windows. Closing and reopening a terminal window does not terminate the session; it continues running in execution. Sessions are completely separated from terminal windows.</p>
+<h2 id="window-session"><a class="header" href="#window-session">WINDOW? SESSION?</a></h2>
+<p><em>The following content is from this <a href="http://ruanyifeng.com/blog/2019/10/tmux.html">website</a>.</em></p>
+<p>The typical usage of command line is to open a terminal window (hereinafter referred to as &quot;window&quot;) and enter commands in it. This temporary interaction between the user and the computer is called a &quot;session&quot;.</p>
+<p>An important feature of a session is that the window is connected to the processes launched within it. When you open a window, the session begins; when you close the window, the session ends, and all processes within that session will terminate regardless of whether they have finished running.</p>
+<p>A typical example would be logging into a remote computer via SSH and opening a remote window to execute commands. If there's suddenly an interruption in network connection, when you log back in again, you won't be able to retrieve your previous command execution because the previous SSH session has already ended along with its associated processes.</p>
+<p>To solve this problem, sessions can be &quot;unbound&quot; from windows: when a window closes, instead of terminating the session altogether, it continues running until another window binds itself to it at some point in time.</p>
+<h3 id="the-function-of-tmux"><a class="header" href="#the-function-of-tmux">The function of Tmux.</a></h3>
+<p>Tmux is a tool that &quot;unbinds&quot; sessions and windows, completely separating them.</p>
+<p>(1) It allows accessing multiple sessions simultaneously in a single window, which is useful for running multiple command-line programs at the same time.</p>
+<p>(2) It can let new windows &quot;join&quot; existing sessions.</p>
+<p>(3) It allows each session to have multiple connected windows, so multiple people can share the session in real-time.</p>
+<p>(4) It also supports arbitrary vertical and horizontal splitting of windows.</p>
+<p>For example:</p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[23:40:14]$ tmux
+[exited]
+┌─[myc@ubuntu22]─[~]
+└──╼[23:40:17]$ tmux ls
+0: 1 windows (created Sat Jun  3 23:20:57 2023)
+┌─[myc@ubuntu22]─[~]
+└──╼[23:40:21]$ tmux kill-session -t 0
+┌─[myc@ubuntu22]─[~]
+└──╼[23:41:06]$ tmux ls
+no server running on /tmp/tmux-1000/default
+┌─[Fail][myc@ubuntu22]─[~]
+└──╼[23:41:09]$
+</code></pre>
+<h2 id="pane"><a class="header" href="#pane">Pane</a></h2>
+<p>Tmux can also divide windows into multiple panes, each running different commands. The following commands are executed in a Tmux window.</p>
+<h2 id="personal-understanding"><a class="header" href="#personal-understanding">Personal understanding.</a></h2>
+<p>My personal understanding is that in the default system, the terminal window and session are bound together. When you close this window, the session bound to it will also be closed. However, tmux can preserve this session. As for panes, they are operations that separate windows and correspond to the same session. This should involve concepts related to low-level operating system processes.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../more-information/makefile.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../../more-information/Pro-Git.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../more-information/makefile.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../../more-information/Pro-Git.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>5.md - MYC-Missing-Semester</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">About</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../notes.html"><strong aria-hidden="true">1.</strong> notes</a></li><li class="chapter-item expanded "><a href="../solutions.html"><strong aria-hidden="true">2.</strong> solutions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../solutions/1.html"><strong aria-hidden="true">2.1.</strong> 1.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/2.html"><strong aria-hidden="true">2.2.</strong> 2.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/3.html"><strong aria-hidden="true">2.3.</strong> 3.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/4.html"><strong aria-hidden="true">2.4.</strong> 4.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/5.html" class="active"><strong aria-hidden="true">2.5.</strong> 5.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/6.html"><strong aria-hidden="true">2.6.</strong> 6.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/7.html"><strong aria-hidden="true">2.7.</strong> 7.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/8.html"><strong aria-hidden="true">2.8.</strong> 8.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/9.html"><strong aria-hidden="true">2.9.</strong> 9.md</a></li></ol></li><li class="chapter-item expanded "><a href="../more-information.html"><strong aria-hidden="true">3.</strong> more-information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../more-information/Github.html"><strong aria-hidden="true">3.1.</strong> Github.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/makefile.html"><strong aria-hidden="true">3.2.</strong> makefile.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/tmux.html"><strong aria-hidden="true">3.3.</strong> tmux.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Pro-Git.html"><strong aria-hidden="true">3.4.</strong> Pro-Git.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/mdbook.html"><strong aria-hidden="true">3.5.</strong> mdbook.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Vim.html"><strong aria-hidden="true">3.6.</strong> Vim.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/shell-programming.html"><strong aria-hidden="true">3.7.</strong> shell-programming.md</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MYC-Missing-Semester</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="exercises"><a class="header" href="#exercises">Exercises</a></h1>
+<h2 id="job-control"><a class="header" href="#job-control">Job control</a></h2>
+<ol>
+<li>From what we have seen, we can use some ps aux | grep commands to get our jobs’ pids and then kill them, but there are better ways to do it. Start a sleep 10000 job in a terminal, background it with Ctrl-Z and continue its execution with bg. Now use pgrep to find its pid and pkill to kill it without ever typing the pid itself. (Hint: use the -af flags).</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:02]$ sleep 10000
+^Z
+[1]+  Stopped                 sleep 10000
+┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:11]$ bg
+[1]+ sleep 10000 &amp;
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:14]$ pgrep sleep
+2388
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:23]$ pkill -af sleep
+pkill: invalid option -- 'a'
+
+Usage:
+ pkill [options] &lt;pattern&gt;
+
+Options:
+ -&lt;sig&gt;, --signal &lt;sig&gt;    signal to send (either number or name)
+ -q, --queue &lt;value&gt;       integer value to be sent with the signal
+ -e, --echo                display what is killed
+ -c, --count               count of matching processes
+ -f, --full                use full process name to match
+ -g, --pgroup &lt;PGID,...&gt;   match listed process group IDs
+ -G, --group &lt;GID,...&gt;     match real group IDs
+ -i, --ignore-case         match case insensitively
+ -n, --newest              select most recently started
+ -o, --oldest              select least recently started
+ -O, --older &lt;seconds&gt;     select where older than seconds
+ -P, --parent &lt;PPID,...&gt;   match only child processes of the given parent
+ -s, --session &lt;SID,...&gt;   match session IDs
+ -t, --terminal &lt;tty,...&gt;  match by controlling terminal
+ -u, --euid &lt;ID,...&gt;       match by effective IDs
+ -U, --uid &lt;ID,...&gt;        match by real IDs
+ -x, --exact               match exactly with the command name
+ -F, --pidfile &lt;file&gt;      read PIDs from file
+ -L, --logpidfile          fail if PID file is not locked
+ -r, --runstates &lt;state&gt;   match runstates [D,S,Z,...]
+ --ns &lt;PID&gt;                match the processes that belong to the same
+                           namespace as &lt;pid&gt;
+ --nslist &lt;ns,...&gt;         list which namespaces will be considered for
+                           the --ns option.
+                           Available namespaces: ipc, mnt, net, pid, user, uts
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see pgrep(1).
+┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[23:55:51]$ pkill -f sleep
+[1]+  Terminated              sleep 10000
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:56:26]$
+
+# WTF? -a dose not exist.
+</code></pre>
+<ol start="2">
+<li>Say you don’t want to start a process until another completes. How would you go about it? In this exercise, our limiting process will always be sleep 60 &amp;. One way to achieve this is to use the wait command. Try launching the sleep command and having an ls wait until the background process finishes.However, this strategy will fail if we start in a different bash session, since wait only works for child processes. One feature we did not discuss in the notes is that the kill command’s exit status will be zero on success and nonzero otherwise. kill -0 does not send a signal but will give a nonzero exit status if the process does not exist. Write a bash function called pidwait that takes a pid and waits until the given process completes. You should use sleep to avoid wasting CPU unnecessarily.</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:56:26]$ sleep 60 &amp;
+[1] 2540
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:57:42]$ ls -alh | wait; ls
+CS110L  CS50P  CS50-This-is-CS50x
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:58:00]$
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:00:13]$ vim example.sh
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:00:39]$ source example.sh
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:02:21]$ pidwait
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:02:32]$ sleep 60
+^Z
+[1]+  Stopped                 sleep 60
+┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[00:03:05]$ bg
+[1]+ sleep 60 &amp;
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:03:06]$ pgrep sleep
+2658
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:03:10]$ pidwait 2658
+[1]+  Done                    sleep 60
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:04:01]$
+
+</code></pre>
+<pre><code class="language-shell">function pidwait() {
+    local pid=$1
+    while ps -p $pid &gt;/dev/null 2&gt;&amp;1; do
+        sleep 1
+    done
+}
+</code></pre>
+<h2 id="terminal-multiplexer"><a class="header" href="#terminal-multiplexer">Terminal multiplexer</a></h2>
+<ol>
+<li>Follow this tmux tutorial and then learn how to do some basic customizations following these steps.</li>
+</ol>
+<p>It is so complex! BUT NOW I am already familiar with this tool.</p>
+<h2 id="aliases"><a class="header" href="#aliases">Aliases</a></h2>
+<ol>
+<li>Create an alias dc that resolves to cd for when you type it wrongly.</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[00:06:34]$ alias dc=cd
+┌─[myc@ubuntu22]─[~]
+└──╼[00:06:36]$ dc Desktop/
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[00:06:44]$
+</code></pre>
+<ol start="2">
+<li>Run history | awk '{$1=&quot;&quot;;print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10 to get your top 10 most used commands and consider writing shorter aliases for them. Note: this works for Bash; if you’re using ZSH, use history 1 instead of just history.</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[00:07:05]$ history | awk '{$1=&quot;&quot;;print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10
+      2 line = line &quot;;&quot; $i;
+      2 pgrep sleep
+      2 print line;
+      3 cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | sed -E &quot;s/.*([a-z]{2})$/\1/&quot; | sort | uniq -c | sort | tail -n3
+      3 cd Desktop/
+      3 curl https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/topic-pages/tables/table-1 | sed -n '/&lt;table/,/&lt;\/table/p' | sed -n '/&lt;tr&gt;/,/&lt;\/tr&gt;/p' &gt; data.txt
+      4 }
+      4 su
+      5 curl 'https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm' | sed -n &quot;/table1/,/&lt;\/table&gt;/p&quot; | grep &quot;&lt;tr&quot; | sed -E 's/(&lt;[^&gt;]*&gt;)+/ /g' | sed 's/ /-/g;s/&amp;nbsp;/ /g' &gt; data.txt
+      5 ls
+┌─[myc@ubuntu22]─[~]
+└──╼[00:07:18]$
+</code></pre>
+<h2 id="dotfiles"><a class="header" href="#dotfiles">Dotfiles</a></h2>
+<p>Let’s get you up to speed with dotfiles.</p>
+<ol>
+<li>Create a folder for your dotfiles and set up version control.</li>
+<li>Add a configuration for at least one program, e.g. your shell, with some customization (to start off, it can be something as simple as customizing your shell prompt by setting $PS1).</li>
+<li>Set up a method to install your dotfiles quickly (and without manual effort) on a new machine. This can be as simple as a shell script that calls ln -s for each file, or you could use a specialized utility.</li>
+<li>Test your installation script on a fresh virtual machine.</li>
+<li>Migrate all of your current tool configurations to your dotfiles repository.</li>
+<li>Publish your dotfiles on GitHub.</li>
+</ol>
+<p><del>ALL QUESTION ARE SO EASY! I will redo this assignment once I finish writing more dotfiles.</del></p>
+<pre><code class="language-shell">$ mkdir ~/gits/dotfiles   # gits目录是创建用来存放所有git及github仓库的目录
+$ git init ~/gits/dotfiles # 将本机的配置文件，如 .vimrc/.bashrc/.tmux.conf 等复制进该目录
+</code></pre>
+<pre><code class="language-shell">$ git clone
+
+$ vim autoconfig.sh   # 创建脚本
+$ cat autoconfig.sh
+#!/bin/bash
+files=$(ls -a $1 | grep -E '.[^.]+' |grep -v .git)
+# 去掉 ls -a 返回结果中的 &quot;. .. .git&quot;
+for file in `echo $files`; do
+    ln -s $1/$file ~/$file # 创建软链接
+done
+
+$ source autoconfig.sh
+# 执行脚本，为dotfiles中的配置文件创建在主目录 ~ 下的软链接
+</code></pre>
+<h2 id="remote-machines"><a class="header" href="#remote-machines">Remote Machines</a></h2>
+<p>Install a Linux virtual machine (or use an already existing one) for this exercise. If you are not familiar with virtual machines check out this tutorial for installing one.</p>
+<ol>
+<li>Go to ~/.ssh/ and check if you have a pair of SSH keys there. If not, generate them with ssh-keygen -o -a 100 -t ed25519. It is recommended that you use a password and use ssh-agent , more info here.</li>
+</ol>
+<pre><code class="language-shell">┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:33:00]$ ssh-keygen -o -a 100 -t ed25519
+┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:34:04]$ ls .ssh
+id_ed25519  id_ed25519.pub  id_rsa  id_rsa.pub  known_hosts  known_hosts.old
+</code></pre>
+<ol start="2">
+<li>Edit .ssh/config to have an entry as follows</li>
+</ol>
+<pre><code> Host vm
+     User username_goes_here
+     HostName ip_goes_here
+     IdentityFile ~/.ssh/id_ed25519
+     LocalForward 9999 localhost:8888
+</code></pre>
+<p>I use UbuntuDesktop to connet Ubuntu Server. :)</p>
+<pre><code class="language-shell">Host vm
+  User myc
+  HostName 192.168.85.131
+  IdentityFile ~/.ssh/id_ed25519
+  LocalForward 9999 localhost:8888
+</code></pre>
+<ol start="3">
+<li>Use ssh-copy-id vm to copy your ssh key to the server.</li>
+</ol>
+<pre><code class="language-shell">┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:35:36]$ ssh-copy-id vm
+The authenticity of host '192.168.85.131 (192.168.85.131)' can't be established.
+ED25519 key fingerprint is SHA256:6KgPSnRcSlySxeuU1QmuFjnw2qvYvYGEUkpNFoXZrXM.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 2 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+myc@192.168.85.131's password:
+
+Number of key(s) added: 2
+
+Now try logging into the machine, with:   &quot;ssh 'vm'&quot;
+and check to make sure that only the key(s) you wanted were added.
+
+┌─🌵[myc@ubuntu22]─[~]
+└──╼[00:36:00]$ ssh vm
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-60-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Sat Jun 10 16:17:04 2023
+To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
+See &quot;man sudo_root&quot; for details.
+
+myc@ubuntu22[16:36:23]:~$
+</code></pre>
+<ol start="4">
+<li>Start a webserver in your VM by executing python -m http.server 8888. Access the VM webserver by navigating to http://localhost:9999 in your machine.</li>
+</ol>
+<pre><code class="language-shell">myc@ubuntu22[16:38:04]:~$ python3 -m http.server 8888
+Serving HTTP on 0.0.0.0 port 8888 (http://0.0.0.0:8888/) ...
+127.0.0.1 - - [10/Jun/2023 16:39:06] &quot;GET / HTTP/1.1&quot; 200 -
+127.0.0.1 - - [10/Jun/2023 16:39:06] code 404, message File not found
+127.0.0.1 - - [10/Jun/2023 16:39:06] &quot;GET /favicon.ico HTTP/1.1&quot; 404 -
+</code></pre>
+<p><img src="../pictures/ssh-server.png" alt="img" />
+5. Edit your SSH server config by doing sudo vim /etc/ssh/sshd_config and disable password authentication by editing the value of PasswordAuthentication. Disable root login by editing the value of PermitRootLogin. Restart the ssh service with sudo service sshd restart. Try sshing in again.</p>
+<p><strong>It is not recommended to use root login.</strong>
+6. (Challenge) Install mosh in the VM and establish a connection. Then disconnect the network adapter of the server/VM. Can mosh properly recover from it?</p>
+<p>After disconnecting the network adapter, neither SSH nor Mosh connections can be restored actively (the virtual machine's network connection method needs to be modified again).</p>
+<ol start="7">
+<li>(Challenge) Look into what the -N and -f flags do in ssh and figure out a command to achieve background port forwarding.</li>
+</ol>
+<pre><code class="language-shell">-N      Do not execute a remote command.  This is useful for just forwarding ports.
+
+-f      Requests ssh to go to background just before command execution.  This is useful if ssh is going to ask for passwords or passphrases, but the user wants it in the background.  This implies -n.  The recommended way to start X11 programs at a remote site is with something like ssh -f host xterm.
+
+If the ExitOnForwardFailure configuration option is set to ``yes'', then a client started with -f will wait for all remote port forwards to be successfully established before placing itself in the background.
+</code></pre>
+<pre><code class="language-shell">ssh -fN -L 9999:localhost:8888 pi
+</code></pre>
+<p><del>I have almost completed all the issues mentioned above on Huawei Cloud and Raspberry Pi, so I will address them again when reconfiguring the Raspberry Pi in the future.</del></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../solutions/4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../../solutions/6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../solutions/4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../../solutions/6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

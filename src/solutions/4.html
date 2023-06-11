@@ -1,0 +1,1078 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>4.md - MYC-Missing-Semester</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">About</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../notes.html"><strong aria-hidden="true">1.</strong> notes</a></li><li class="chapter-item expanded "><a href="../solutions.html"><strong aria-hidden="true">2.</strong> solutions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../solutions/1.html"><strong aria-hidden="true">2.1.</strong> 1.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/2.html"><strong aria-hidden="true">2.2.</strong> 2.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/3.html"><strong aria-hidden="true">2.3.</strong> 3.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/4.html" class="active"><strong aria-hidden="true">2.4.</strong> 4.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/5.html"><strong aria-hidden="true">2.5.</strong> 5.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/6.html"><strong aria-hidden="true">2.6.</strong> 6.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/7.html"><strong aria-hidden="true">2.7.</strong> 7.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/8.html"><strong aria-hidden="true">2.8.</strong> 8.md</a></li><li class="chapter-item expanded "><a href="../../../solutions/9.html"><strong aria-hidden="true">2.9.</strong> 9.md</a></li></ol></li><li class="chapter-item expanded "><a href="../more-information.html"><strong aria-hidden="true">3.</strong> more-information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../more-information/Github.html"><strong aria-hidden="true">3.1.</strong> Github.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/makefile.html"><strong aria-hidden="true">3.2.</strong> makefile.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/tmux.html"><strong aria-hidden="true">3.3.</strong> tmux.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Pro-Git.html"><strong aria-hidden="true">3.4.</strong> Pro-Git.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/mdbook.html"><strong aria-hidden="true">3.5.</strong> mdbook.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/Vim.html"><strong aria-hidden="true">3.6.</strong> Vim.md</a></li><li class="chapter-item expanded "><a href="../../../more-information/shell-programming.html"><strong aria-hidden="true">3.7.</strong> shell-programming.md</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MYC-Missing-Semester</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ol>
+<li>Take this <a href="https://regexone.com/">short interactive regex tutorial</a>.</li>
+<li>Find the number of words (in [object Object]) that contain at least three [object Object]s and don’t have a [object Object] ending. What are the three most common last two letters of those words? [object Object]’s [object Object] command, or the [object Object] program, may help you with case insensitivity. How many of those two-letter combinations are there? And for a challenge: which combinations do not occur?</li>
+</ol>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:48:13]$ grep -P '^(?!.*'\''s$)(.*a){3}' /usr/share/dict/words | wc -l
+768
+┌─[myc@ubuntu22]─[~]
+└──╼[14:49:41]$ # But the Chinese Solution is Below
+┌─[myc@ubuntu22]─[~]
+└──╼[14:50:04]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | wc -l
+854
+┌─[myc@ubuntu22]─[~]
+└──╼[14:50:07]$
+</code></pre>
+<p><strong>I feel confused.</strong></p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:54:22]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^[^s]*a[^s]*a[^s]*a[^'s]*$&quot; | rev | cut -c1-2 | sort | uniq -c | sort -nr | head -3
+     71 na
+     36 la
+     33 ai
+┌─[myc@ubuntu22]─[~]
+└──╼[14:54:39]$ # The Chinese solution
+┌─[myc@ubuntu22]─[~]
+└──╼[14:55:09]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | sed -E &quot;s/.*([a-z]{2})$/\1/&quot; | sort | uniq -c | sort | tail -n3
+      8 am
+      8 ce
+      9 ca
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:55:11]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^[^s]*a[^s]*a[^s]*a[^'s]*$&quot; | rev | cut -c1-2 | sort | uniq | wc -l
+76
+┌─[myc@ubuntu22]─[~]
+└──╼[14:55:42]$ # solution
+┌─[myc@ubuntu22]─[~]
+└──╼[14:56:03]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a){3}.*$&quot; | grep -v &quot;'s$&quot; | sed -E &quot;s/.*([a-z]{2})$/\1/&quot; | sort | uniq | wc -l
+112
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~]
+└──╼[14:56:06]$ cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^[^s]*a[^s]*a[^s]*a[^'s]*$&quot; | rev | cut -c1-2 | sort | uniq &gt; appeared_combinations.txt
+┌─[myc@ubuntu22]─[~]
+└──╼[14:57:40]$ cat /usr/share/dict/words | rev | cut -c1-2 | sort | uniq &gt; all_combinations.txt
+┌─[myc@ubuntu22]─[~]
+└──╼[14:57:50]$ grep -vxFf appeared_combinations.txt all_combinations.txt
+a
+a'
+A
+á
+AA
+aB
+AB
+aC
+AC
+AD
+AE
+aG
+AG
+AH
+AI
+aL
+AL
+AM
+aN
+AN
+AO
+aP
+AP
+AQ
+aR
+AR
+as
+AS
+aT
+AT
+aV
+AV
+AW
+b
+B
+ba
+BA
+bb
+BB
+BC
+Bd
+BD
+be
+BG
+bi
+bl
+bm
+bM
+BM
+bN
+BN
+bo
+bO
+BO
+bP
+br
+bR
+bS
+BS
+bT
+BT
+bu
+bY
+c
+C
+cA
+CA
+CB
+cc
+CC
+CD
+ce
+CE
+CF
+CI
+ck
+cl
+CL
+CM
+cn
+CN
+co
+CO
+CP
+cr
+CR
+cs
+cS
+CS
+ct
+cT
+CT
+CV
+CW
+CY
+d
+d'
+D
+DA
+dc
+dC
+DC
+dd
+DD
+dE
+DE
+DF
+dG
+dh
+Dh
+di
+DI
+dl
+dM
+DM
+dN
+DN
+do
+DO
+dp
+dP
+DP
+dR
+DR
+DS
+dt
+DT
+du
+DU
+dv
+DV
+dw
+dy
+e
+E
+é
+eb
+eB
+ED
+EE
+ef
+eF
+eG
+EG
+eH
+EI
+ej
+ek
+eL
+em
+EM
+eN
+EN
+eo
+EO
+ep
+EP
+eR
+es
+eS
+ES
+ET
+ev
+ew
+ex
+eX
+ey
+ez
+f
+F
+fa
+FA
+fc
+fC
+FD
+fe
+FE
+ff
+FF
+fH
+FH
+fi
+FI
+fl
+FL
+FM
+fo
+fp
+fr
+FS
+FV
+g
+G
+ga
+gA
+GC
+gd
+ge
+GE
+gf
+gg
+gH
+gi
+Gi
+gk
+GK
+GL
+gm
+gM
+GN
+go
+gp
+GP
+gr
+GS
+gu
+gv
+GY
+h
+H
+hc
+hd
+he
+hg
+hk
+hl
+hn
+HN
+ho
+HO
+Hp
+hr
+hR
+HR
+hs
+hT
+HT
+hu
+hz
+i
+i'
+I
+ia
+IA
+ib
+iB
+IB
+ic
+iC
+IC
+id
+iD
+ie
+if
+iF
+ig
+IG
+ih
+IH
+ii
+II
+ij
+ik
+il
+iL
+im
+IM
+iN
+io
+ip
+IP
+iq
+IR
+is
+iS
+IS
+it
+iT
+iu
+IU
+iv
+IV
+iw
+IW
+ix
+IY
+iz
+j
+J
+ja
+jb
+JB
+jd
+JD
+jn
+JN
+JO
+jr
+JV
+k
+K
+KA
+kB
+kc
+ke
+KF
+ki
+KI
+KK
+kl
+kn
+ko
+KO
+ks
+ku
+KU
+kw
+ky
+l
+L
+lA
+LA
+lc
+lC
+le
+lf
+LF
+lh
+LH
+li
+LI
+ll
+lm
+LM
+lo
+LO
+lp
+lP
+LQ
+lr
+LR
+LS
+lt
+lT
+lu
+lv
+lw
+LX
+ly
+lz
+m
+m'
+M
+mA
+MA
+MB
+mc
+mC
+me
+ME
+mF
+MF
+mg
+MG
+mh
+mi
+mk
+ml
+mm
+mn
+MN
+mo
+MO
+mp
+mP
+MP
+mr
+ms
+mS
+mT
+MT
+mu
+mW
+my
+n
+n'
+N
+NA
+nd
+ne
+ng
+nh
+ni
+nI
+NI
+nl
+nL
+nm
+nM
+NM
+nn
+NN
+NP
+nr
+nR
+NR
+ns
+nS
+NS
+NT
+nu
+NU
+NV
+nw
+ny
+nZ
+o
+O
+oa
+OB
+oc
+oC
+OC
+oe
+OE
+of
+OF
+og
+OG
+oH
+OH
+oI
+oj
+oJ
+ok
+OK
+ol
+OL
+oM
+OM
+on
+op
+oP
+OP
+or
+OR
+os
+OS
+ot
+OT
+ou
+ow
+ox
+oy
+oz
+p
+P
+pa
+PA
+PB
+PC
+pd
+PD
+pe
+PG
+ph
+PH
+pi
+PI
+PJ
+PK
+pl
+PL
+pm
+PM
+pN
+PN
+po
+PO
+pp
+PP
+pr
+PR
+ps
+PS
+pt
+PT
+pu
+PV
+px
+py
+q
+Q
+qa
+QA
+QB
+QD
+QH
+QI
+qs
+qS
+r
+R
+rA
+RA
+rb
+rB
+rC
+RC
+rd
+rD
+RD
+rE
+RE
+rf
+rF
+rg
+rh
+RH
+ri
+rI
+rJ
+rK
+rL
+RL
+rM
+ro
+RO
+rp
+RP
+rr
+RR
+rS
+RS
+rt
+ru
+rU
+RV
+ry
+rZ
+s
+s'
+S
+sa
+sA
+SA
+sb
+SB
+sc
+sC
+SC
+sd
+sD
+SD
+se
+sE
+sf
+sg
+sh
+SH
+si
+sI
+SI
+sk
+sK
+SK
+sl
+sL
+sm
+sM
+SM
+sn
+sN
+SN
+so
+sO
+SO
+sp
+sP
+SP
+sQ
+sr
+sR
+SR
+ss
+SS
+st
+sT
+ST
+su
+SU
+sv
+sV
+SV
+sw
+SW
+SX
+sy
+t
+t'
+T
+tA
+TA
+tb
+TB
+TC
+td
+TD
+te
+TE
+tg
+th
+tI
+TI
+tl
+tL
+TL
+tm
+tM
+TM
+TN
+to
+TO
+tp
+tP
+TP
+tq
+tr
+TR
+ts
+tS
+TS
+tt
+TU
+tv
+TV
+tw
+TW
+tx
+ty
+tz
+TZ
+u
+U
+ua
+uA
+ub
+uc
+uC
+UC
+ud
+ue
+uE
+uf
+ug
+uh
+uj
+uk
+ul
+uL
+UL
+um
+un
+UN
+uo
+UO
+up
+uP
+UP
+ur
+uR
+us
+ut
+UT
+uu
+uW
+uy
+uz
+v
+V
+va
+vA
+VA
+vd
+ve
+vi
+VI
+VJ
+VM
+VN
+VO
+VR
+VS
+VT
+VU
+VW
+vx
+w
+W
+wa
+WA
+we
+WF
+WI
+WJ
+Wk
+WM
+WN
+wo
+WO
+WS
+WT
+WW
+x
+X
+XA
+XB
+xe
+xE
+Xe
+xi
+XI
+xn
+xo
+XP
+xr
+xR
+XT
+xu
+xx
+xy
+Xy
+y
+Y
+yb
+YB
+yc
+yd
+ye
+yf
+yg
+yh
+yk
+YK
+ym
+yn
+YN
+yo
+ys
+yT
+YT
+yu
+yv
+yw
+YW
+yx
+yz
+z
+Z
+ZA
+zd
+ze
+zH
+zi
+zl
+ZM
+zn
+ZN
+zo
+zO
+zs
+zt
+zu
+zz
+grep: all_combinations.txt: binary file matches
+┌─[myc@ubuntu22]─[~]
+└──╼[14:57:58]$
+</code></pre>
+<ol start="3">
+<li>To do in-place substitution it is quite tempting to do something like [object Object]. However this is a bad idea, why? Is this particular to [object Object]? Use [object Object] to find out how to accomplish this.</li>
+</ol>
+<p>Answer below is copyed.
+sed s/REGEX/SUBSTITUTION/ input.txt &gt; input.txt expression will first clear the latter input.txt, and this happens before the former one is processed by sed. Therefore, the former input.txt is already empty before being processed by sed. It's best to backup files before using regular expressions to process them.</p>
+<pre><code class="language-shell">sed -i.bak s/REGEX/SUBSTITUTION/ input.txt
+</code></pre>
+<p>This can automatically create a backup file with a .bak suffix.</p>
+<ol start="4">
+<li>Find your average, median, and max system boot time over the last ten boots. Use [object Object] on Linux and [object Object] on macOS, and look for log timestamps near the beginning and end of each boot. On Linux, they may look something like:</li>
+</ol>
+<p><em>I don't want to restart my virtual machine ten times, so the answer to this and the next question will be skipped.</em> :(</p>
+<ol start="5">
+<li>
+<p>Look for boot messages that are not shared between your past three reboots (see [object Object]’s [object Object] flag). Break this task down into multiple steps. First, find a way to get just the logs from the past three boots. There may be an applicable flag on the tool you use to extract the boot logs, or you can use [object Object] to remove all lines previous to one that matches [object Object]. Next, remove any parts of the line that always varies (like the timestamp). Then, de-duplicate the input lines and keep a count of each one ([object Object] is your friend). And finally, eliminate any line whose count is 3 (since it was shared among all the boots).</p>
+</li>
+<li>
+<p>Find an online data set like this one, this one, or maybe one from here. Fetch it using [object Object] and extract out just two columns of numerical data. If you’re fetching HTML data, [object Object] might be helpful. For JSON data, try [object Object]. Find the min and max of one column in a single command, and the difference of the sum of each column in another.</p>
+</li>
+</ol>
+<p><em>Great, Wikipedia cannot be accessed in mainland China. Cool.</em></p>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:00:04]$ curl 'https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm' |
+sed -n &quot;/table1/,/&lt;\/table&gt;/p&quot; |
+grep &quot;&lt;tr&quot; |
+sed -E 's/(&lt;[^&gt;]*&gt;)+/ /g' |
+sed 's/ /-/g;s/ / /g' |
+sed 's/ /-/g;s/&amp;nbsp;/ /g' |
+head -n -3 |
+tail +11
+|sed 's/^-//' &gt; data.txt
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  214k  100  214k    0     0   283k      0 --:--:-- --:--:-- --:--:--  283k
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:00:50]$
+
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:06:36]$ awk -F &quot;-&quot; '{print $0,$5}' data.txt | sort --key=7n | head -n 1
+Jan 2001-7-7-9- -31-12-1-8.6-1352-29%-10%-267-301 kB-3.0 k-15- - -2-163-
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:06:46]$
+</code></pre>
+<pre><code class="language-shell">┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:04:19]$ awk -F &quot;-&quot; '{print $0,$5}' data.txt | sort --key=7n | tail -n 1
+Feb 2001-15-8-14-1-165-129-5-6.0-1236-51%-14%-727-1.2 MB-36 k-655- - -21-482- 1
+┌─[myc@ubuntu22]─[~/Desktop]
+</code></pre>
+<pre><code class="language-shell">┌─[Fail][myc@ubuntu22]─[~/Desktop]
+└──╼[23:09:58]$ awk -F &quot;-&quot; '{print $7-$2}' data | awk '{s+=$1} END {print s}'
+-2.36832e+08
+┌─[myc@ubuntu22]─[~/Desktop]
+└──╼[23:10:09]$
+# 什么玩意儿，不管了，先这样吧。。。
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../solutions/3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../../solutions/5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../solutions/3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../../solutions/5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

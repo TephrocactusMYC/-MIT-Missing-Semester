@@ -1,3 +1,6 @@
+# About this repositry
+Here is everything about `missing semester`, including my notes and problem-solving. At the same time, I also wrote some self-learning content.
+
 # MIT-Missing-Semester
 All notes and homeworks' solutions for MIT-Missing-Semester.
 
@@ -10,4 +13,3 @@ Therefore, I have some learning suggestions. **First of all**, you need to maste
 
 # Why not pay attention to the development of Rust?
 Rust's development is very rapid.Almost all command-line tools have a more modern version rewritten in Rust language.
-

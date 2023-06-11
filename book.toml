@@ -1,0 +1,6 @@
+[book]
+authors = ["Yuchen Mu"]
+language = "en"
+multilingual = false
+src = "src"
+title = "MYC-Missing-Semester"
