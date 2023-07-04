@@ -88,11 +88,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -146,20 +168,83 @@
                     <main>
                         <h1 id="this-is-the-notes-of-reading-progit"><a class="header" href="#this-is-the-notes-of-reading-progit">This is the notes of reading ProGit</a></h1>
 <p><a href="https://git-scm.com/book/en/v2">Pro Git</a> is an open source book!</p>
+<h1 id="installing-git"><a class="header" href="#installing-git">Installing Git</a></h1>
+<p>First of all, do not forget to config your git, especailly the editor(In my ubuntu, the default editor is nano).</p>
+<pre><code class="language-shell">git config --global user.name &quot;name&quot;
+git config --global user.email example@email.com
+git config --global core.editor vim
+# then
+git config --list
+</code></pre>
 <h1 id="basic-operate"><a class="header" href="#basic-operate">Basic operate</a></h1>
 <p>Many basic command to learn!</p>
-<pre><code class="language-shell">
+<pre><code class="language-shell"># get a repo
+git clone 
+git init
 
+# git add
+git add .
+git commit -m &quot;add&quot;
 
+# push
+git push
 
+# branch
+git checkout mybranch
 
+# log
+git log
 
+# status
+git status
+git diff
 
+# rm
+git rm
 
+# mv
+git mv 
 
-
-
+# tag
+git tag
 </code></pre>
+<h1 id="track"><a class="header" href="#track">track</a></h1>
+<p>Remember that each file in your working directory can be in one of two states: tracked or untracked.</p>
+<h1 id="snapshot"><a class="header" href="#snapshot">snapshot</a></h1>
+<p>Git doesn’t think of or store its data this way. Instead, Git thinks of its data more like a series of snapshots of a miniature filesystem. With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot. To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots.</p>
+<h1 id="three-states"><a class="header" href="#three-states">Three states</a></h1>
+<p>Git has three main states that your files can reside in: modified, staged, and committed:</p>
+<ul>
+<li>
+<p>Modified means that you have changed the file but have not committed it to your database yet.</p>
+</li>
+<li>
+<p>Staged means that you have marked a modified file in its current version to go into your next commit snapshot.</p>
+</li>
+<li>
+<p>Committed means that the data is safely stored in your local database.</p>
+</li>
+</ul>
+<p>This leads us to the three main sections of a Git project: the working tree, the staging area, and the Git directory.</p>
+<h1 id="branch"><a class="header" href="#branch">branch</a></h1>
+<p>The main information:</p>
+<ul>
+<li>Git is a version control system that supports branching. </li>
+<li>Git's branches are lightweight and easy to create and switch between. </li>
+<li>Git encourages frequent use of branching and merging. </li>
+<li>Git saves file snapshots, and when committing, it saves a commit object that includes pointers to the snapshot of staged content and parent objects.</li>
+<li>Git branches are essentially mutable pointers to commit objects, with &quot;master&quot; being the default name.</li>
+<li>Creating a new branch simply requires creating a new branch pointer.</li>
+<li>HEAD is a special pointer that points to the currently active local branch.</li>
+</ul>
+<h1 id="rebase"><a class="header" href="#rebase">rebase</a></h1>
+<p>There is no difference in the end product of the integration, but rebasing makes for a cleaner history. </p>
+<h1 id="distributed-workflows"><a class="header" href="#distributed-workflows">Distributed Workflows</a></h1>
+<p>Integration-Manager Workflow is very useful.</p>
+<h1 id="stashing"><a class="header" href="#stashing">Stashing</a></h1>
+<p>Stashing is used when you don't want to commit your current work but have to switch to another branch.</p>
+<h1 id="more"><a class="header" href="#more">More</a></h1>
+<p>Combined with the Pro-Git pictures, you will have a deeper understanding.</p>
 
                     </main>
 
