@@ -166,376 +166,1163 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>vim— 终端中的编辑器 — 黑马程序员《Python 入门教程完整版》笔记
-2018 年 12 月 24 日・《Python 入门教程完整版》笔记（懂中文就能学会） — 黑马程序员 ,vim
-vi —— 终端中的编辑器 黑马程序员《Python 入门教程完整版》笔记
-— 黑马程序员《Python 入门教程完整版》笔记
-目标
-vi 简介
-打开和新建文件
-三种工作模式
-常用命令
-分屏命令
-常用命令速查图</p>
-<ol>
-<li>vi 简介
-1.1 学习 vi 的目的
-在工作中，要对 服务器 上的文件进行 简单 的修改，可以使用 ssh 远程登录到服务器上，并且使用 vi 进行快速的编辑即可
-常见需要修改的文件包括：</li>
-</ol>
-<p>源程序
-配置文件，例如 ssh 的配置文件 ~/.ssh/config
-在没有图形界面的环境下，要编辑文件，vi 是最佳选择！
-每一个要使用 Linux 的程序员，都应该或多或少的学习一些 vi 的常用命令
-1.2 vi 和 vim
-在很多 Linux 发行版中，直接把 vi 做成 vim 的软连接
-vi
-vi 是 Visual interface 的简称，是 Linux 中 最经典 的文本编辑器
-vi 的核心设计思想 —— 让程序员的手指始终保持在键盘的核心区域，就能完成所有的编辑操作
-001_vi键盘.png</p>
-<p>vi 的特点：</p>
-<p>没有图形界面 的 功能强大 的编辑器
-只能是编辑 文本内容，不能对字体、段落进行排版
-不支持鼠标操作
-没有菜单
-只有命令
-vi 编辑器在 系统管理、服务器管理 编辑文件时，其功能永远不是图形界面的编辑器能比拟的
-vim
-vim = vi improved</p>
-<p>vim 是从 vi 发展出来的一个文本编辑器，支持 代码补全、编译 及 错误跳转 等方便编程的功能特别丰富，在程序员中被广泛使用，被称为 编辑器之神
-查询软连接命令（知道）
-在很多 Linux 发行版中直接把 vi 做成 vim 的软连接</p>
-<h1 id="查找-vi-的运行文件"><a class="header" href="#查找-vi-的运行文件">查找 vi 的运行文件</a></h1>
-<p>$ which vi
-$ ls -l /usr/bin/vi
-$ ls -l /etc/alternatives/vi
-$ ls -l /usr/bin/vim.basic</p>
-<h1 id="查找-vim-的运行文件"><a class="header" href="#查找-vim-的运行文件">查找 vim 的运行文件</a></h1>
-<p>$ which vim
-$ ls -l /usr/bin/vim
-$ ls -l /etc/alternatives/vim
-$ ls -l /usr/bin/vim.basic 
-02. 打开和新建文件
-在终端中输入 vi 在后面跟上文件名 即可
-$ vi 文件名
-如果文件已经存在，会直接打开该文件
-如果文件不存在，会新建一个文件
-2.1 打开文件并且定位行
-在日常工作中，有可能会遇到 打开一个文件，并定位到指定行 的情况
-例如：在开发时，知道某一行代码有错误，可以 快速定位 到出错代码的位置
-这个时候，可以使用以下命令打开文件
-$ vi 文件名 +行数
-提示：如果只带上 + 而不指定行号，会直接定位到文件末尾</p>
-<p>2.2 异常处理
-如果 vi 异常退出，在磁盘上可能会保存有 交换文件
-下次再使用 vi 编辑该文件时，会看到以下屏幕信息，按下字母 d 可以 删除交换文件 即可
-提示：按下键盘时，注意关闭输入法</p>
-<p>002_删除交换文件.png</p>
-<ol start="3">
-<li>三种工作模式
-vi 有三种基本工作模式：</li>
-</ol>
-<p>命令模式</p>
-<p>打开文件首先进入命令模式，是使用 vi 的 入口
-通过 命令 对文件进行常规的编辑操作，例如：定位、翻页、复制、粘贴、删除……
-在其他图形编辑器下，通过 快捷键 或者 鼠标 实现的操作，都在 命令模式 下实现
-末行模式 —— 执行 保存、退出 等操作</p>
-<p>要退出 vi 返回到控制台，需要在末行模式下输入命令
-末行模式 是 vi 的 出口
-编辑模式 —— 正常的编辑文字
-003_vi的模式.png</p>
-<p>提示：在 Touch Bar 的 Mac 电脑上 ，按 ESC 不方便，可以使用 CTRL + [ 替代</p>
-<p>末行模式命令
-命令	英文	功能
-w	write	保存
-q	quit	退出，如果没有保存，不允许退出
-q!	quit	强行退出，不保存退出
-wq	write &amp; quit	保存并退出
-x		保存并退出
-04. 常用命令
-命令线路图
-重复次数</p>
-<p>在命令模式下，先输入一个数字，再跟上一个命令，可以让该命令 重复执行指定次数
-移动和选择（多练）</p>
-<p>vi 之所以快，关键在于 能够快速定位到要编辑的代码行
-移动命令 能够 和 编辑操作 命令 组合使用
-编辑操作</p>
-<p>删除、复制、粘贴、替换、缩排
-撤销和重复
-查找替换
-编辑
-学习提示
-vi 的命令较多，不要期望一下子全部记住，个别命令忘记了，只是会影响编辑速度而已
-在使用 vi 命令时，注意 关闭中文输入法
-4.1 移动（基本）
-要熟练使用 vi，首先应该学会怎么在 命令模式 下样快速移动光标
-编辑操作命令，能够和 移动命令 结合在一起使用</p>
-<ol>
-<li>
-<p>上、下、左、右
-命令	功能	手指
-h	向左	食指
-j	向下	食指
-k	向上	中指
-l	向右	无名指
-005_移动光标.png</p>
-</li>
-<li>
-<p>行内移动
-命令	英文	功能
-w	word	向后移动一个单词
-b	back	向前移动一个单词
-0		行首
-^		行首，第一个不是空白字符的位置
-$		行尾</p>
-</li>
-<li>
-<p>行数移动
-命令	英文	功能
-gg	go	文件顶部
-G	go	文件末尾
-数字 gg	go	移动到 数字 对应行数
-数字 G	go	移动到 数字 对应行数
-: 数字		移动到 数字 对应行数</p>
-</li>
-<li>
-<p>屏幕移动
-命令	英文	功能
-Ctrl + b	back	向上翻页
-Ctrl + f	forward	向下翻页
-H	Head	屏幕顶部
-M	Middle	屏幕中间
-L	Low	屏幕底部
-4.2 移动（程序）</p>
-</li>
-<li>
-<p>段落移动
-vi 中使用 空行 来区分段落
-在程序开发时，通常 一段功能相关的代码会写在一起 —— 之间没有空行
-命令	功能
-{	上一段
-}	下一段</p>
-</li>
-<li>
-<p>括号切换
-在程序世界中，()、[]、{} 使用频率很高，而且 都是成对出现的
-命令	功能
-%	括号匹配及切换</p>
-</li>
-<li>
-<p>标记
-在开发时，某一块代码可能需要稍后处理，例如：编辑、查看
-此时先使用 m 增加一个标记，这样可以 在需要时快速地跳转回来 或者 执行其他编辑操作
-标记名称 可以是 a~z 或者 A~Z 之间的任意 一个 字母
-添加了标记的 行如果被删除，标记同时被删除
-如果 在其他行添加了相同名称的标记，之前添加的标记也会被替换掉
-命令	英文	功能
-mx	mark	添加标记 x，x 是 a~z 或者 A~Z 之间的任意一个字母
-'x		直接定位到标记 x 所在位置
-4.3 选中文本（可视模式）
-学习 复制 命令前，应该先学会 怎么样选中 要复制的代码
-在 vi 中要选择文本，需要先使用 Visual 命令切换到 可视模式
-vi 中提供了 三种 可视模式，可以方便程序员选择 选中文本的方式
-按 ESC 可以放弃选中，返回到 命令模式
-命令	模式	功能
-v	可视模式	从光标位置开始按照正常模式选择文本
-V	可视行模式	选中光标经过的完整行
-Ctrl + v	可视块模式	垂直方向选中文本
-可视模式下，可以和 移动命令 连用，例如：ggVG 能够选中所有内容
-4.4 撤销和恢复撤销
-在学习编辑命令之前，先要知道怎样撤销之前一次 错误的 编辑动作！
-命令	英文	功能
-u	undo	撤销上次命令
-CTRL + r	redo	恢复撤销的命令
-4.5 删除文本
-命令	英文	功能
-x	cut	删除光标所在字符，或者选中文字
-d (移动命令)	delete	删除移动命令对应的内容
-dd	delete	删除光标所在行，可以 ndd 复制多行
-D	delete	删除至行尾
-提示：如果使用 可视模式 已经选中了一段文本，那么无论使用 d 还是 x，都可以删除选中文本</p>
-</li>
-</ol>
-<p>删除命令可以和 移动命令 连用，以下是常见的组合命令：</p>
+                        <h2 id="1shell简介"><a class="header" href="#1shell简介">1.shell简介</a></h2>
+<h2 id="11-什么是shell"><a class="header" href="#11-什么是shell">1.1 什么是shell</a></h2>
+<p>什么是shell呢？shell是用C语言编写的程序，它是用户使用 Linux 的桥梁。Shell既是一种命令语言，又是一种程序设计语言。简单来说Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。也可以这样认为，linux中的shell就是linux内核的一个外层保护工具，并负责完成用户与内核之间的交互</p>
+<h2 id="12-shell脚本"><a class="header" href="#12-shell脚本">1.2 shell脚本</a></h2>
+<p>shell脚本就是一种专门使用shell编写的脚本程序，它虽然没有C++、Java、Python等一系列高级语言功能强大，但是在服务器运维领域以及嵌入式开发领域，shell脚本具有举足轻重的地位。</p>
+<p>shell脚本编程如同其他编程语言的一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以运行了，而linux下的shell种类众多，常用的用：</p>
 <ul>
-<li>dw        # 从光标位置删除到单词末尾</li>
-<li>d0        # 从光标位置删除到一行的起始位置</li>
-<li>d}        # 从光标位置删除到段落结尾</li>
-<li>ndd       # 从光标位置向下连续删除 n 行</li>
-<li>d代码行G   # 从光标所在行 删除到 指定代码行 之间的所有代码</li>
-<li>d'a       # 从光标所在行 删除到 标记a 之间的所有代码
-4.6 复制、粘贴
-vi 中提供有一个 被复制文本的缓冲区</li>
+<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
+<li><strong>Bourne Again Shell（/bin/bash）</strong></li>
+<li>C Shell（/usr/bin/csh）</li>
+<li>K Shell（/usr/bin/ksh）</li>
+<li>Shell for Root（/sbin/sh）</li>
+<li>… …</li>
 </ul>
-<p>复制 命令会将选中的文字保存在缓冲区
-删除 命令删除的文字会被保存在缓冲区
-在需要的位置，使用 粘贴 命令可以将缓冲区的文字插入到光标所在位置
-命令	英文	功能
-y (移动命令)	copy	复制
-yy	copy	复制一行，可以 nyy 复制多行
-p	paste	粘贴
-提示</p>
-<p>命令 d、x 类似于图形界面的 剪切操作 —— CTRL + X
-命令 y 类似于图形界面的 复制操作 —— CTRL + C
-命令 p 类似于图形界面的 粘贴操作 —— CTRL + V
-vi 中的 文本缓冲区同样只有一个，如果后续做过 复制、剪切 操作，之前缓冲区中的内容会被替换
-注意</p>
-<p>vi 中的 文本缓冲区 和系统的 剪贴板 不是同一个
-所以在其他软件中使用 CTRL + C 复制的内容，不能在 vi 中通过 P 命令粘贴
-可以在 编辑模式 下使用 鼠标右键粘贴
-4.7 替换
-命令	英文	功能	工作模式
-r	replace	替换当前字符	命令模式
-R	replace	替换当前行光标后的字符	替换模式
-R 命令可以进入 替换模式，替换完成后，按下 ESC 可以回到 命令模式
-替换命令 的作用就是不用进入 编辑模式，对文件进行 轻量级的修改
-4.8 缩排和重复执行
-命令	功能
-&gt;&gt;	向右增加缩进
-&lt;&lt;	向左减少缩进
-.	重复上次命令
-缩排命令 在开发程序时，统一增加代码的缩进 比较有用！</p>
-<p>一次性 在选中代码前增加 4 个空格，就叫做 增加缩进
-一次性 在选中代码前删除 4 个空格，就叫做 减少缩进
-在 可视模式 下，缩排命令只需要使用 一个 &gt; 或者 &lt;
-在程序中，缩进 通常用来表示代码的归属关系</p>
-<p>前面空格越少，代码的级别越高
-前面空格越多，代码的级别越低
-4.9 查找
-常规查找
-命令	功能
-/str	查找 str
-查找到指定内容之后，使用 Next 查找下一个出现的位置：</p>
-<p>n: 查找下一个
-N: 查找上一个
-如果不想看到高亮显示，可以随便查找一个文件中不存在的内容即可
-单词快速匹配
-命令	功能</p>
+<p>在诸多linux发行版系统中，最常用的就是Bash，就是Bourne Again Shell，因为其能工提供环境变量以配置用户shell环境，支持历史记录、内置算数功能、支持通配符表达式等高效性能，将linux常用命令进行的简化，被广泛应用于Debian系列的linux发行版中。</p>
+<h2 id="13-运行shell脚本"><a class="header" href="#13-运行shell脚本">1.3 运行shell脚本</a></h2>
+<p>运行shell脚本的方法有两种：</p>
 <ul>
-<li>向后查找当前光标所在单词</li>
+<li>作为可执行程序运行</li>
+<li>作为解释器参数运行</li>
 </ul>
-<h1 id="向前查找当前光标所在单词"><a class="header" href="#向前查找当前光标所在单词">向前查找当前光标所在单词</a></h1>
-<p>在开发中，通过单词快速匹配，可以快速看到这个单词在其他什么位置使用过
-4.10 查找并替换
-在 vi 中查找和替换命令需要在 末行模式 下执行
-记忆命令格式：
-:%s///g</p>
-<ol>
-<li>全局替换
-一次性替换文件中的 所有出现的旧文本
-命令格式如下：
-:%s/旧文本/新文本/g</li>
-<li>可视区域替换
-先选中 要替换文字的 范围
-命令格式如下：
-:s/旧文本/新文本/g</li>
-<li>确认替换
-如果把末尾的 g 改成 gc 在替换的时候，会有提示！推荐使用！
-:%s/旧文本/新文本/gc
-y - yes 替换
-n - no 不替换
-a - all 替换所有
-q - quit 退出替换
-l - last 最后一个，并把光标移动到行首
-^E 向下滚屏
-^Y 向上滚屏
-4.11 插入命令
-在 vi 中除了常用的 i 进入 编辑模式 外，还提供了以下命令同样可以进入编辑模式：
-命令	英文	功能	常用
-i	insert	在当前字符前插入文本	常用
-I	insert	在行首插入文本	较常用
-a	append	在当前字符后添加文本	
-A	append	在行末添加文本	较常用
-o		在当前行后面插入一空行	常用
-O		在当前行前面插入一空行	常用
-004_插入命令.png</li>
-</ol>
-<p>演练 1 —— 编辑命令和数字连用
-在开发中，可能会遇到连续输入 N 个同样的字符
-在 Python 中有简单的方法，但是其他语言中通常需要自己输入</p>
-<p>例如：********** 连续 10 个星号
-要实现这个效果可以在 命令模式 下</p>
-<p>输入 10，表示要重复 10 次
-输入 i 进入 编辑模式
-输入 * 也就是重复的文字
-按下 ESC 返回到 命令模式，返回之后 vi 就会把第 2、3 两步的操作重复 10 次
-提示：正常开发时，在 进入编辑模式之前，不要按数字</p>
-<p>演练 2 —— 利用 可视块 给多行代码增加注释
-在开发中，可能会遇到一次性给多行代码 增加注释 的情况
-在 Python 中，要给代码增加注释，可以在代码前增加一个 # </p>
-<p>要实现这个效果可以在 命令模式 下</p>
-<p>移动到要添加注释的 第 1 行代码，按 ^ 来到行首
-按 CTRL + v 进入 可视块 模式
-使用 j 向下连续选中要添加的代码行
-输入 I 进入 编辑模式，并在 行首插入，注意：一定要使用 I
-输入 #  也就是注释符号
-按下 ESC 返回到 命令模式，返回之后 vi 会在之前选中的每一行代码 前 插入 # 
-05. 分屏命令
-属于 vi 的高级命令 —— 可以 同时编辑和查看多个文件
-5.1 末行命令扩展
-末行命令 主要是针对文件进行操作的：保存、退出、保存 &amp; 退出、搜索 &amp; 替换、另存、新建、浏览文件</p>
-<p>命令	英文	功能
-:e .	edit	会打开内置的文件浏览器，浏览要当前目录下的文件
-:n 文件名	new	新建文件
-:w 文件名	write	另存为，但是仍然编辑当前文件，并不会切换文件
-提示：切换文件之前，必须保证当前这个文件已经被保存！</p>
-<p>已经学习过的 末行命令：
-命令	英文	功能
-:w	write	保存
-:q	quit	退出，如果没有保存，不允许退出
-:q!	quit	强行退出，不保存退出
-:wq	write &amp; quit	保存并退出
-:x		保存并退出
-:%s///gc		确认搜索并替换
-在实际开发中，可以使用 w 命令 阶段性的备份代码</p>
-<p>5.2 分屏命令
-使用 分屏命令，可以 同时编辑和查看多个文件
-命令	英文	功能
-:sp [文件名]	split	横向增加分屏
-:vsp [文件名]	vertical split	纵向增加分屏</p>
-<ol>
-<li>切换分屏窗口
-分屏窗口都是基于 CTRL + W 这个快捷键的，w 对应的英文单词是 window</li>
-</ol>
-<p>命令	英文	功能
-w	window	切换到下一个窗口
-r	reverse	互换窗口
-c	close	关闭当前窗口，但是不能关闭最后一个窗口
-q	quit	退出当前窗口，如果是最后一个窗口，则关闭 vi
-o	other	关闭其他窗口
-2) 调整窗口大小
-分屏窗口都是基于 CTRL + W 这个快捷键的，w 对应的英文单词是 window</p>
-<p>命令	英文	功能</p>
+<p>shell脚本编写如下，并将其保存为test.sh，进入存放此文件目录</p>
+<pre><code class="language-auto">#!/bin/bash
+echo &quot;Hello World&quot;
+</code></pre>
 <ul>
 <li>
-<pre><code>  增加窗口高度
+<p>当作为可执行程序运行时候</p>
+</li>
+<li>
+<pre><code class="language-auto">chmod +x test.sh	# 赋予可执行权限
+./test.sh		    # 执行程序
 </code></pre>
 </li>
 </ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213405526.png" alt="在这里插入图片描述" /></p>
 <ul>
 <li>
-<pre><code>  减少窗口高度
+<p>当作为解释器参数运行时</p>
+</li>
+<li>
+<pre><code class="language-auto">/bin/sh test.sh		# 执行命令
+/bin/php test.php	# 执行命令
 </code></pre>
 </li>
 </ul>
-<blockquote>
-<pre><code>  增加窗口宽度
+<p><img src="https://img-blog.csdnimg.cn/2020033121341733.png" alt="在这里插入图片描述" /></p>
+<h2 id="14-shell注释"><a class="header" href="#14-shell注释">1.4 shell注释</a></h2>
+<ul>
+<li>
+<p>单行注释：和python注释相同，以<code>#</code>号开头作为单行注释</p>
+</li>
+<li>
+<pre><code class="language-auto"># 这是一个注释
+# author：ohuohuoo
+# date：`date`
 </code></pre>
-</blockquote>
-<p>&lt;		减少窗口宽度
-=		等分窗口大小
-调整窗口宽高的命令可以和数字连用，例如：5 CTRL + W + 连续 5 次增加高度</p>
-<ol start="6">
-<li>常用命令速查图
-vim.png</li>
-</ol>
-<p>vimrc
-vimrc 是 vim 的配置文件，可以设置 vim 的配置，包括：热键、配色、语法高亮、插件 等
-Linux 中 vimrc 有两个位置，家目录下的配置文件优先级更高
-/etc/vim/vimrc
-~/.vimrc</p>
+</li>
+<li>
+<p>多行注释：如果在开发过程中，，遇到大段的代码需要临时注释起来，过一会儿又取消注释，可以将其定义为一个花括号的注释函数，也可以用多行注释</p>
+</li>
+<li>
+<pre><code class="language-auto">:&lt;&lt;EOF
+注释内容...
+注释内容...
+注释内容...
+EOF
+
+# EOF可以换成其他符号
+:&lt;&lt;E！
+注释内容...
+注释内容...
+注释内容...
+！
+</code></pre>
+</li>
+</ul>
+<h2 id="15-shell编写的基本步骤"><a class="header" href="#15-shell编写的基本步骤">1.5 shell编写的基本步骤</a></h2>
+<ul>
+<li>建立shell文件</li>
+<li>赋予shell文件可执行程序权限（使用chmod命令修改权限）</li>
+<li>执行shell文件（直接运行赋予权限后的二进制文件）</li>
+</ul>
+<h2 id="2shell变量"><a class="header" href="#2shell变量">2.shell变量</a></h2>
+<h2 id="21-命名变量"><a class="header" href="#21-命名变量">2.1 命名变量</a></h2>
+<p>shell编程中，定义变量是直接定义的，<strong>没有明确的数据类型</strong>，shel允许用户建立变量存储数据，但是将认为赋给变量的值<strong>都解释为一串字符</strong>，如下</p>
+<pre><code class="language-auto">cout=1			# 定义变量		
+name=&quot;ohuohuo&quot;	 # 定义变量
+echo $cout		 # 取变量值
+echo $name	     # 取变量值
+</code></pre>
+<p>shell中，英文符号<code>&quot;$&quot;</code>用于取变量值</p>
+<p><img src="https://img-blog.csdnimg.cn/20200331213447554.png" alt="在这里插入图片描述" /></p>
+<p><em><strong>注意点</strong></em>：shell编程的变量名的命名和其他语言一样，需要遵循一定的规则，规则如下</p>
+<ul>
+<li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头</li>
+<li>中间不能有空格，可以使用下划线（_）</li>
+<li>不能使用标点符号</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）</li>
+</ul>
+<p>如下所示</p>
+<ul>
+<li>
+<p>有效的命令</p>
+</li>
+<li>
+<pre><code class="language-auto">NAME
+LIBRARY_PATH
+_var
+var2
+</code></pre>
+</li>
+<li>
+<p>无效的命名</p>
+</li>
+<li>
+<pre><code class="language-auto">?var=123
+user*name=ohuohuo
+</code></pre>
+</li>
+</ul>
+<p>如果在变量中使用系统命令，需要加上 &quot; `&quot;符号（ESC键下方），如下所示</p>
+<ul>
+<li>
+<pre><code class="language-auto">DATE1=`date`	
+DATE2=$(date)
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+<p>两者功能相同</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213500487.png" alt="在这里插入图片描述" /></p>
+<h2 id="22-使用变量"><a class="header" href="#22-使用变量">2.2 使用变量</a></h2>
+<p>使用变量的时，用英文符号<code>&quot;$&quot;</code>取变量值，对于较长的变量名，建议加上<code>{ }</code>花括号，帮助解释器识别变量的边界，如下</p>
+<pre><code class="language-auto">name=&quot;test_name&quot;
+echo &quot;My name is ${name}and you&quot;
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+<p>加上方括号时即所有便后面的语句不留空格，shell也会自动识别边界，默认添加一个空格</p>
+<p><img src="https://img-blog.csdnimg.cn/20200331213511512.png" alt="在这里插入图片描述" /></p>
+<p>此外，已经定义过的变量，可以二次定义并重新被赋值覆盖上一次的变量值，这点如同其他语言</p>
+<p><img src="https://img-blog.csdnimg.cn/20200331213518402.png" alt="在这里插入图片描述" /></p>
+<h2 id="23-变量类型"><a class="header" href="#23-变量类型">2.3 变量类型</a></h2>
+<p>shell编程中也同样存在变量类型，在运行shell时会同时存在三种变量</p>
+<ul>
+<li><strong>局部变量</strong>：在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量</li>
+<li>环境变量：所有的程序，包括shell启动的程序，都能访问环境变量，必要的时候shell脚本也可以定义环境变量</li>
+<li><strong>shell变量</strong>：由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，不同类型的变量保证了shell的正常运行</li>
+</ul>
+<h2 id="24-变量操作"><a class="header" href="#24-变量操作">2.4 变量操作</a></h2>
+<p>shell中的变量，默认为可读可写类型，如果想要其只可读，如同url一样，需要将其声明为**只读类型变量（**如同<code>const</code>），使用<code>readonly</code>命令，如下脚本</p>
+<pre><code class="language-auto">#!/bin/bash
+Url=&quot;http://www.baidu.com&quot;
+readonly Url
+Url=&quot;http://www.csnd.net&quot;
+</code></pre>
+<p>这样的话，这句就会报错，提示<code>/bin/sh: NAME: This variable is read only.</code>此变量为只读变量</p>
+<p><img src="https://img-blog.csdnimg.cn/20200331213559462.png" alt="在这里插入图片描述" /></p>
+<p>如果想要<strong>删除变量</strong>，使用<code>unset</code>命令解除命令赋值，但是<code>unset</code>不能删除可读变量，如下所示</p>
+<pre><code class="language-auto">#!/bin/sh
+name=&quot;ohuohuo&quot;
+Url=&quot;http://www.baidu.com&quot;
+readonly Url	# 设置可读变量
+unset name		# 可以被删除
+unset Url		# 不可被删除
+echo $name		# 不被打印出
+echo $Url		# 打印出
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200331213608214.png" alt="在这里插入图片描述" /></p>
+<h2 id="3shell字符串"><a class="header" href="#3shell字符串">3.shell字符串</a></h2>
+<h2 id="31-字符串类型"><a class="header" href="#31-字符串类型">3.1 字符串类型</a></h2>
+<p>在shell中字符串是shell编程中最常用最有用的数据类型，字符串可以用单引号，也可以用双引号，也可以不用引号。</p>
+<p>使用单引号</p>
+<pre><code class="language-auto">str='this is a string'
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213642504.png" alt="在这里插入图片描述" /></p>
+<p>使用单引号的不足：</p>
+<ul>
+<li>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的</li>
+<li>单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。</li>
+</ul>
+<p>使用双引号</p>
+<pre><code class="language-auto">name=&quot;ohouhuoo&quot;
+str=&quot;please input your \&quot;$name&quot;\&quot;
+echo -e $str
+</code></pre>
+<p>输出结果如下图</p>
+<p><img src="https://img-blog.csdnimg.cn/20200331213651333.png" alt="在这里插入图片描述" /></p>
+<p>使用双引号的优势：</p>
+<ul>
+<li>可以在双引号中使用变量</li>
+<li>可以在双引号中使用转移字符</li>
+</ul>
+<p>由此可见，双引号较单引号而言有更强大的优势</p>
+<h2 id="32-字符串操作"><a class="header" href="#32-字符串操作">3.2 字符串操作</a></h2>
+<ul>
+<li>
+<p><strong>获取字符串长度</strong>：在对变量进行取值时，使用&quot; # &quot;符号对字符串进行取值</p>
+</li>
+<li>
+<pre><code class="language-auto">string=&quot;abcd&quot;
+echo ${#string} # 输出 4
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213700924.png" alt="在这里插入图片描述" /></p>
+<ul>
+<li>
+<p><strong>提取子字符串</strong>：使用字符串的截取命令，用于提取部分字符串</p>
+</li>
+<li>
+<pre><code class="language-auto">string=&quot;this is a test&quot;
+echo ${string:2:6} # 表示从第3个字符开始截取
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+<p>上式输出结果为<code>is is</code>，如下图</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213707902.png" alt="在这里插入图片描述" /></p>
+<ul>
+<li>
+<p><strong>查找字符串</strong>：用于查找字符的位置，输出结果为字符在字符串中所占的数据位置，如果查找多个字符，那哪个字母先出现就计算哪个，如下查找<code>it</code>中<code>i</code>和<code>t</code>两个字符，<code>t</code>先出现，输出为1</p>
+</li>
+<li>
+<pre><code class="language-auto">string=&quot;this is a test&quot;
+echo `expr index &quot;$string&quot; it`  # 输出 1
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213716146.png" alt="在这里插入图片描述" /></p>
+<h2 id="4shell数组"><a class="header" href="#4shell数组">4.shell数组</a></h2>
+<p>在bash下，仅仅支持一维数组，并且没有限定数组的大小，不支持多维数组。类似于 C 语言，数组元素的下标由 0 开始编号（上述字符串也是这样）。获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于 0。</p>
+<h2 id="41-定义数组"><a class="header" href="#41-定义数组">4.1 定义数组</a></h2>
+<p>在 Shell 中，用括号<code>()</code>来定义表示数组，数组中元素用&quot;空格&quot;符号分割开。定义数组的一般形式为：</p>
+<pre><code class="language-auto"># 一般定义
+array_name=(value1 value2 value3 value4)
+
+# 多级定义
+array_test=(
+value1 
+value2 
+value3 
+value4
+)
+
+# 
+array_text[0]=value0
+array_text[1]=value1
+array_text[3]=value3
+... 
+...
+
+
+</code></pre>
+<p>三种定义形式均可</p>
+<h2 id="42-数组操作"><a class="header" href="#42-数组操作">4.2 数组操作</a></h2>
+<ul>
+<li>
+<p><strong>读取数组</strong>：和读取变量名相同，使用<code>$</code>符号，需要加上下标名</p>
+</li>
+<li>
+<pre><code class="language-auto">valuen=${array_name[n]}
+echo ${array_name[@]} # 读取所有
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+</li>
+<li>
+<p><strong>获取数组长度</strong>：获取数组长度的方法与获取字符串长度的方法相同，如所示</p>
+</li>
+<li>
+<pre><code class="language-auto"># 取得数组元素的个数
+length=${#array_name[@]}	# 从头到尾取
+# 或者
+length=${#array_name[*]}	# 取所有
+# 取得数组单个元素的长度
+lengthn=${#array_name[n]}	# 取特定
+</code></pre>
+</li>
+</ul>
+<h2 id="5shell传递参数"><a class="header" href="#5shell传递参数">5.shell传递参数</a></h2>
+<p>在执行 Shell 脚本时，向脚本传递参数，脚本内获取参数的格式为：<code>$n</code>。<strong>n</strong> 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……，脚本编写如下,保存为test.sh</p>
+<pre><code class="language-auto">echo &quot;传递参数实例！&quot;;
+echo &quot;执行的文件名：$0&quot;;
+echo &quot;第一个参数为：$1&quot;;
+echo &quot;第二个参数为：$2&quot;;
+echo &quot;第三个参数为：$3&quot;;
+</code></pre>
+<p>执行脚本如下</p>
+<pre><code class="language-auto">chmod +x test.sh
+./test.sh 1 2 3
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+<p>输出结果如下图，传递参数的过程在赋予权限执行脚本的过程中就已经完成</p>
+<p><img src="https://img-blog.csdnimg.cn/20200331213728638.png" alt="在这里插入图片描述" /></p>
+<p>在使用shell传递参数的时候，常常需要用到以下的几个字符来处理参数</p>
+<div class="table-wrapper"><table><thead><tr><th>参数处理</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>$#</code></td><td>传递到脚本的参数个数</td></tr>
+<tr><td><code>$*</code></td><td>以一个单字符串显示所有向脚本传递的参数。 如&quot;$*“用「”」括起来的情况、以&quot;$1 $2 … $n&quot;的形式输出所有参数。</td></tr>
+<tr><td><code>$$</code></td><td>脚本运行的当前进程ID号</td></tr>
+<tr><td><code>$!</code></td><td>后台运行的最后一个进程的ID号</td></tr>
+<tr><td><code>$@</code></td><td>与∗ 相 同 ， 但 是 使 用 时 加 引 号 ， 并 在 引 号 中 返 回 每 个 参 数 。 如 &quot; *相同，但是使用时加引号，并在引号中返回每个参数。 如&quot;∗相同，但是使用时加引号，并在引号中返回每个参数。如&quot;@“用「”」括起来的情况、以&quot;$1&quot; “2 &quot; … &quot; 2&quot; … &quot;2&quot;…&quot;n” 的形式输出所有参数。</td></tr>
+<tr><td><code>$-</code></td><td>显示Shell使用的当前选项，与set命令功能相同。</td></tr>
+<tr><td><code>$?</code></td><td>显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td></tr>
+</tbody></table>
+</div>
+<p>举例如下</p>
+<pre><code class="language-auto">echo &quot;传递参数实例！&quot;;
+echo &quot;第一个参数为：$1&quot;;
+
+echo &quot;参数个数为：$#&quot;;
+echo &quot;传递的参数作为一个字符串显示：$*&quot;;
+</code></pre>
+<p>结果如图</p>
+<p><img src="https://img-blog.csdnimg.cn/2020033121373844.png" alt="在这里插入图片描述" /></p>
+<h2 id="6shell运算符"><a class="header" href="#6shell运算符">6.shell运算符</a></h2>
+<h2 id="61-shell运算符种类"><a class="header" href="#61-shell运算符种类">6.1 shell运算符种类</a></h2>
+<p>与其他编程语言相同的是，shell同样支持多种运算符：</p>
+<ul>
+<li>
+<p>算数运算符</p>
+</li>
+<li>
+<p>关系运算符</p>
+</li>
+<li>
+<p>布尔运算符</p>
+</li>
+<li>
+<p>逻辑运算符</p>
+</li>
+<li>
+<p>字符串运算符</p>
+</li>
+<li>
+<p>文件测试运算符</p>
+</li>
+</ul>
+<p>shell想要使用这些运算符，需要结合其他命令和工具来使用（因为shell中不支持简单的数学运算），<strong>如使用算符运算符就需要搭配的常用的工具有两种</strong></p>
+<ul>
+<li>awk</li>
+<li><strong>expr</strong>（使用频繁）</li>
+</ul>
+<p><strong>运算规则注意点</strong>：</p>
+<ul>
+<li><strong>表达式和运算符之间必须要有空格</strong>，例如 3+2 是不对的，必须写成 3 + 2</li>
+<li><strong>完整的表达式要被 两个&quot; ` &quot;包含</strong>（在 Esc 键下边那个键）</li>
+</ul>
+<p>如下实例</p>
+<pre><code class="language-auto">#!/bin/bash
+
+val=`expr 3 + 2`
+echo &quot;两数之和为 : $val&quot;
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+</ul>
+<p>执行脚本后，输出结果为</p>
+<pre><code class="language-auto">两数之和为 : 5
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213746393.png" alt="在这里插入图片描述" /></p>
+<h2 id="62-算数运算符"><a class="header" href="#62-算数运算符">6.2 算数运算符</a></h2>
+<p>shell支持的常用的如下表，举例中这里假定变量 a 为 10，变量 b 为 20，</p>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>说明</th><th>举例</th></tr></thead><tbody>
+<tr><td>+</td><td>加法</td><td><code>expr $a + $b</code> 结果为 30。</td></tr>
+<tr><td>-</td><td>减法</td><td><code>expr $a - $b</code> 结果为 -10。</td></tr>
+<tr><td>*</td><td>乘法</td><td><code>expr $a \* $b</code> 结果为 200。</td></tr>
+<tr><td>/</td><td>除法</td><td><code>expr $b / $a</code> 结果为 2。</td></tr>
+<tr><td>%</td><td>取余</td><td><code>expr $b % $a</code> 结果为 0。</td></tr>
+<tr><td>=</td><td>赋值</td><td>a=$b 将把变量 b 的值赋给 a。</td></tr>
+<tr><td>==</td><td>相等。用于比较两个数字，相同则返回 true。</td><td>[ $a == $b ] 返回 false。</td></tr>
+<tr><td>!=</td><td>不相等。用于比较两个数字，不相同则返回 true。</td><td>[ $a != $b ] 返回 true。</td></tr>
+</tbody></table>
+</div>
+<p><strong>需要注意的点：</strong></p>
+<ul>
+<li>在windows系统中乘号(*)前边必须加反斜杠()才能实现乘法运算；</li>
+</ul>
+<h2 id="63-关系运算符"><a class="header" href="#63-关系运算符">6.3 关系运算符</a></h2>
+<p>shell中的关系运算符和其他编程语言不同，shell中使用特殊的字符表示关系运算符，并且只支持数字，不支持字符串，除非字符串是数字，下表为常用关系运算符，同样指定a为10，b为20</p>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>说明</th><th>举例</th></tr></thead><tbody>
+<tr><td>-eq</td><td>检测两个数是否相等，相等返回 true。</td><td>[ $a -eq $b ] 返回 false。</td></tr>
+<tr><td>-ne</td><td>检测两个数是否不相等，不相等返回 true。</td><td>[ $a -ne $b ] 返回 true。</td></tr>
+<tr><td>-gt</td><td>检测左边的数是否大于右边的，如果是，则返回 true。</td><td>[ $a -gt $b ] 返回 false。</td></tr>
+<tr><td>-lt</td><td>检测左边的数是否小于右边的，如果是，则返回 true。</td><td>[ $a -lt $b ] 返回 true。</td></tr>
+<tr><td>-ge</td><td>检测左边的数是否大于等于右边的，如果是，则返回 true。</td><td>[ $a -ge $b ] 返回 false。</td></tr>
+<tr><td>-le</td><td>检测左边的数是否小于等于右边的，如果是，则返回 true。</td><td>[ $a -le $b ] 返回 true。</td></tr>
+</tbody></table>
+</div>
+<p>脚本编写如下</p>
+<pre><code class="language-auto">#!/bin/bash
+
+a=10
+b=20
+
+if [ $a -eq $b ]
+then
+   echo &quot;$a -eq $b : a 等于 b&quot;
+else
+   echo &quot;$a -eq $b: a 不等于 b&quot;
+fi
+if [ $a -ne $b ]
+then
+   echo &quot;$a -ne $b: a 不等于 b&quot;
+else
+   echo &quot;$a -ne $b : a 等于 b&quot;
+fi 
+</code></pre>
+<p>将脚本执行结果如下</p>
+<pre><code class="language-auto">10 -eq 20: a 不等于 b
+10 -ne 20: a 不等于 b
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213759430.png" alt="在这里插入图片描述" /></p>
+<p><strong>需要注意的点：</strong></p>
+<ul>
+<li>运算符和数之间必须要用空格隔开</li>
+</ul>
+<h2 id="64-布尔运算符"><a class="header" href="#64-布尔运算符">6.4 布尔运算符</a></h2>
+<p>shell中的布尔运算符使用如下表，同样指定a为10，b为20</p>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>说明</th><th>举例</th></tr></thead><tbody>
+<tr><td>!</td><td>非运算，表达式为 true 则返回 false，否则返回 true。</td><td>[ ! false ] 返回 true。</td></tr>
+<tr><td>-o</td><td>或运算，有一个表达式为 true 则返回 true。</td><td>[ $a -lt 20 -o $b -gt 100 ] 返回 true。</td></tr>
+<tr><td>-a</td><td>与运算，两个表达式都为 true 才返回 true。</td><td>[ $a -lt 20 -a $b -gt 100 ] 返回 false。</td></tr>
+</tbody></table>
+</div>
+<p>脚本编写如下</p>
+<pre><code class="language-auto">#!/bin/bash
+
+a=10
+b=20
+
+if [ $a != $b ]
+then
+   echo &quot;$a != $b : a 不等于 b&quot;
+else
+   echo &quot;$a == $b: a 等于 b&quot;
+fi 
+</code></pre>
+<p>执行脚本，结果如下</p>
+<pre><code class="language-auto">10 != 20 : a 不等于 b
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213808566.png" alt="在这里插入图片描述" /></p>
+<h2 id="65-逻辑运算符"><a class="header" href="#65-逻辑运算符">6.5 逻辑运算符</a></h2>
+<p>shell中的逻辑运算符和其他编程语言有类似的地方，如下表。假定变量 a 为 10，变量 b 为 20</p>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>说明</th><th>举例</th></tr></thead><tbody>
+<tr><td>&amp;&amp;</td><td>逻辑的 AND</td><td>[[ $a -lt 100 &amp;&amp; $b -gt 100 ]] 返回 false</td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p>编写脚本如下</p>
+<pre><code class="language-auto">#!/bin/bash
+
+a=10
+b=20
+
+if [[ $a -lt 100 &amp;&amp; $b -gt 100 ]]
+then
+   echo &quot;返回 true&quot;
+else
+   echo &quot;返回 false&quot;
+fi 
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+</ul>
+<p>执行脚本，结果如下</p>
+<pre><code class="language-auto">返回 false
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213821775.png" alt="在这里插入图片描述" /></p>
+<p>需要注意的点：</p>
+<ul>
+<li>这里使用两层的[ ]符号，将两次关系运算的结果保存在条件句中</li>
+</ul>
+<h2 id="66-字符串运算符"><a class="header" href="#66-字符串运算符">6.6 字符串运算符</a></h2>
+<p>shell中常用的字符串运算符如下表。假定变量 a 为 “abc”，变量 b 为 “efg”</p>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>说明</th><th>举例</th></tr></thead><tbody>
+<tr><td>=</td><td>检测两个字符串是否相等，相等返回 true。</td><td>[ $a = $b ] 返回 false。</td></tr>
+<tr><td>!=</td><td>检测两个字符串是否相等，不相等返回 true。</td><td>[ $a != $b ] 返回 true。</td></tr>
+<tr><td>-z</td><td>检测字符串长度是否为0，为0返回 true。</td><td>[ -z $a ] 返回 false。</td></tr>
+<tr><td>-n</td><td>检测字符串长度是否不为 0，不为 0 返回 true。</td><td>[ -n “$a” ] 返回 true。</td></tr>
+<tr><td>$</td><td>检测字符串是否为空，不为空返回 true。</td><td>[ $a ] 返回 true。</td></tr>
+</tbody></table>
+</div>
+<p>编写脚本如下</p>
+<pre><code class="language-auto">#!/bin/bash
+
+a=&quot;abc&quot;
+b=&quot;efg&quot;
+
+if [ $a != $b ]
+then
+   echo &quot;$a != $b : a 等于 b&quot;
+else
+   echo &quot;$a != $b: a 不等于 b&quot;
+fi 
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+</ul>
+<p>执行脚本，结果输出如下</p>
+<pre><code class="language-auto">abc != efg : a 不等于 b
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200331213830784.png" alt="在这里插入图片描述" /></p>
+<h2 id="67-文件测试运算符"><a class="header" href="#67-文件测试运算符">6.7 文件测试运算符</a></h2>
+<p>shell中的文件测试运算符用于检测在类unix系统中，文件的各种属性，如下表</p>
+<div class="table-wrapper"><table><thead><tr><th>操作符</th><th>说明</th><th>举例</th></tr></thead><tbody>
+<tr><td>-b file</td><td>检测文件是否是块设备文件，如果是，则返回 true。</td><td>[ -b $file ] 返回 false。</td></tr>
+<tr><td>-c file</td><td>检测文件是否是字符设备文件，如果是，则返回 true。</td><td>[ -c $file ] 返回 false。</td></tr>
+<tr><td>-d file</td><td>检测文件是否是目录，如果是，则返回 true。</td><td>[ -d $file ] 返回 false。</td></tr>
+<tr><td>-f file</td><td>检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</td><td>[ -f $file ] 返回 true。</td></tr>
+<tr><td>-g file</td><td>检测文件是否设置了 SGID 位，如果是，则返回 true。</td><td>[ -g $file ] 返回 false。</td></tr>
+<tr><td>-k file</td><td>检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。</td><td>[ -k $file ] 返回 false。</td></tr>
+<tr><td>-p file</td><td>检测文件是否是有名管道，如果是，则返回 true。</td><td>[ -p $file ] 返回 false。</td></tr>
+<tr><td>-u file</td><td>检测文件是否设置了 SUID 位，如果是，则返回 true。</td><td>[ -u $file ] 返回 false。</td></tr>
+<tr><td>-r file</td><td>检测文件是否可读，如果是，则返回 true。</td><td>[ -r $file ] 返回 true。</td></tr>
+<tr><td>-w file</td><td>检测文件是否可写，如果是，则返回 true。</td><td>[ -w $file ] 返回 true。</td></tr>
+<tr><td>-x file</td><td>检测文件是否可执行，如果是，则返回 true。</td><td>[ -x $file ] 返回 true。</td></tr>
+<tr><td>-s file</td><td>检测文件是否为空（文件大小是否大于0），不为空返回 true。</td><td>[ -s $file ] 返回 true。</td></tr>
+<tr><td>-e file</td><td>检测文件（包括目录）是否存在，如果是，则返回 true。</td><td>[ -e $file ] 返回 true。</td></tr>
+</tbody></table>
+</div>
+<p>编写脚本如下</p>
+<pre><code class="language-auto">#!/bin/bash
+
+file=&quot;/var/www/test/test.sh&quot;
+if [ -r $file ]
+then
+   echo &quot;文件可读&quot;
+else
+   echo &quot;文件不可读&quot;
+fi    
+</code></pre>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+</ul>
+<p>执行脚本，结果输出如下</p>
+<pre><code class="language-auto">文件可读
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<h2 id="7shell编程中的命令"><a class="header" href="#7shell编程中的命令">7.shell编程中的命令</a></h2>
+<h2 id="71-echo命令"><a class="header" href="#71-echo命令">7.1 echo命令</a></h2>
+<p>echo命令在shell中用于字符串的输出，调用的格式：</p>
+<pre><code class="language-auto">echo string
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p>echo命令还可显示复杂的输出格式</p>
+<ul>
+<li>
+<p>显示普通的字符串</p>
+<ul>
+<li>
+<pre><code class="language-auto">echo &quot;this is a test&quot;
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>显示转义字符</p>
+<ul>
+<li>
+<pre><code class="language-auto">echo &quot;\this is a test\&quot;
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>显示变量</p>
+<ul>
+<li>
+<pre><code class="language-auto">name=&quot;ohuohuo&quot;
+echo &quot;you name is $name&quot;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>显示换行</p>
+<ul>
+<li>
+<pre><code class="language-auto">echo -e &quot;Right!\n &quot; # -e 表示开启转义
+echo &quot;this is other line&quot;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>显示结果定向重定向至文件</p>
+<ul>
+<li>
+<pre><code class="language-auto">echo &quot;this is a test&quot; &gt; testfile
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>显示command命令执行结果</p>
+<ul>
+<li>
+<pre><code class="language-auto">echo `date`
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>echo命令还有其他使用规则，经常使用就可熟练掌握</p>
+<h2 id="72-printf命令"><a class="header" href="#72-printf命令">7.2 printf命令</a></h2>
+<p>shell中的printf命令如同C语言中一样，调用格式也大抵相同，只是有一点点不同。与echo命令打印字符串不同的是，printf不会自动调价换行符号，可以手动添加</p>
+<p>printf命令的语法：</p>
+<pre><code class="language-auto">printf format-string [arguments...]
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p>参数说明：</p>
+<ul>
+<li>format-string：格式控制字符串</li>
+<li>arguments：参数列表</li>
+</ul>
+<p>举例如下</p>
+<pre><code class="language-auto">$ echo &quot;Hello, Shell&quot;	# 输入
+Hello, Shell		   # 输出
+$ printf &quot;Hello, Shell\n&quot; # 输入
+Hello, Shell			# 输出
+</code></pre>
+<p>printf命令可以较为强大的使用转义字符，shell中常用的转义字符如下表示所示</p>
+<div class="table-wrapper"><table><thead><tr><th>序列</th><th>说明</th></tr></thead><tbody>
+<tr><td>\a</td><td>警告字符，通常为ASCII的BEL字符</td></tr>
+<tr><td>\b</td><td>后退</td></tr>
+<tr><td>\c</td><td>抑制（不显示）输出结果中任何结尾的换行字符（只在%b格式指示符控制下的参数字符串中有效），而且，任何留在参数里的字符、任何接下来的参数以及任何留在格式字符串中的字符，都被忽略</td></tr>
+<tr><td>\f</td><td>换页（formfeed）</td></tr>
+<tr><td>\n</td><td>换行</td></tr>
+<tr><td>\r</td><td>回车（Carriage return）</td></tr>
+<tr><td>\t</td><td>水平制表符</td></tr>
+<tr><td>\v</td><td>垂直制表符</td></tr>
+<tr><td>\</td><td>一个字面上的反斜杠字符</td></tr>
+<tr><td>\ddd</td><td>表示1到3位数八进制值的字符。仅在格式字符串中有效</td></tr>
+<tr><td>\0ddd</td><td>表示1到3位的八进制值字符</td></tr>
+</tbody></table>
+</div>
+<h2 id="73-test命令"><a class="header" href="#73-test命令">7.3 test命令</a></h2>
+<p>shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试</p>
+<p><strong>数值测试命令表</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody>
+<tr><td>-eq</td><td>等于则为真</td></tr>
+<tr><td>-ne</td><td>不等于则为真</td></tr>
+<tr><td>-gt</td><td>大于则为真</td></tr>
+<tr><td>-ge</td><td>大于等于则为真</td></tr>
+<tr><td>-lt</td><td>小于则为真</td></tr>
+<tr><td>-le</td><td>小于等于则为真</td></tr>
+</tbody></table>
+</div>
+<p>应用举例如下</p>
+<pre><code class="language-auto">#！/bin/bash
+num1=100
+num2=100
+if test $[num1] -eq $[num2]
+then
+    echo '两个数相等！'
+else
+    echo '两个数不相等！'
+fi
+</code></pre>
+<p>输出结果</p>
+<pre><code class="language-auto">两个字符串不相等!
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p><strong>字符串测试表</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody>
+<tr><td>=</td><td>等于则为真</td></tr>
+<tr><td>!=</td><td>不相等则为真</td></tr>
+<tr><td>-z 字符串</td><td>字符串的长度为零则为真</td></tr>
+<tr><td>-n 字符串</td><td>字符串的长度不为零则为真</td></tr>
+</tbody></table>
+</div>
+<p>脚本实例如下</p>
+<pre><code class="language-auto"># !/bin/bas
+num1=&quot;name&quot;
+num2=&quot;function&quot;
+if test $num1 = $num2
+then
+    echo '两个字符串相等!'
+else
+    echo '两个字符串不相等!'
+fi
+</code></pre>
+<p>输出结果</p>
+<pre><code class="language-auto">两个字符串不相等!
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<p><strong>文件测试表</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody>
+<tr><td>-e 文件名</td><td>如果文件存在则为真</td></tr>
+<tr><td>-r 文件名</td><td>如果文件存在且可读则为真</td></tr>
+<tr><td>-w 文件名</td><td>如果文件存在且可写则为真</td></tr>
+<tr><td>-x 文件名</td><td>如果文件存在且可执行则为真</td></tr>
+<tr><td>-s 文件名</td><td>如果文件存在且至少有一个字符则为真</td></tr>
+<tr><td>-d 文件名</td><td>如果文件存在且为目录则为真</td></tr>
+<tr><td>-f 文件名</td><td>如果文件存在且为普通文件则为真</td></tr>
+<tr><td>-c 文件名</td><td>如果文件存在且为字符型特殊文件则为真</td></tr>
+<tr><td>-b 文件名</td><td>如果文件存在且为块特殊文件则为真</td></tr>
+</tbody></table>
+</div>
+<p>脚本编写如下</p>
+<pre><code class="language-auto"># !/bin/bash
+if test -e ./bash
+then
+    echo '文件已存在!'
+else
+    echo '文件不存在!'
+fi
+</code></pre>
+<p>输出结果如下</p>
+<pre><code class="language-auto">文件已存在!
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<h2 id="8shell流程控制"><a class="header" href="#8shell流程控制">8.shell流程控制</a></h2>
+<p>shell作为一种脚本语言，也有着自己的流程控制，而shell中的流程控制主要由条件、循环组成</p>
+<h2 id="81-if-else条件"><a class="header" href="#81-if-else条件">8.1 if else条件</a></h2>
+<p>shell中的if else条件具有一定的模版。其调用格式为：</p>
+<ul>
+<li>if - then - fi：</li>
+</ul>
+<p>调用格式如下</p>
+<pre><code class="language-auto">if condition
+then
+    command1 
+    command2
+    ...
+    commandN 
+fi
+
+# 写成单行
+if condition;then command1; command2;fi
+</code></pre>
+<p><strong>如果存在不满足的条件的情况</strong></p>
+<pre><code class="language-auto">if condition
+then
+    command1 
+    command2
+    ...
+    commandN
+else
+    command
+fi
+</code></pre>
+<p><strong>在多层嵌套条件情况</strong></p>
+<pre><code class="language-auto">if condition1
+then
+    command1
+elif condition2 
+then 
+    command2
+else
+    commandN
+fi
+</code></pre>
+<p>应用举例</p>
+<pre><code class="language-auto">num1=$[6]
+num2=$[8]
+if test $[num1] -eq $[num2]
+then
+    echo '两个数字相等!'
+else
+    echo '两个数字不相等!'
+fi
+</code></pre>
+<p>执行脚本，结果输出如下</p>
+<pre><code class="language-auto">两个数字相等!
+</code></pre>
+<ul>
+<li>1</li>
+</ul>
+<h2 id="82-case条件"><a class="header" href="#82-case条件">8.2 case条件</a></h2>
+<p>shell中case语句为多功能选择语句，与其他语言相通的是，可以用case语句匹配一个值与一个模式，如果匹配成功，执行相匹配的命令。case语句调用格式如下：</p>
+<pre><code class="language-auto">case 值 in
+模式1)
+    command1
+    command2
+    ...
+    commandN
+    ;;
+模式2）
+    command1
+    command2
+    ...
+    commandN
+    ;;
+esac
+</code></pre>
+<p>需要注意的点：</p>
+<ul>
+<li>取值后面需要加上in</li>
+<li>每一模式必须以右括号结束</li>
+<li>每个模式结束后使用<code>;;</code>符号结尾</li>
+<li>如果没有找到对应的模式。以<code>*</code>结尾，并跳出case</li>
+<li>case需要搭配<code>esac</code>结尾，与C语言中的switch … case语句类似</li>
+</ul>
+<p>脚本举例如下</p>
+<pre><code class="language-auto">echo '输入 1 到 4 之间的数字:'
+echo '你输入的数字为:'
+read num
+case $num in
+    1)  echo '你选择了 1'
+    ;;
+    2)  echo '你选择了 2'
+    ;;
+    3)  echo '你选择了 3'
+    ;;
+    4)  echo '你选择了 4'
+    ;;
+    *)  echo '你没有输入 1 到 4 之间的数字'
+    ;;
+esac
+</code></pre>
+<p>执行脚本，运行如下</p>
+<pre><code class="language-auto">输入 1 到 5 之间的数字:4
+你输入的数字为 4!
+输入 1 到 5 之间的数字:8
+你输入的数字不是 1 到 5 之间的! 游戏结束
+</code></pre>
+<p>case中想要跳出循环有两个命令：break和continu</p>
+<ul>
+<li>
+<p>break命令：允许跳出所有循环（中止执行后面所有的循环）</p>
+<ul>
+<li>
+<p>使用举例</p>
+</li>
+<li>
+<pre><code class="language-auto">#!/bin/bash
+while :
+do
+    echo -n &quot;输入 1 到 5 之间的数字:&quot;
+    read num
+    case $num in
+        1|2|3|4|5) echo &quot;你输入的数字为 $num!&quot;
+        ;;
+        *) echo &quot;你输入的数字不是 1 到 5 之间的! 游戏结束&quot;
+            break
+        ;;
+    esac
+done
+</code></pre>
+</li>
+<li>
+<p>执行输出如下</p>
+</li>
+<li>
+<pre><code class="language-auto">输入 1 到 5 之间的数字:3
+你输入的数字为 3!
+输入 1 到 5 之间的数字:7
+你输入的数字不是 1 到 5 之间的! 游戏结束
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>contimue：shell中的continue命令与break命令类似，只有一点差别，它不会跳出所有循环，仅仅跳出当前循环。这一点和其他类型的语言相同</p>
+</li>
+<li>
+<p>应用举例，同样的将上式修改如下</p>
+</li>
+<li>
+<pre><code class="language-auto">#!/bin/bash
+while :
+do
+    echo -n &quot;输入 1 到 5 之间的数字: &quot;
+    read num
+    case $num in
+        1|2|3|4|5) echo &quot;你输入的数字为 $num!&quot;
+        ;;
+        *) echo &quot;你输入的数字不是 1 到 5 之间的!&quot;
+            continue
+            echo &quot;游戏结束&quot;
+        ;;
+    esac
+done
+</code></pre>
+</li>
+<li>
+<p>执行脚本，结果输出如下<br />
+<img src="https://img-blog.csdnimg.cn/20200331213857248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDg4OTQz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+</li>
+</ul>
+<h2 id="83-for循环"><a class="header" href="#83-for循环">8.3 for循环</a></h2>
+<p>shell中的for循环调用格式和python中的for循环有点类似，也是有模板的：</p>
+<pre><code class="language-auto">for var in item1 item2 ... itemN
+do
+    command1
+    command2
+    ...
+    commandN
+done
+
+# 写成一行同样使用分号将语句分开 
+</code></pre>
+<p>需要注意的是：</p>
+<ul>
+<li><code>in</code>列表中可以包含替换、字符串和文件名等</li>
+<li><code>in</code>列表是可选的，如果默认不适用，将会循环使用命令行中的位置参数</li>
+</ul>
+<p>应用脚本编写如下</p>
+<pre><code class="language-auto">for num in 1 2 3 4 5
+do
+    echo &quot;The value is: $num&quot;
+done
+</code></pre>
+<p>输出结果如下</p>
+<pre><code class="language-auto">The value is: 1
+The value is: 2
+The value is: 3
+The value is: 4
+The value is: 5
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200331213908297.png" alt="在这里插入图片描述" /></p>
+<h2 id="84-while循环"><a class="header" href="#84-while循环">8.4 while循环</a></h2>
+<p>shell中的while循环用于不断执行一系列命令，也用于从输入文件中读取数据，调用格式如下</p>
+<pre><code class="language-auto">while condition
+do
+    command
+done
+</code></pre>
+<p>应用脚本编写如下：</p>
+<pre><code class="language-auto">#!/bin/bash
+num=1
+while(( $num&lt;=5 ))
+do
+    echo $num
+    let &quot;num++&quot;
+done
+</code></pre>
+<p>执行脚本，结果运行如下</p>
+<pre><code class="language-auto">1
+2
+3
+4
+5
+</code></pre>
+<p>只需要知道shell中while循环的格式，同样可以做到和C语言中一样， 使用while循环进行判定或者判断键盘循环，甚至无限循环等，如下使用while循环读取键盘操作</p>
+<pre><code class="language-auto">echo '按下 &lt;Q&gt; 退出'
+echo -n '输入你最喜欢的歌名: '
+while read SONG
+do
+    echo &quot;啊！$SONG 真是一首好歌&quot;
+done
+</code></pre>
+<p>执行脚本，运行结果如下</p>
+<pre><code class="language-auto">按下&lt;Q&gt;退出
+输入你最喜欢的歌名: Takeway
+啊！Takeway 真是一首好歌
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200331213925951.png" alt="在这里插入图片描述" /></p>
+<h2 id="85-until循环"><a class="header" href="#85-until循环">8.5 until循环</a></h2>
+<p>until 循环执行一系列命令直至条件为 true 时停止。until 循环与 while 循环在处理方式上刚好相反。一般 while 循环优于 until 循环，但在某些时候—也只是极少数情况下，until 循环更加有用。until循环调用格式：</p>
+<pre><code class="language-auto">until condition
+do
+    command
+done
+</code></pre>
+<p><code>condition</code> 一般为条件表达式，如果返回值为 false，则继续执行循环体内的语句，否则跳出循环，脚本编写如下</p>
+<pre><code class="language-auto">#!/bin/bash
+
+a=0
+until [ ! $a -lt 5 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done
+</code></pre>
+<p>执行脚本，结果输出如下</p>
+<pre><code class="language-auto">0
+1
+2
+3
+4
+5
+</code></pre>
+<h2 id="9shell函数"><a class="header" href="#9shell函数">9.shell函数</a></h2>
+<h2 id="91-定义函数"><a class="header" href="#91-定义函数">9.1 定义函数</a></h2>
+<p>linux中的shell同样可以定义函数，然后在函数中调用执行相关的shell命令，完成功能，shell中的函数调用格式如下：</p>
+<pre><code class="language-auto">[ function ] funname [()]
+{
+    action;
+    [return int;]
+}
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li>function fun () 表示有返回参数的函数（如同C语言中的有返回类型的函数（int，char等））</li>
+<li>fun() 表示无返回参数的函数（类似于C语言中的void类型函数）</li>
+<li>使用return可以返回参数值（一般为数值n），如果不使用，将默认以最后一条命令运行的结果作为返回值</li>
+</ul>
+<p>脚本应用举例如下</p>
+<pre><code class="language-auto">#!/bin/bash
+
+FunReturn(){
+    echo &quot;两个数字进行相加运算...&quot;
+    echo &quot;输入第一个数字: &quot;
+    read num
+    echo &quot;输入第二个数字: &quot;
+    read anothernum
+    echo &quot;两个数字分别为 $num 和 $anothernum !&quot;
+    return $(($num+$anothernum))	# 分别返回数值
+}
+FunReturn		# 调用函数
+echo &quot;输入的两个数字之和为 $? !&quot; # 使用通配符获取上一条指令的返回值
+</code></pre>
+<p>执行脚本，运行如下</p>
+<pre><code class="language-auto">两个数字进行相加运算...
+输入第一个数字: 
+1
+输入第二个数字: 
+2
+两个数字分别为 1 和 2 !
+输入的两个数字之和为 3 !
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200331213942867.png" alt="在这里插入图片描述" /><br />
+需要注意的是：</p>
+<ul>
+<li>所有的函数在使用前必须定义，这是因为shell解释器是顺序逐层执行的，当shell解释器发现定义的函数时，才会找到其对应的功能，进而执行。</li>
+</ul>
+<h2 id="92-参数定义"><a class="header" href="#92-参数定义">9.2 参数定义</a></h2>
+<p>此外想要使用shell函数传递参数时，需要在函数体的内部，通过 $n 的形式来获取参数的值，与其他语言不同的是，这不是在定义函数的时候就给定参数，而是在函数体中获取到的参数，例如，$1表示第一个参数，$2表示第二个参数，参数调用列表如下</p>
+<div class="table-wrapper"><table><thead><tr><th>参数处理</th><th>说明</th></tr></thead><tbody>
+<tr><td>$#</td><td>传递到脚本或函数的参数个数</td></tr>
+<tr><td>$*</td><td>以一个单字符串显示所有向脚本传递的参数</td></tr>
+<tr><td>$$</td><td>脚本运行的当前进程ID号</td></tr>
+<tr><td>$!</td><td>后台运行的最后一个进程的ID号</td></tr>
+<tr><td>$@</td><td>与$*相同，但是使用时加引号，并在引号中返回每个参数。</td></tr>
+<tr><td>$-</td><td>显示Shell使用的当前选项，与set命令功能相同。</td></tr>
+<tr><td>$?</td><td>显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td></tr>
+</tbody></table>
+</div>
+<p>应用脚本举例：</p>
+<pre><code class="language-auto">#!/bin/bash
+FunParam(){
+    echo &quot;输入第一个参数 $1 !&quot;
+    echo &quot;输入第二个参数 $2 !&quot;
+    echo &quot;输入第十个个参数 $10 !&quot;
+    echo &quot;参数总数共 $# 个!&quot;
+    echo &quot;作为一个字符串输出所有参数 $* !&quot;
+}
+FunParam 1 2 3 4 5 6 7 8 9 10
+</code></pre>
+<p>执行脚本如下</p>
+<pre><code class="language-auto">第一个参数为 1 !
+第二个参数为 2 !
+第十个参数为 10 !
+参数总数有 10 个!
+作为一个字符串输出所有参数 1 2 3 4 5 6 7 8 9 10！
+</code></pre>
+<ul>
+<li><img src="https://img-blog.csdnimg.cn/20200331213952615.png" alt="在这里插入图片描述" /></li>
+</ul>
+<h2 id="10shell重定向"><a class="header" href="#10shell重定向">10.shell重定向</a></h2>
+<ul>
+<li>在之前的学习笔记中，归纳了linux中重定向的使用，这里不再赘述</li>
+<li><a href="https://blog.csdn.net/qq_41488943/article/details/105214966">linux中的重定向</a></li>
+</ul>
+<h2 id="11结尾"><a class="header" href="#11结尾">11.结尾</a></h2>
+<p>shell编程相较于其他编程语言而言较为简单，只要多敲多练，很快就能入手，但是不可忽视shell编程在嵌入式开发和网络开发中的强大作用，至此作为总结归纳，如诺有错误，欢迎指正。</p>
 <h1 id="ref"><a class="header" href="#ref">ref</a></h1>
-<p><a href="https://www.zrahh.com/archives/260.html">ref</a></p>
+<p><a href="https://blog.csdn.net/qq_26690505/article/details/109361345">csdn</a></p>
 
                     </main>
 
